@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct WeightItem {
+public struct WeightItem: Equatable {
     let id: UUID
     let weight: Double
     let date: Date

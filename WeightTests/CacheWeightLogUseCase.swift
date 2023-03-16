@@ -27,7 +27,7 @@ class LocalWeightLogLoader {
 class WeightLogStore {
     typealias InsertionCompletion = (Error?) -> Void
     var saveCallCount = 0
-    var insertCallCount = 0
+    var insertions: [[WeightItem]] = []
     
     private var insertionCompletions: [InsertionCompletion] = []
     func save(_ items: [WeightItem], completion: @escaping InsertionCompletion) {
@@ -44,7 +44,7 @@ class WeightLogStore {
     }
     
     func insert(_ items: [WeightItem]) {
-        insertCallCount += 1
+        insertions.append(items)
     }
 }
 
@@ -66,7 +66,7 @@ class CacheWeightLogUseCaseTests: XCTestCase {
         sut.save(items)
         store.completeInsertion(with: saveError)
         
-        XCTAssertEqual(store.insertCallCount, 0)
+        XCTAssertEqual(store.insertions.count, 0)
     }
     
     func test_save_requestsNewCacheInsertionOnSuccessfulInsertion() {
@@ -76,7 +76,8 @@ class CacheWeightLogUseCaseTests: XCTestCase {
         sut.save(items)
         store.completeInsertionSuccessfully()
         
-        XCTAssertEqual(store.insertCallCount, 1)
+        XCTAssertEqual(store.insertions.count, 1)
+        XCTAssertEqual(store.insertions.first, items)
     }
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalWeightLogLoader, store: WeightLogStore) {
