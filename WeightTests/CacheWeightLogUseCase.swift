@@ -16,68 +16,36 @@ class LocalWeightLogLoader {
     }
     
     func save(_ items: [WeightItem]) {
-        store.save(items) { [unowned self] error in
-            if error == nil {
-                self.store.insert(items)
-            }
-        }
+        store.save(items)
     }
 }
 
 class WeightLogStore {
-    typealias InsertionCompletion = (Error?) -> Void
-    var saveCallCount = 0
-    var insertions: [[WeightItem]] = []
-    
-    private var insertionCompletions: [InsertionCompletion] = []
-    func save(_ items: [WeightItem], completion: @escaping InsertionCompletion) {
-        saveCallCount += 1
-        insertionCompletions.append(completion)
+    enum ReceivedMessage: Equatable {
+        case save([WeightItem])
     }
+
+    private(set) var receivedMessages: [ReceivedMessage] = []
     
-    func completeInsertion(with error: Error, at index: Int = 0) {
-        insertionCompletions[index](error)
-    }
-    
-    func completeInsertionSuccessfully(at index: Int = 0) {
-        insertionCompletions[index](nil)
-    }
-    
-    func insert(_ items: [WeightItem]) {
-        insertions.append(items)
+    func save(_ items: [WeightItem]) {
+        receivedMessages.append(.save(items))
     }
 }
 
 class CacheWeightLogUseCaseTests: XCTestCase {
+    func test_init_doesNotSendMessageUponCreation() {
+        let (_, store) = makeSUT()
+        
+        XCTAssertEqual(store.receivedMessages, [])
+    }
+    
     func test_save_saves() {
         let items = [uniqueItem()]
         let (sut, store) = makeSUT()
         
         sut.save(items)
 
-        XCTAssertEqual(store.saveCallCount, 1)
-    }
-    
-    func test_save_doesNotSaveOnSaveError() {
-        let items = [uniqueItem()]
-        let (sut, store) = makeSUT()
-        let saveError = anyNSError()
-    
-        sut.save(items)
-        store.completeInsertion(with: saveError)
-        
-        XCTAssertEqual(store.insertions.count, 0)
-    }
-    
-    func test_save_requestsNewCacheInsertionOnSuccessfulInsertion() {
-        let items = [uniqueItem()]
-        let (sut, store) = makeSUT()
-
-        sut.save(items)
-        store.completeInsertionSuccessfully()
-        
-        XCTAssertEqual(store.insertions.count, 1)
-        XCTAssertEqual(store.insertions.first, items)
+        XCTAssertEqual(store.receivedMessages, [.save(items)])
     }
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalWeightLogLoader, store: WeightLogStore) {
