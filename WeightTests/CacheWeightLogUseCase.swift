@@ -38,9 +38,11 @@ class CacheWeightLogUseCaseTests: XCTestCase {
         XCTAssertEqual(store.saveCallCount, 1)
     }
     
-    private func makeSUT() -> (sut: LocalWeightLogLoader, store: WeightLogStore) {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalWeightLogLoader, store: WeightLogStore) {
         let store = WeightLogStore()
         let sut = LocalWeightLogLoader(store: store)
+        trackForMemoryLeaks(store, file: file, line: line)
+        trackForMemoryLeaks(sut)
         return (sut, store)
     }
     
