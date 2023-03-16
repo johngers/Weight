@@ -11,6 +11,7 @@ public final class LocalWeightLogLoader {
     private let store: WeightLogStore
 
     public typealias SaveResult = Error?
+    public typealias LoadResult = LoadWeightResult
 
     public init(store: WeightLogStore) {
         self.store = store
@@ -20,8 +21,12 @@ public final class LocalWeightLogLoader {
         store.save(log.toLocal(), completion: completion)
     }
     
-    public func load(completion: @escaping (Error?) -> Void) {
-        store.retrieve(completion: completion)
+    public func load(completion: @escaping (LoadResult) -> Void) {
+        store.retrieve { error in
+            if let error = error {
+                completion(.failure(error))
+            }
+        }
     }
 }
 
