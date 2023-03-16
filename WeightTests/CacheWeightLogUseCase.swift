@@ -8,23 +8,6 @@
 import XCTest
 import Weight
 
-class LocalWeightLogLoader {
-    private let store: WeightLogStore
-
-    init(store: WeightLogStore) {
-        self.store = store
-    }
-    
-    func save(_ items: [WeightItem], completion: @escaping (Error?) -> Void) {
-        store.save(items, completion: completion)
-    }
-}
-
-protocol WeightLogStore {
-    typealias SaveCompletion = (Error?) -> Void
-    func save(_ items: [WeightItem], completion: @escaping SaveCompletion)
-}
-
 class CacheWeightLogUseCaseTests: XCTestCase {
     func test_init_doesNotSendMessageUponCreation() {
         let (_, store) = makeSUT()
