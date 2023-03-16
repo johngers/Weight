@@ -18,8 +18,3 @@ public final class LocalWeightLogLoader {
         store.save(items, completion: completion)
     }
 }
-
-public protocol WeightLogStore {
-    typealias SaveCompletion = (Error?) -> Void
-    func save(_ items: [WeightItem], completion: @escaping SaveCompletion)
-}

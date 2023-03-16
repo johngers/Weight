@@ -1,0 +1,13 @@
+//
+//  WeightStore.swift
+//  Weight
+//
+//  Created by John Gers on 3/16/23.
+//
+
+import Foundation
+
+public protocol WeightLogStore {
+    typealias SaveCompletion = (Error?) -> Void
+    func save(_ items: [WeightItem], completion: @escaping SaveCompletion)
+}

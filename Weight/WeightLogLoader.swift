@@ -12,6 +12,6 @@ enum LoadWeightResult {
     case error(Error)
 }
 
-protocol WeightLoader {
+protocol WeightLogLoader {
     func load(completion: @escaping (LoadWeightResult) -> Void)
 }
