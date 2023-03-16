@@ -22,9 +22,14 @@ class LocalWeightLogLoader {
 
 class WeightLogStore {
     var saveCallCount = 0
+    var insertCallCount = 0
     
     func save(_ items: [WeightItem]) {
         saveCallCount += 1
+    }
+    
+    func completeInsertion(with error: Error, at index: Int = 0) {
+        
     }
 }
 
@@ -38,6 +43,17 @@ class CacheWeightLogUseCaseTests: XCTestCase {
         XCTAssertEqual(store.saveCallCount, 1)
     }
     
+    func test_save_doesNotSaveOnSaveError() {
+        let items = [uniqueItem()]
+        let (sut, store) = makeSUT()
+        let saveError = anyNSError()
+    
+        sut.save(items)
+        store.completeInsertion(with: saveError)
+        
+        XCTAssertEqual(store.insertCallCount, 0)
+    }
+    
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalWeightLogLoader, store: WeightLogStore) {
         let store = WeightLogStore()
         let sut = LocalWeightLogLoader(store: store)
@@ -48,5 +64,9 @@ class CacheWeightLogUseCaseTests: XCTestCase {
     
     private func uniqueItem() -> WeightItem {
         return WeightItem(id: UUID(), weight: 100.0, date: Date())
+    }
+    
+    private func anyNSError() -> NSError {
+        return NSError(domain: "any error", code: 0)
     }
 }
