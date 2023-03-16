@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4129C39B4800F57D6D /* WeightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4029C39B4800F57D6D /* WeightTests.swift */; };
-		EEF4DB4229C39B4800F57D6D /* Weight.h in Headers */ = {isa = PBXBuildFile; fileRef = EEF4DB3629C39B4700F57D6D /* Weight.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,9 +24,9 @@
 
 /* Begin PBXFileReference section */
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EEF4DB3629C39B4700F57D6D /* Weight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weight.h; sourceTree = "<group>"; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4029C39B4800F57D6D /* WeightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTests.swift; sourceTree = "<group>"; };
+		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 		EEF4DB3529C39B4700F57D6D /* Weight */ = {
 			isa = PBXGroup;
 			children = (
-				EEF4DB3629C39B4700F57D6D /* Weight.h */,
+				EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */,
 			);
 			path = Weight;
 			sourceTree = "<group>";
@@ -89,7 +89,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEF4DB4229C39B4800F57D6D /* Weight.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +143,7 @@
 				TargetAttributes = {
 					EEF4DB3229C39B4700F57D6D = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 					EEF4DB3A29C39B4800F57D6D = {
 						CreatedOnToolsVersion = 14.2;
@@ -191,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +332,7 @@
 		EEF4DB4629C39B4800F57D6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -358,6 +360,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +369,7 @@
 		EEF4DB4729C39B4800F57D6D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -401,6 +405,7 @@
 		EEF4DB4929C39B4800F57D6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SJ7RP44M53;
@@ -421,6 +426,7 @@
 		EEF4DB4A29C39B4800F57D6D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SJ7RP44M53;
