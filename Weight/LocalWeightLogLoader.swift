@@ -10,11 +10,13 @@ import Foundation
 public final class LocalWeightLogLoader {
     private let store: WeightLogStore
 
+    public typealias SaveResult = Error?
+
     public init(store: WeightLogStore) {
         self.store = store
     }
     
-    public func save(_ items: [WeightItem], completion: @escaping (Error?) -> Void) {
+    public func save(_ items: [WeightItem], completion: @escaping (SaveResult) -> Void) {
         store.save(items, completion: completion)
     }
 }
