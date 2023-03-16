@@ -20,8 +20,8 @@ public final class LocalWeightLogLoader {
         store.save(log.toLocal(), completion: completion)
     }
     
-    public func load() {
-        store.retrieve() 
+    public func load(completion: @escaping (Error?) -> Void) {
+        store.retrieve(completion: completion)
     }
 }
 

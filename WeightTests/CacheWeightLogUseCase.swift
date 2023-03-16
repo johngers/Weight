@@ -41,8 +41,4 @@ class CacheWeightLogUseCaseTests: XCTestCase {
         let localItems = items.map { LocalWeightItem(id: $0.id, weight: $0.weight, date: $0.date) }
         return (items, localItems)
     }
-    
-    private func anyNSError() -> NSError {
-        return NSError(domain: "any error", code: 0)
-    }
 }
