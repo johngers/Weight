@@ -27,44 +27,18 @@ class LoadLogFromCacheUseCaseTests: XCTestCase {
     func test_load_failsOnRetrievalError() {
         let (sut, store) = makeSUT()
         let retrievalError = anyNSError()
-        let exp = expectation(description: "Wait for load completion")
 
-        var receivedError: Error?
-        sut.load { result in
-            switch result {
-            case .failure(let error):
-                receivedError = error
-            default:
-                XCTFail("Expected failure, got \(result) instead")
-            }
-            exp.fulfill()
-        }
-        
-        store.completeRetrieval(with: retrievalError)
-        wait(for: [exp], timeout: 1.0)
-        
-        XCTAssertEqual(receivedError as NSError?, retrievalError)
+        expect(sut, toCompleteWith: .failure(retrievalError), when: {
+            store.completeRetrieval(with: retrievalError)
+        })
     }
     
     func test_load_deliversNoItemsOnEmptyCache() {
         let (sut, store) = makeSUT()
-        let exp = expectation(description: "Wait for load completion")
 
-        var receivedItems: [WeightItem]?
-        sut.load { result in
-            switch result {
-            case .success(let items):
-                receivedItems = items
-            default:
-                XCTFail("Expected success, got \(result) instead")
-            }
-            exp.fulfill()
-        }
-
-        store.completeRetrievalWithEmptyCache()
-        wait(for: [exp], timeout: 1.0)
-
-        XCTAssertEqual(receivedItems, [])
+        expect(sut, toCompleteWith: .success([]), when: {
+            store.completeRetrievalWithEmptyCache()
+        })
     }
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalWeightLogLoader, store: WeightLogStoreSpy) {
@@ -75,13 +49,22 @@ class LoadLogFromCacheUseCaseTests: XCTestCase {
         return (sut, store)
     }
     
-    private func uniqueItem() -> WeightItem {
-        return WeightItem(id: UUID(), weight: 100.0, date: Date())
-    }
-    
-    private func uniqueWeightLog() -> (models: [WeightItem], local: [LocalWeightItem]) {
-        let items = [uniqueItem()]
-        let localItems = items.map { LocalWeightItem(id: $0.id, weight: $0.weight, date: $0.date) }
-        return (items, localItems)
+    private func expect(_ sut: LocalWeightLogLoader, toCompleteWith expectedResult: LocalWeightLogLoader.LoadResult, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for load completion")
+
+        sut.load { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case  let (.success(receivedItems), .success(expectedItems)):
+                XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)
+            case let (.failure(receivedError as NSError), .failure(expectedError as NSError)):
+                XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+            default:
+                XCTFail("Expected result \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+            }
+            exp.fulfill()
+        }
+
+        action()
+        wait(for: [exp], timeout: 1.0)
     }
 }
