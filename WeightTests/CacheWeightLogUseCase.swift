@@ -16,13 +16,12 @@ class CacheWeightLogUseCaseTests: XCTestCase {
     }
     
     func test_save_saves() {
-        let items = [uniqueItem()]
-        let localItems = items.map { LocalWeightItem(id: $0.id, weight: $0.weight, date: $0.date) }
         let (sut, store) = makeSUT()
+        let items = uniqueItems()
         
-        sut.save(items) { _ in }
+        sut.save(items.models) { _ in }
 
-        XCTAssertEqual(store.receivedMessages, [.save(localItems)])
+        XCTAssertEqual(store.receivedMessages, [.save(items.local)])
     }
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalWeightLogLoader, store: WeightLogStoreSpy) {
@@ -49,6 +48,12 @@ class CacheWeightLogUseCaseTests: XCTestCase {
     
     private func uniqueItem() -> WeightItem {
         return WeightItem(id: UUID(), weight: 100.0, date: Date())
+    }
+    
+    private func uniqueItems() -> (models: [WeightItem], local: [LocalWeightItem]) {
+        let items = [uniqueItem()]
+        let localItems = items.map { LocalWeightItem(id: $0.id, weight: $0.weight, date: $0.date) }
+        return (items, localItems)
     }
     
     private func anyNSError() -> NSError {
