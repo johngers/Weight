@@ -15,21 +15,14 @@ class LocalWeightLogLoader {
         self.store = store
     }
     
-    func save(_ items: [WeightItem]) {
-        store.save(items)
+    func save(_ items: [WeightItem], completion: @escaping (Error?) -> Void) {
+        store.save(items, completion: completion)
     }
 }
 
-class WeightLogStore {
-    enum ReceivedMessage: Equatable {
-        case save([WeightItem])
-    }
-
-    private(set) var receivedMessages: [ReceivedMessage] = []
-    
-    func save(_ items: [WeightItem]) {
-        receivedMessages.append(.save(items))
-    }
+protocol WeightLogStore {
+    typealias SaveCompletion = (Error?) -> Void
+    func save(_ items: [WeightItem], completion: @escaping SaveCompletion)
 }
 
 class CacheWeightLogUseCaseTests: XCTestCase {
@@ -43,17 +36,31 @@ class CacheWeightLogUseCaseTests: XCTestCase {
         let items = [uniqueItem()]
         let (sut, store) = makeSUT()
         
-        sut.save(items)
+        sut.save(items) { _ in }
 
         XCTAssertEqual(store.receivedMessages, [.save(items)])
     }
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalWeightLogLoader, store: WeightLogStore) {
-        let store = WeightLogStore()
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalWeightLogLoader, store: WeightLogStoreSpy) {
+        let store = WeightLogStoreSpy()
         let sut = LocalWeightLogLoader(store: store)
         trackForMemoryLeaks(store, file: file, line: line)
         trackForMemoryLeaks(sut)
         return (sut, store)
+    }
+    
+    private class WeightLogStoreSpy: WeightLogStore {
+        enum ReceivedMessage: Equatable {
+            case save([WeightItem])
+        }
+
+        private(set) var receivedMessages: [ReceivedMessage] = []
+        private var saveCompletions: [SaveCompletion] = []
+        
+        func save(_ items: [WeightItem], completion: @escaping SaveCompletion) {
+            receivedMessages.append(.save(items))
+            saveCompletions.append(completion)
+        }
     }
     
     private func uniqueItem() -> WeightItem {
