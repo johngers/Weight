@@ -10,6 +10,7 @@
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4129C39B4800F57D6D /* WeightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4029C39B4800F57D6D /* WeightTests.swift */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
+		EEF4DB4E29C39C2F00F57D6D /* WeightLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +28,7 @@
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4029C39B4800F57D6D /* WeightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTests.swift; sourceTree = "<group>"; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
+		EEF4DB4D29C39C2F00F57D6D /* WeightLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */,
+				EEF4DB4D29C39C2F00F57D6D /* WeightLoader.swift */,
 			);
 			path = Weight;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEF4DB4E29C39C2F00F57D6D /* WeightLoader.swift in Sources */,
 				EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
