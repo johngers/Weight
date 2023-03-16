@@ -9,5 +9,17 @@ import Foundation
 
 public protocol WeightLogStore {
     typealias SaveCompletion = (Error?) -> Void
-    func save(_ items: [WeightItem], completion: @escaping SaveCompletion)
+    func save(_ items: [LocalWeightItem], completion: @escaping SaveCompletion)
+}
+
+public struct LocalWeightItem: Equatable {
+    let id: UUID
+    let weight: Double
+    let date: Date
+    
+    public init(id: UUID, weight: Double, date: Date) {
+        self.id = id
+        self.weight = weight
+        self.date = date
+    }
 }

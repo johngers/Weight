@@ -17,6 +17,14 @@ public final class LocalWeightLogLoader {
     }
     
     public func save(_ items: [WeightItem], completion: @escaping (SaveResult) -> Void) {
-        store.save(items, completion: completion)
+        store.save(items.toLocal(), completion: completion)
+    }
+}
+
+private extension Array where Element == WeightItem {
+    func toLocal() -> [LocalWeightItem] {
+        return map {
+            LocalWeightItem(id: $0.id, weight: $0.weight, date: $0.date)
+        }
     }
 }
