@@ -23,18 +23,4 @@ class LoadLogFromCacheUseCaseTests: XCTestCase {
         trackForMemoryLeaks(sut)
         return (sut, store)
     }
-    
-    private class WeightLogStoreSpy: WeightLogStore {
-        enum ReceivedMessage: Equatable {
-            case save([LocalWeightItem])
-        }
-
-        private(set) var receivedMessages: [ReceivedMessage] = []
-        private var saveCompletions: [SaveCompletion] = []
-        
-        func save(_ log: [LocalWeightItem], completion: @escaping SaveCompletion) {
-            receivedMessages.append(.save(log))
-            saveCompletions.append(completion)
-        }
-    }
 }
