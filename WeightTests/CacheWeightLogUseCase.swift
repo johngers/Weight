@@ -30,13 +30,18 @@ class WeightLogStore {
 
 class CacheWeightLogUseCaseTests: XCTestCase {
     func test_save_saves() {
-        let store = WeightLogStore()
-        let sut = LocalWeightLogLoader(store: store)
         let items = [uniqueItem()]
+        let (sut, store) = makeSUT()
         
         sut.save(items)
 
         XCTAssertEqual(store.saveCallCount, 1)
+    }
+    
+    private func makeSUT() -> (sut: LocalWeightLogLoader, store: WeightLogStore) {
+        let store = WeightLogStore()
+        let sut = LocalWeightLogLoader(store: store)
+        return (sut, store)
     }
     
     private func uniqueItem() -> WeightItem {
