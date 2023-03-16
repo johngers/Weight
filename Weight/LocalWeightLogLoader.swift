@@ -16,8 +16,8 @@ public final class LocalWeightLogLoader {
         self.store = store
     }
     
-    public func save(_ items: [WeightItem], completion: @escaping (SaveResult) -> Void) {
-        store.save(items.toLocal(), completion: completion)
+    public func save(_ log: [WeightItem], completion: @escaping (SaveResult) -> Void) {
+        store.save(log.toLocal(), completion: completion)
     }
 }
 

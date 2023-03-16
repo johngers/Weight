@@ -17,11 +17,11 @@ class CacheWeightLogUseCaseTests: XCTestCase {
     
     func test_save_saves() {
         let (sut, store) = makeSUT()
-        let items = uniqueItems()
+        let log = uniqueWeightLog()
         
-        sut.save(items.models) { _ in }
+        sut.save(log.models) { _ in }
 
-        XCTAssertEqual(store.receivedMessages, [.save(items.local)])
+        XCTAssertEqual(store.receivedMessages, [.save(log.local)])
     }
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalWeightLogLoader, store: WeightLogStoreSpy) {
@@ -40,8 +40,8 @@ class CacheWeightLogUseCaseTests: XCTestCase {
         private(set) var receivedMessages: [ReceivedMessage] = []
         private var saveCompletions: [SaveCompletion] = []
         
-        func save(_ items: [LocalWeightItem], completion: @escaping SaveCompletion) {
-            receivedMessages.append(.save(items))
+        func save(_ log: [LocalWeightItem], completion: @escaping SaveCompletion) {
+            receivedMessages.append(.save(log))
             saveCompletions.append(completion)
         }
     }
@@ -50,7 +50,7 @@ class CacheWeightLogUseCaseTests: XCTestCase {
         return WeightItem(id: UUID(), weight: 100.0, date: Date())
     }
     
-    private func uniqueItems() -> (models: [WeightItem], local: [LocalWeightItem]) {
+    private func uniqueWeightLog() -> (models: [WeightItem], local: [LocalWeightItem]) {
         let items = [uniqueItem()]
         let localItems = items.map { LocalWeightItem(id: $0.id, weight: $0.weight, date: $0.date) }
         return (items, localItems)

@@ -9,7 +9,7 @@ import Foundation
 
 public protocol WeightLogStore {
     typealias SaveCompletion = (Error?) -> Void
-    func save(_ items: [LocalWeightItem], completion: @escaping SaveCompletion)
+    func save(_ log: [LocalWeightItem], completion: @escaping SaveCompletion)
 }
 
 public struct LocalWeightItem: Equatable {
