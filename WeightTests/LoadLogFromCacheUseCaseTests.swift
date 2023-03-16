@@ -16,6 +16,14 @@ class LoadLogFromCacheUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [])
     }
     
+    func test_load_requestsCacheRetrieval() {
+        let (sut, store) = makeSUT()
+        
+        sut.load()
+    
+        XCTAssertEqual(store.receivedMessages, [.retrieve])
+    }
+    
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalWeightLogLoader, store: WeightLogStoreSpy) {
         let store = WeightLogStoreSpy()
         let sut = LocalWeightLogLoader(store: store)

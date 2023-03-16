@@ -19,6 +19,10 @@ public final class LocalWeightLogLoader {
     public func save(_ log: [WeightItem], completion: @escaping (SaveResult) -> Void) {
         store.save(log.toLocal(), completion: completion)
     }
+    
+    public func load() {
+        store.retrieve() 
+    }
 }
 
 private extension Array where Element == WeightItem {
