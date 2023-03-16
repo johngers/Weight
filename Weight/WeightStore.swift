@@ -7,9 +7,15 @@
 
 import Foundation
 
+public enum RetrieveCachedLogResult {
+    case empty
+    case found(log: [LocalWeightItem])
+    case failure(Error)
+}
+
 public protocol WeightLogStore {
     typealias SaveCompletion = (Error?) -> Void
-    typealias RetrievalCompletion = (Error?) -> Void
+    typealias RetrievalCompletion = (RetrieveCachedLogResult) -> Void
 
     func save(_ log: [LocalWeightItem], completion: @escaping SaveCompletion)
     func retrieve(completion: @escaping RetrievalCompletion)

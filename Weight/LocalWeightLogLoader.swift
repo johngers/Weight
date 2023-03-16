@@ -22,11 +22,15 @@ public final class LocalWeightLogLoader {
     }
     
     public func load(completion: @escaping (LoadResult) -> Void) {
-        store.retrieve { error in
-            if let error = error {
+        store.retrieve { result in
+            switch result {
+            case let .failure(error):
                 completion(.failure(error))
-            } else {
+            case let .found(log):
+                completion(.success(log.toModels()))
+            case .empty:
                 completion(.success([]))
+
             }
         }
     }
@@ -36,6 +40,14 @@ private extension Array where Element == WeightItem {
     func toLocal() -> [LocalWeightItem] {
         return map {
             LocalWeightItem(id: $0.id, weight: $0.weight, date: $0.date)
+        }
+    }
+}
+
+private extension Array where Element == LocalWeightItem {
+    func toModels() -> [WeightItem] {
+        return map {
+            WeightItem(id: $0.id, weight: $0.weight, date: $0.date)
         }
     }
 }
