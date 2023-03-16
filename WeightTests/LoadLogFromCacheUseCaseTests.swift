@@ -46,11 +46,42 @@ class LoadLogFromCacheUseCaseTests: XCTestCase {
         XCTAssertEqual(receivedError as NSError?, retrievalError)
     }
     
+    func test_load_deliversNoItemsOnEmptyCache() {
+        let (sut, store) = makeSUT()
+        let exp = expectation(description: "Wait for load completion")
+
+        var receivedItems: [WeightItem]?
+        sut.load { result in
+            switch result {
+            case .success(let items):
+                receivedItems = items
+            default:
+                XCTFail("Expected success, got \(result) instead")
+            }
+            exp.fulfill()
+        }
+
+        store.completeRetrievalWithEmptyCache()
+        wait(for: [exp], timeout: 1.0)
+
+        XCTAssertEqual(receivedItems, [])
+    }
+    
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalWeightLogLoader, store: WeightLogStoreSpy) {
         let store = WeightLogStoreSpy()
         let sut = LocalWeightLogLoader(store: store)
         trackForMemoryLeaks(store, file: file, line: line)
         trackForMemoryLeaks(sut)
         return (sut, store)
+    }
+    
+    private func uniqueItem() -> WeightItem {
+        return WeightItem(id: UUID(), weight: 100.0, date: Date())
+    }
+    
+    private func uniqueWeightLog() -> (models: [WeightItem], local: [LocalWeightItem]) {
+        let items = [uniqueItem()]
+        let localItems = items.map { LocalWeightItem(id: $0.id, weight: $0.weight, date: $0.date) }
+        return (items, localItems)
     }
 }
