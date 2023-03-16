@@ -15,6 +15,7 @@
 		EEF4DB5429C3B0C300F57D6D /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB5329C3B0C300F57D6D /* XCTestCase+MemoryLeakTracking.swift */; };
 		EEF4DB5629C3CEE600F57D6D /* LocalWeightLogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB5529C3CEE600F57D6D /* LocalWeightLogLoader.swift */; };
 		EEF4DB5829C3CF5C00F57D6D /* WeightStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB5729C3CF5C00F57D6D /* WeightStore.swift */; };
+		EEF4DB5A29C3D80200F57D6D /* LoadLogFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB5929C3D80200F57D6D /* LoadLogFromCacheUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		EEF4DB5329C3B0C300F57D6D /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		EEF4DB5529C3CEE600F57D6D /* LocalWeightLogLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalWeightLogLoader.swift; sourceTree = "<group>"; };
 		EEF4DB5729C3CF5C00F57D6D /* WeightStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightStore.swift; sourceTree = "<group>"; };
+		EEF4DB5929C3D80200F57D6D /* LoadLogFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadLogFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			children = (
 				EEF4DB5129C3AD5500F57D6D /* CacheWeightLogUseCase.swift */,
 				EEF4DB5329C3B0C300F57D6D /* XCTestCase+MemoryLeakTracking.swift */,
+				EEF4DB5929C3D80200F57D6D /* LoadLogFromCacheUseCaseTests.swift */,
 			);
 			path = WeightTests;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEF4DB5229C3AD5500F57D6D /* CacheWeightLogUseCase.swift in Sources */,
+				EEF4DB5A29C3D80200F57D6D /* LoadLogFromCacheUseCaseTests.swift in Sources */,
 				EEF4DB5429C3B0C300F57D6D /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
