@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
-		EEF4DB4129C39B4800F57D6D /* WeightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4029C39B4800F57D6D /* WeightTests.swift */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 		EEF4DB4E29C39C2F00F57D6D /* WeightLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLoader.swift */; };
 		EEF4DB5029C3A97300F57D6D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EEF4DB4F29C3A97300F57D6D /* README.md */; };
+		EEF4DB5229C3AD5500F57D6D /* CacheWeightLogUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB5129C3AD5500F57D6D /* CacheWeightLogUseCase.swift */; };
+		EEF4DB5429C3B0C300F57D6D /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB5329C3B0C300F57D6D /* XCTestCase+MemoryLeakTracking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,10 +28,11 @@
 /* Begin PBXFileReference section */
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EEF4DB4029C39B4800F57D6D /* WeightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTests.swift; sourceTree = "<group>"; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
 		EEF4DB4D29C39C2F00F57D6D /* WeightLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLoader.swift; sourceTree = "<group>"; };
 		EEF4DB4F29C3A97300F57D6D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EEF4DB5129C3AD5500F57D6D /* CacheWeightLogUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheWeightLogUseCase.swift; sourceTree = "<group>"; };
+		EEF4DB5329C3B0C300F57D6D /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +85,8 @@
 		EEF4DB3F29C39B4800F57D6D /* WeightTests */ = {
 			isa = PBXGroup;
 			children = (
-				EEF4DB4029C39B4800F57D6D /* WeightTests.swift */,
+				EEF4DB5129C3AD5500F57D6D /* CacheWeightLogUseCase.swift */,
+				EEF4DB5329C3B0C300F57D6D /* XCTestCase+MemoryLeakTracking.swift */,
 			);
 			path = WeightTests;
 			sourceTree = "<group>";
@@ -207,7 +210,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEF4DB4129C39B4800F57D6D /* WeightTests.swift in Sources */,
+				EEF4DB5229C3AD5500F57D6D /* CacheWeightLogUseCase.swift in Sources */,
+				EEF4DB5429C3B0C300F57D6D /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

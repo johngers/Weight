@@ -7,8 +7,14 @@
 
 import Foundation
 
-struct WeightItem {
+public struct WeightItem: Equatable {
     let id: UUID
     let weight: Double
     let date: Date
+    
+    public init(id: UUID, weight: Double, date: Date) {
+        self.id = id
+        self.weight = weight
+        self.date = date
+    }
 }
