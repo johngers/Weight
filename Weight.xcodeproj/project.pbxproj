@@ -18,6 +18,7 @@
 		EEF4DB5A29C3D80200F57D6D /* LoadLogFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB5929C3D80200F57D6D /* LoadLogFromCacheUseCaseTests.swift */; };
 		EEF4DB5C29C3D8D200F57D6D /* WeightLogStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB5B29C3D8D200F57D6D /* WeightLogStoreSpy.swift */; };
 		EEF4DB5E29C3DBED00F57D6D /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB5D29C3DBED00F57D6D /* TestHelpers.swift */; };
+		EEF4DB6029C3F96800F57D6D /* CodableWeightLogStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB5F29C3F96800F57D6D /* CodableWeightLogStoreTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		EEF4DB5929C3D80200F57D6D /* LoadLogFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadLogFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		EEF4DB5B29C3D8D200F57D6D /* WeightLogStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLogStoreSpy.swift; sourceTree = "<group>"; };
 		EEF4DB5D29C3DBED00F57D6D /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		EEF4DB5F29C3F96800F57D6D /* CodableWeightLogStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableWeightLogStoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				EEF4DB5B29C3D8D200F57D6D /* WeightLogStoreSpy.swift */,
 				EEF4DB5129C3AD5500F57D6D /* CacheWeightLogUseCase.swift */,
 				EEF4DB5929C3D80200F57D6D /* LoadLogFromCacheUseCaseTests.swift */,
+				EEF4DB5F29C3F96800F57D6D /* CodableWeightLogStoreTests.swift */,
 			);
 			path = WeightTests;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEF4DB6029C3F96800F57D6D /* CodableWeightLogStoreTests.swift in Sources */,
 				EEF4DB5229C3AD5500F57D6D /* CacheWeightLogUseCase.swift in Sources */,
 				EEF4DB5E29C3DBED00F57D6D /* TestHelpers.swift in Sources */,
 				EEF4DB5C29C3D8D200F57D6D /* WeightLogStoreSpy.swift in Sources */,
