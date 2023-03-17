@@ -83,8 +83,8 @@ Given the customer doesn't have connectivity
     ✅ Error (if applicable, e.g., no write permission)
 
 - Delete
-    - Empty cache does nothing (cache stays empty and does no fail)
-    - Non-empty cache leaves cache empty
-    - Error (if applicable, e.g., no delete permission)
+    ✅ Empty cache does nothing (cache stays empty and does no fail)
+    ✅ Non-empty cache leaves cache empty
+    ✅ Error (if applicable, e.g., no delete permission)
     
 - Side-effects must run serially to avoid race-conditions
