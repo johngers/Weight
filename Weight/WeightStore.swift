@@ -23,8 +23,16 @@ public protocol WeightLogStore {
     typealias SaveCompletion = (Error?) -> Void
     typealias RetrievalCompletion = (RetrieveCachedLogResult) -> Void
 
+    /// The completion handler can be invoked in any thread.
+    /// Clients are responsible to dispatch to appropriate threads, if needed.
     func deleteCachedLog(completion: @escaping DeletionCompletion)
+    
+    /// The completion handler can be invoked in any thread.
+    /// Clients are responsible to dispatch to appropriate threads, if needed.
     func save(_ log: [LocalWeightItem], completion: @escaping SaveCompletion)
+    
+    /// The completion handler can be invoked in any thread.
+    /// Clients are responsible to dispatch to appropriate threads, if needed.
     func retrieve(completion: @escaping RetrievalCompletion)
 }
 
