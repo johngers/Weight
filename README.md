@@ -80,7 +80,7 @@ Given the customer doesn't have connectivity
 - Insert
     ✅ To empty cache stores data
     ✅ To non-empty cache prepends new data to previous data
-    - Error (if applicable, e.g., no write permission)
+    ✅ Error (if applicable, e.g., no write permission)
 
 - Delete
     - Empty cache does nothing (cache stays empty and does no fail)

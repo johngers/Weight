@@ -12,6 +12,12 @@ public enum LoadWeightResult {
     case failure(Error)
 }
 
+public enum DeleteWeightResult {
+    case success
+    case failure(Error)
+}
+
 protocol WeightLogLoader {
     func load(completion: @escaping (LoadWeightResult) -> Void)
+    func delete(completion: @escaping (DeleteWeightResult) -> Void)
 }

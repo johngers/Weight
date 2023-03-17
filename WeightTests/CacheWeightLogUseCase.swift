@@ -15,6 +15,14 @@ class CacheWeightLogUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [])
     }
     
+    func test_delete_requestsCacheDeletion() {
+        let (sut, store) = makeSUT()
+        
+        sut.delete { _ in }
+        
+        XCTAssertEqual(store.receivedMessages, [.deleteCachedLog])
+    }
+    
     func test_save_saves() {
         let (sut, store) = makeSUT()
         let log = uniqueWeightLog()

@@ -39,7 +39,7 @@ class CodableWeightLogStore: WeightLogStore {
         self.storeURL = storeURL
     }
 
-    func retrieve(completion: @escaping WeightLogStore.RetrievalCompletion) {
+    func retrieve(completion: @escaping RetrievalCompletion) {
         guard let data = try? Data(contentsOf: storeURL) else {
             return completion(.empty)
         }
@@ -53,7 +53,7 @@ class CodableWeightLogStore: WeightLogStore {
         }
     }
     
-    func save(_ log: [LocalWeightItem], completion: @escaping WeightLogStore.SaveCompletion) {
+    func save(_ log: [LocalWeightItem], completion: @escaping SaveCompletion) {
         var cachedLog: [LocalWeightItem] = []
         retrieve(completion: { result in
             switch result {
@@ -73,6 +73,19 @@ class CodableWeightLogStore: WeightLogStore {
             completion(nil)
         } catch {
             completion(error)
+        }
+    }
+    
+    public func deleteCachedLog(completion: @escaping DeletionCompletion) {
+        guard FileManager.default.fileExists(atPath: storeURL.path) else {
+            return completion(.success)
+        }
+        
+        do {
+            try FileManager.default.removeItem(at: storeURL)
+            completion(.success)
+        } catch {
+            completion(.failure(error))
         }
     }
 }
@@ -160,6 +173,35 @@ class CodableWeightLogStoreTests: XCTestCase {
         XCTAssertNotNil(saveError, "Expected to save cache successfully")
     }
     
+    func test_delete_hasNoSideEffectsOnEmptyCache() {
+        let sut = makeSUT()
+        
+        let deletionError = deleteCache(from: sut)
+        
+        XCTAssertNil(deletionError, "Expected empty cache deletion to succeed")
+        expect(sut, toRetrieve: .empty)
+    }
+    
+    func test_delete_emptiesPreviouslyInsertedCache() {
+        let sut = makeSUT()
+        save(uniqueWeightLog().local, to: sut)
+        
+        let deletionError = deleteCache(from: sut)
+        
+        XCTAssertNil(deletionError, "Expected non-empty cache deletion to succeed")
+        expect(sut, toRetrieve: .empty)
+    }
+    
+    func test_delete_deliversErrorOnDeletionError() {
+        let noDeletePermissionURL = cachesDirectory()
+        let sut = makeSUT(storeURL: noDeletePermissionURL)
+        
+        let deletionError = deleteCache(from: sut)
+        
+        XCTAssertNotNil(deletionError, "Expected cache deletion to fail")
+        expect(sut, toRetrieve: .empty)
+    }
+    
     // - MARK: Helpers
     
     private func makeSUT(storeURL: URL? = nil, file: StaticString = #file, line: UInt = #line) -> CodableWeightLogStore {
@@ -180,6 +222,22 @@ class CodableWeightLogStoreTests: XCTestCase {
         
         wait(for: [exp], timeout: 1.0)
         return saveError
+    }
+    
+    private func deleteCache(from sut: WeightLogStore) -> Error? {
+        let exp = expectation(description: "Wait for cache deletion")
+        var deletionError: Error?
+        sut.deleteCachedLog { deletionResult in
+            switch deletionResult {
+            case .success:
+                deletionError = nil
+            case let .failure(error):
+                deletionError = error
+            }
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+        return deletionError
     }
     
     private func expect(_ sut: WeightLogStore, toRetrieveTwice expectedResult: RetrieveCachedLogResult, file: StaticString = #file, line: UInt = #line) {
@@ -223,7 +281,11 @@ class CodableWeightLogStoreTests: XCTestCase {
     }
     
     private func testSpecificStoreURL() -> URL {
-        FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("\(type(of: self)).store")
+        cachesDirectory().appendingPathComponent("\(type(of: self)).store")
+    }
+    
+    private func cachesDirectory() -> URL {
+        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
     }
     
     private func uniqueItem() -> WeightItem {

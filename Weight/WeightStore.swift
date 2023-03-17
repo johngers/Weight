@@ -13,10 +13,17 @@ public enum RetrieveCachedLogResult {
     case failure(Error)
 }
 
+public enum DeleteCachedLogResult {
+    case success
+    case failure(Error)
+}
+
 public protocol WeightLogStore {
+    typealias DeletionCompletion = (DeleteCachedLogResult) -> Void
     typealias SaveCompletion = (Error?) -> Void
     typealias RetrievalCompletion = (RetrieveCachedLogResult) -> Void
 
+    func deleteCachedLog(completion: @escaping DeletionCompletion)
     func save(_ log: [LocalWeightItem], completion: @escaping SaveCompletion)
     func retrieve(completion: @escaping RetrievalCompletion)
 }
