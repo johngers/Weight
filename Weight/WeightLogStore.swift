@@ -7,10 +7,9 @@
 
 import Foundation
 
-public enum RetrieveCachedLogResult {
+public enum CachedFeed {
     case empty
     case found(log: [LocalWeightItem])
-    case failure(Error)
 }
 
 public enum DeleteCachedLogResult {
@@ -21,7 +20,8 @@ public enum DeleteCachedLogResult {
 public protocol WeightLogStore {
     typealias DeletionCompletion = (DeleteCachedLogResult) -> Void
     typealias SaveCompletion = (Error?) -> Void
-    typealias RetrievalCompletion = (RetrieveCachedLogResult) -> Void
+    typealias RetrievalResult = Result<CachedFeed, Error>
+    typealias RetrievalCompletion = (RetrievalResult) -> Void
 
     /// The completion handler can be invoked in any thread.
     /// Clients are responsible to dispatch to appropriate threads, if needed.
