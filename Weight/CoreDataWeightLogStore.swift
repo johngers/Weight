@@ -20,9 +20,9 @@ public final class CoreDataWeightLogStore: WeightLogStore {
         perform { context in
             do {
                 if let cache = try ManagedCache.find(in: context) {
-                    completion(.success(.found(log: cache.localLog)))
+                    completion(.success(CachedLog(cache.localLog)))
                 } else {
-                    completion(.success(.empty))
+                    completion(.success(.none))
                 }
             } catch {
                 completion(.failure(error))

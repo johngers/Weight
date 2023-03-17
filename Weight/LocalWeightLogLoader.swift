@@ -31,9 +31,9 @@ extension LocalWeightLogLoader: WeightLogLoader {
             switch result {
             case let .failure(error):
                 completion(.failure(error))
-            case let .success(.found(log)):
-                completion(.success(log.toModels()))
-            case .success(.empty):
+            case let .success(.some(cachedLog)):
+                completion(.success(cachedLog.toModels()))
+            case .success(.none):
                 completion(.success([]))
             }
         }

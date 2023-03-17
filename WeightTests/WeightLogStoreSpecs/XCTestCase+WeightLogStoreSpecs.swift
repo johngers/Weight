@@ -11,11 +11,11 @@ import Weight
 extension WeightLogStoreSpecs where Self: XCTestCase {
     
     func assertThatRetrieveDeliversEmptyOnEmptyCache(on sut: WeightLogStore, file: StaticString = #file, line: UInt = #line) {
-        expect(sut, toRetrieve: .success(.empty), file: file, line: line)
+        expect(sut, toRetrieve: .success(.none), file: file, line: line)
     }
     
     func assertThatRetrieveHasNoSideEffectsOnEmptyCache(on sut: WeightLogStore, file: StaticString = #file, line: UInt = #line) {
-        expect(sut, toRetrieveTwice: .success(.empty), file: file, line: line)
+        expect(sut, toRetrieveTwice: .success(.none), file: file, line: line)
     }
     
     func assertThatRetrieveDeliversFoundValuesOnNonEmptyCache(on sut: WeightLogStore, file: StaticString = #file, line: UInt = #line) {
@@ -23,7 +23,7 @@ extension WeightLogStoreSpecs where Self: XCTestCase {
         
         save(log, to: sut)
         
-        expect(sut, toRetrieve: .success(.found(log: log)), file: file, line: line)
+        expect(sut, toRetrieve: .success(CachedLog(log)), file: file, line: line)
     }
     
     func assertThatRetrieveHasNoSideEffectsOnNonEmptyCache(on sut: WeightLogStore, file: StaticString = #file, line: UInt = #line) {
@@ -31,7 +31,7 @@ extension WeightLogStoreSpecs where Self: XCTestCase {
         
         save(log, to: sut)
         
-        expect(sut, toRetrieveTwice: .success(.found(log: log)), file: file, line: line)
+        expect(sut, toRetrieveTwice: .success(CachedLog(log)), file: file, line: line)
     }
     
     func assertThatSaveDeliversNoErrorOnEmptyCache(on sut: WeightLogStore, file: StaticString = #file, line: UInt = #line) {
@@ -68,7 +68,7 @@ extension WeightLogStoreSpecs where Self: XCTestCase {
         let latestLog = uniqueWeightLog().local
         save(latestLog, to: sut)
         
-        expect(sut, toRetrieve: .success(.found(log: latestLog)), file: file, line: line)
+        expect(sut, toRetrieve: .success(CachedLog(latestLog)), file: file, line: line)
     }
     
     func assertThatDeleteDeliversNoErrorOnEmptyCache(on sut: WeightLogStore, file: StaticString = #file, line: UInt = #line) {
@@ -80,7 +80,7 @@ extension WeightLogStoreSpecs where Self: XCTestCase {
     func assertThatDeleteHasNoSideEffectsOnEmptyCache(on sut: WeightLogStore, file: StaticString = #file, line: UInt = #line) {
         deleteCache(from: sut)
         
-        expect(sut, toRetrieve: .success(.empty), file: file, line: line)
+        expect(sut, toRetrieve: .success(.none), file: file, line: line)
     }
     
     func assertThatDeleteDeliversNoErrorOnNonEmptyCache(on sut: WeightLogStore, file: StaticString = #file, line: UInt = #line) {
@@ -96,7 +96,7 @@ extension WeightLogStoreSpecs where Self: XCTestCase {
         
         deleteCache(from: sut)
         
-        expect(sut, toRetrieve: .success(.empty), file: file, line: line)
+        expect(sut, toRetrieve: .success(.none), file: file, line: line)
     }
     
     func assertThatSideEffectsRunSerially(on sut: WeightLogStore, file: StaticString = #file, line: UInt = #line) {
@@ -168,11 +168,11 @@ extension WeightLogStoreSpecs where Self: XCTestCase {
         
         sut.retrieve { retrievedResult in
             switch (expectedResult, retrievedResult) {
-            case (.success(.empty), .success(.empty)),
+            case (.success(.none), .success(.none)),
                 (.failure, .failure):
                 break
                 
-            case let (.success(.found(expected)), .success(.found(retrieved))):
+            case let (.success(.some(expected)), .success(.some(retrieved))):
                 XCTAssertEqual(retrieved, expected, file: file, line: line)
                 
             default:
