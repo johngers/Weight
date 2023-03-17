@@ -31,8 +31,8 @@ protocol FailableRetrieveWeightLogStoreSpecs: WeightLogStoreSpecs {
 }
 
 protocol FailableSaveWeightLogStoreSpecs: WeightLogStoreSpecs {
-    func test_save_deliversErrorOnInsertionError()
-    func test_save_hasNoSideEffectsOnInsertionError()
+    func test_save_deliversErrorOnSaveError()
+    func test_save_hasNoSideEffectsOnSaveError()
 }
 
 protocol FailableDeleteWeightLogStoreSpecs: WeightLogStoreSpecs {

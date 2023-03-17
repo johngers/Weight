@@ -25,29 +25,25 @@ class CodableWeightLogStoreTests: XCTestCase, FailableWeightLogStoreSpecs {
     func test_retrieve_deliversEmptyOnEmptyCache() {
         let sut = makeSUT()
         
-        expect(sut, toRetrieve: .empty)
+        assertThatRetrieveDeliversEmptyOnEmptyCache(on: sut)
     }
     
     func test_retrieve_hasNoSideEffectsOnEmptyCache() {
         let sut = makeSUT()
 
-        expect(sut, toRetrieveTwice: .empty)
+        assertThatRetrieveHasNoSideEffectsOnEmptyCache(on: sut)
     }
     
     func test_retrieve_deliversFoundValuesOnNonEmptyCache() {
-        let log = uniqueWeightLog().local
         let sut = makeSUT()
-        
-        save(log, to: sut)        
-        expect(sut, toRetrieve: .found(log: log))
+
+        assertThatRetrieveDeliversFoundValuesOnNonEmptyCache(on: sut)
     }
     
     func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
-        let log = uniqueWeightLog().local
         let sut = makeSUT()
-        
-        save(log, to: sut)
-        expect(sut, toRetrieveTwice: .found(log: log))
+
+        assertThatRetrieveHasNoSideEffectsOnNonEmptyCache(on: sut)
     }
     
     func test_retrieve_deliversFailureOnRetrievalError() {
@@ -55,8 +51,8 @@ class CodableWeightLogStoreTests: XCTestCase, FailableWeightLogStoreSpecs {
         let sut = makeSUT(storeURL: storeURL)
         
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
-    
-        expect(sut, toRetrieve: .failure(anyNSError()))
+        
+        assertThatRetrieveDeliversFailureOnRetrievalError(on: sut)
     }
     
     func test_retrieve_hasNoSideEffectsOnRetrievalError() {
@@ -65,135 +61,83 @@ class CodableWeightLogStoreTests: XCTestCase, FailableWeightLogStoreSpecs {
         
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
     
-        expect(sut, toRetrieveTwice: .failure(anyNSError()))
+        assertThatRetrieveHasNoSideEffectsOnFailure(on: sut)
     }
     
     func test_save_deliversNoErrorOnEmptyCache() {
         let sut = makeSUT()
-        let log = uniqueWeightLog().local
         
-        let saveError = save(log, to: sut)
-        XCTAssertNil(saveError, "Expected to save cache successfully to empty cache")
+        assertThatSaveDeliversNoErrorOnEmptyCache(on: sut)
     }
     
     func test_save_deliversNoErrorNonEmptyCache() {
         let sut = makeSUT()
-        let log = uniqueWeightLog().local
         
-        save(log, to: sut)
-        let saveError = save(log, to: sut)
-        XCTAssertNil(saveError, "Expected to save cache successfully to non empty cache")
+        assertThatSaveDeliversNoErrorOnNonEmptyCache(on: sut)
     }
     
     func test_save_appendsNewDataToPreviouslyInsertedCacheValues() {
         let sut = makeSUT()
         
-        let log = uniqueWeightLog().local
-        let firstSaveError = save(log, to: sut)
-        XCTAssertNil(firstSaveError, "Expected to save cache successfully")
+        assertThatSaveAppendsNewDataToPreviouslyInsertedCacheValues(on: sut)
+    }
+    
+    func test_save_deliversErrorOnSaveError() {
+        let invalidStoreURL = URL(string: "invaid://store-url")!
+        let sut = makeSUT(storeURL: invalidStoreURL)
+        
+        assertThatSaveDeliversErrorSaveError(on: sut)
+    }
+    
+    func test_save_hasNoSideEffectsOnSaveError() {
+        let invalidStoreURL = URL(string: "invaid://store-url")!
+        let sut = makeSUT(storeURL: invalidStoreURL)
 
-        let latestLog = uniqueWeightLog().local
-        let latestSaveError = save(latestLog, to: sut)
-        XCTAssertNil(latestSaveError, "Expected to append to cache successfully")
-        
-        expect(sut, toRetrieve: .found(log: latestLog + log))
-    }
-    
-    func test_save_deliversErrorOnInsertionError() {
-        let invalidStoreURL = URL(string: "invaid://store-url")!
-        let sut = makeSUT(storeURL: invalidStoreURL)
-        let log = uniqueWeightLog().local
-        
-        let saveError = save(log, to: sut)
-        XCTAssertNotNil(saveError, "Expected to save cache successfully")
-    }
-    
-    func test_save_hasNoSideEffectsOnInsertionError() {
-        let invalidStoreURL = URL(string: "invaid://store-url")!
-        let sut = makeSUT(storeURL: invalidStoreURL)
-        let log = uniqueWeightLog().local
-        
-        save(log, to: sut)
-        expect(sut, toRetrieve: .empty)
+        assertThatSaveHasNoSideEffectsOnSaveError(on: sut)
     }
 
     func test_delete_hasNoSideEffectsOnEmptyCache() {
         let sut = makeSUT()
-        
-        expect(sut, toRetrieve: .empty)
+
+        assertThatDeleteHasNoSideEffectsOnEmptyCache(on: sut)
     }
     
     func test_delete_deliversNoErrorOnEmptyCache() {
         let sut = makeSUT()
         
-        let deletionError = deleteCache(from: sut)
-        
-        XCTAssertNil(deletionError, "Expected empty cache deletion to succeed")
+        assertThatDeleteDeliversNoErrorOnEmptyCache(on: sut)
     }
     
     func test_delete_deliversNoErrorOnNonEmptyCache() {
-        let log = uniqueWeightLog().local
         let sut = makeSUT()
         
-        save(log, to: sut)
-
-        let deletionError = deleteCache(from: sut)
-        XCTAssertNil(deletionError, "Expected empty cache deletion to succeed")
+        assertThatDeleteDeliversNoErrorOnNonEmptyCache(on: sut)
     }
     
     func test_delete_emptiesPreviouslyInsertedCache() {
         let sut = makeSUT()
-        save(uniqueWeightLog().local, to: sut)
         
-        let deletionError = deleteCache(from: sut)
-        
-        XCTAssertNil(deletionError, "Expected non-empty cache deletion to succeed")
-        expect(sut, toRetrieve: .empty)
+        assertThatDeleteEmptiesPreviouslyInsertedCache(on: sut)
     }
     
     func test_delete_deliversErrorOnDeletionError() {
         let noDeletePermissionURL = cachesDirectory()
         let sut = makeSUT(storeURL: noDeletePermissionURL)
         
-        let deletionError = deleteCache(from: sut)
-        
-        XCTAssertNotNil(deletionError, "Expected cache deletion to fail")
+        assertThatDeleteDeliversErrorOnDeletionError(on: sut)
     }
     
     func test_delete_hasNoSideEffectsOnDeletionError() {
         let noDeletePermissionURL = cachesDirectory()
         let sut = makeSUT(storeURL: noDeletePermissionURL)
         
-        deleteCache(from: sut)
-        
-        expect(sut, toRetrieve: .empty)
+        assertThatDeleteHasNoSideEffectsOnDeletionError(on: sut)
     }
     
     func test_storeSideEffect_runSerially() {
         let sut = makeSUT()
-        var completedOperationsInOrder: [XCTestExpectation] = []
         
-        let op1 = expectation(description: "Operation 1")
-        sut.save(uniqueWeightLog().local) { _ in
-            completedOperationsInOrder.append(op1)
-            op1.fulfill()
-        }
-        
-        let op2 = expectation(description: "Operation 2")
-        sut.deleteCachedLog { _ in
-            completedOperationsInOrder.append(op2)
-            op2.fulfill()
-        }
-        
-        let op3 = expectation(description: "Operation 3")
-        sut.save(uniqueWeightLog().local) { _ in
-            completedOperationsInOrder.append(op3)
-            op3.fulfill()
-        }
-        
-        waitForExpectations(timeout: 3.0)
-        
-        XCTAssertEqual(completedOperationsInOrder, [op1, op2, op3], "Expected side-effects to run serially but operations finished in the wrong order")
+        assertThatSideEffectsRunSerially(on: sut)
     }
     
     // - MARK: Helpers
