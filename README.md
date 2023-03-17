@@ -68,3 +68,21 @@ Given the customer doesn't have connectivity
 | `id`          | `UUID`              |
 | `weight`      | `Double`            |
 | `date`        | `Date`              |
+
+- Retrieve
+    - Empty cache
+    - Non-empty cache returns data
+    - Non-empty cache twice returns same data (no side-effects)
+    - Error (if applicable, e.g., invalid data)
+
+- Insert
+    - To empty cache stores data
+    - To non-empty cache appends new data to previous data
+    - Error (if applicable, e.g., no write permission)
+
+- Delete
+    - Empty cache does nothing (cache stays empty and does no fail)
+    - Non-empty cache leaves cache empty
+    - Error (if applicable, e.g., no delete permission)
+    
+- Side-effects must run serially to avoid race-conditions
