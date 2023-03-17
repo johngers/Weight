@@ -10,6 +10,7 @@
 		EE5D825829C440A80011CFA8 /* DeleteFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D825729C440A80011CFA8 /* DeleteFromCacheUseCaseTests.swift */; };
 		EE5D825A29C4D43F0011CFA8 /* CodableWeightLogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D825929C4D43F0011CFA8 /* CodableWeightLogStore.swift */; };
 		EE5D825C29C4E24B0011CFA8 /* WeightLogStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D825B29C4E24B0011CFA8 /* WeightLogStoreSpecs.swift */; };
+		EE5D825F29C4E55E0011CFA8 /* XCTestCase+WeightLogStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D825E29C4E55E0011CFA8 /* XCTestCase+WeightLogStoreSpecs.swift */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 		EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLogLoader.swift */; };
@@ -38,6 +39,7 @@
 		EE5D825729C440A80011CFA8 /* DeleteFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		EE5D825929C4D43F0011CFA8 /* CodableWeightLogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableWeightLogStore.swift; sourceTree = "<group>"; };
 		EE5D825B29C4E24B0011CFA8 /* WeightLogStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLogStoreSpecs.swift; sourceTree = "<group>"; };
+		EE5D825E29C4E55E0011CFA8 /* XCTestCase+WeightLogStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+WeightLogStoreSpecs.swift"; sourceTree = "<group>"; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				EEF4DB5929C3D80200F57D6D /* LoadLogFromCacheUseCaseTests.swift */,
 				EEF4DB5F29C3F96800F57D6D /* CodableWeightLogStoreTests.swift */,
 				EE5D825B29C4E24B0011CFA8 /* WeightLogStoreSpecs.swift */,
+				EE5D825E29C4E55E0011CFA8 /* XCTestCase+WeightLogStoreSpecs.swift */,
 			);
 			path = WeightTests;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				EE5D825C29C4E24B0011CFA8 /* WeightLogStoreSpecs.swift in Sources */,
 				EEF4DB5229C3AD5500F57D6D /* CacheWeightLogUseCaseTests.swift in Sources */,
 				EEF4DB5E29C3DBED00F57D6D /* TestHelpers.swift in Sources */,
+				EE5D825F29C4E55E0011CFA8 /* XCTestCase+WeightLogStoreSpecs.swift in Sources */,
 				EEF4DB5C29C3D8D200F57D6D /* WeightLogStoreSpy.swift in Sources */,
 				EEF4DB5A29C3D80200F57D6D /* LoadLogFromCacheUseCaseTests.swift in Sources */,
 				EEF4DB5429C3B0C300F57D6D /* XCTestCase+MemoryLeakTracking.swift in Sources */,
