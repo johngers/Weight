@@ -8,7 +8,7 @@
 import XCTest
 import Weight
 
-class CodableWeightLogStore {
+class CodableWeightLogStore: WeightLogStore {    
     private struct Cache: Codable {
         let log: [CodableWeightItem]
         
@@ -49,7 +49,7 @@ class CodableWeightLogStore {
         completion(.found(log: cache.localLog))
     }
     
-    func insert(_ log: [LocalWeightItem], completion: @escaping WeightLogStore.SaveCompletion) {
+    func save(_ log: [LocalWeightItem], completion: @escaping WeightLogStore.SaveCompletion) {
         let encoder = JSONEncoder()
         let cache = Cache(log: log.map(CodableWeightItem.init))
         let encoded = try! encoder.encode(cache)
@@ -71,29 +71,17 @@ class CodableWeightLogStoreTests: XCTestCase {
         
         undoStoreSideEffects()
     }
-
+    
     func test_retrieve_deliversEmptyOnEmptyCache() {
         let sut = makeSUT()
-        let exp = expectation(description: "Wait for cache retrieval")
-
-        sut.retrieve { result  in
-            switch result {
-            case .empty:
-                break
-            default:
-                XCTFail("Expected empty result, got \(result) instead")
-            }
-            
-            exp.fulfill()
-        }
-                        
-        wait(for: [exp], timeout: 1.0)
+        
+        expect(sut, toRetrieve: .empty)
     }
     
     func test_retrieve_hasNoSideEffectsOnEmptyCache() {
         let sut = makeSUT()
         let exp = expectation(description: "Wait for cache retrieval")
-
+        
         sut.retrieve { firstResult  in
             sut.retrieve { secondResult  in
                 switch (firstResult, secondResult) {
@@ -106,7 +94,7 @@ class CodableWeightLogStoreTests: XCTestCase {
                 exp.fulfill()
             }
         }
-                        
+        
         wait(for: [exp], timeout: 1.0)
     }
     
@@ -115,22 +103,14 @@ class CodableWeightLogStoreTests: XCTestCase {
         let sut = makeSUT()
         let exp = expectation(description: "Wait for cache retrieval")
         
-        sut.insert(log) { insertionError  in
+        sut.save(log) { insertionError  in
             XCTAssertNil(insertionError, "Expected log to be inserted successfully")
-    
-            sut.retrieve { retrievedResult  in
-                switch retrievedResult {
-                case let .found(retrievedLog):
-                    XCTAssertEqual(retrievedLog, log)
-                default:
-                    XCTFail("Expected found result with log \(log), got \(retrievedResult) instead")
-                }
-                
-                exp.fulfill()
-            }
+            exp.fulfill()
         }
-                        
+        
         wait(for: [exp], timeout: 1.0)
+        
+        expect(sut, toRetrieve: .found(log: log))
     }
     
     func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
@@ -138,16 +118,16 @@ class CodableWeightLogStoreTests: XCTestCase {
         let sut = makeSUT()
         let exp = expectation(description: "Wait for cache retrieval")
         
-        sut.insert(log) { insertionError  in
+        sut.save(log) { insertionError  in
             XCTAssertNil(insertionError, "Expected log to be inserted successfully")
-    
+            
             sut.retrieve { firstResult  in
                 sut.retrieve { secondResult  in
                     switch (firstResult, secondResult) {
                     case let (.found(firstFound), .found(secondFound)):
                         XCTAssertEqual(firstFound, log)
                         XCTAssertEqual(secondFound, log)
-
+                        
                     default:
                         XCTFail("Expected retrieving twice from non empty cache to deliver same found result with log \(log), got \(firstResult) and \(secondResult) instead")
                     }
@@ -156,7 +136,7 @@ class CodableWeightLogStoreTests: XCTestCase {
                 }
             }
         }
-                        
+        
         wait(for: [exp], timeout: 1.0)
     }
     
@@ -167,6 +147,29 @@ class CodableWeightLogStoreTests: XCTestCase {
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
+    
+    private func expect(_ sut: WeightLogStore, toRetrieve expectedResult: RetrieveCachedLogResult, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for cache retrieval")
+        
+        sut.retrieve { retrievedResult in
+            switch (expectedResult, retrievedResult) {
+            case (.empty, .empty),
+                (.failure, .failure):
+                break
+                
+            case let (.found(expected), .found(retrieved)):
+                XCTAssertEqual(retrieved, expected, file: file, line: line)
+                
+            default:
+                XCTFail("Expected to retrieve \(expectedResult), got \(retrievedResult) instead", file: file, line: line)
+            }
+            
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
+    }
+
     
     private func setupEmptyStoreState() {
         deleteStoreArtifacts()
