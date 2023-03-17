@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EE5D825829C440A80011CFA8 /* DeleteFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D825729C440A80011CFA8 /* DeleteFromCacheUseCaseTests.swift */; };
+		EE5D825A29C4D43F0011CFA8 /* CodableWeightLogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D825929C4D43F0011CFA8 /* CodableWeightLogStore.swift */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 		EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLogLoader.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		EE5D825729C440A80011CFA8 /* DeleteFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
+		EE5D825929C4D43F0011CFA8 /* CodableWeightLogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableWeightLogStore.swift; sourceTree = "<group>"; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				EEF4DB4D29C39C2F00F57D6D /* WeightLogLoader.swift */,
 				EEF4DB5529C3CEE600F57D6D /* LocalWeightLogLoader.swift */,
 				EEF4DB5729C3CF5C00F57D6D /* WeightStore.swift */,
+				EE5D825929C4D43F0011CFA8 /* CodableWeightLogStore.swift */,
 			);
 			path = Weight;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				EEF4DB5829C3CF5C00F57D6D /* WeightStore.swift in Sources */,
 				EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */,
 				EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */,
+				EE5D825A29C4D43F0011CFA8 /* CodableWeightLogStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
