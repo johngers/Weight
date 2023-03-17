@@ -18,40 +18,30 @@ public final class CoreDataWeightLogStore: WeightLogStore {
     
     public func retrieve(completion: @escaping RetrievalCompletion) {
         perform { context in
-            do {
-                if let cache = try ManagedCache.find(in: context) {
-                    completion(.success(CachedLog(cache.localLog)))
-                } else {
-                    completion(.success(.none))
+            completion(Result{
+                try ManagedCache.find(in: context).map {
+                    return CachedLog($0.localLog)
                 }
-            } catch {
-                completion(.failure(error))
-            }
+            })
         }
     }
     
     public func save(_ log: [LocalWeightItem], completion: @escaping SaveCompletion) {
         perform { context in
-            do {
+            completion(Result{
                 let managedCache = try ManagedCache.currentInstance(in: context)
                 managedCache.log = ManagedWeightItem.items(from: log, in: context)
                 
                 try context.save()
-                completion(.success(()))
-            } catch {
-                completion(.failure(error))
-            }
+            })
         }
     }
     
     public func deleteCachedLog(completion: @escaping DeletionCompletion) {
         perform { context in
-            do {
+            completion(Result{
                 try ManagedCache.find(in: context).map(context.delete).map(context.save)
-                completion(.success(()))
-            } catch {
-                completion(.failure(error))
-            }
+            })
         }
     }
     
