@@ -7,10 +7,7 @@
 
 import Foundation
 
-public enum LoadWeightResult {
-    case success([WeightItem])
-    case failure(Error)
-}
+public typealias LoadWeightResult = Result<[WeightItem], Error>
 
 public enum DeleteWeightResult {
     case success
