@@ -37,9 +37,9 @@ public final class CoreDataWeightLogStore: WeightLogStore {
                 managedCache.log = ManagedWeightItem.items(from: log, in: context)
                 
                 try context.save()
-                completion(nil)
+                completion(.success(()))
             } catch {
-                completion(error)
+                completion(.failure(error))
             }
         }
     }

@@ -77,8 +77,10 @@ class WeightCacheIntegrationTests: XCTestCase {
     
     private func save(_ log: [WeightItem], with loader: LocalWeightLogLoader, file: StaticString = #file, line: UInt = #line) {
         let saveExp = expectation(description: "Wait for save completion")
-        loader.save(log) { saveError in
-            XCTAssertNil(saveError, "Expected to save log successfully", file: file, line: line)
+        loader.save(log) { result in
+            if case let Result.failure(error) = result {
+                XCTAssertNil(error, "Expected to save feed successfully", file: file, line: line)
+            }
             saveExp.fulfill()
         }
         wait(for: [saveExp], timeout: 1.0)

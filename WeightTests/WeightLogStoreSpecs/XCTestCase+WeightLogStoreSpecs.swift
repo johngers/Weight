@@ -132,8 +132,8 @@ extension WeightLogStoreSpecs where Self: XCTestCase {
         let exp = expectation(description: "Wait for cache retrieval")
         
         var saveError: Error?
-        sut.save(cache) { retrievedSaveError  in
-            saveError = retrievedSaveError
+        sut.save(cache) { result  in
+            if case let Result.failure(error) = result { saveError = error }
             exp.fulfill()
         }
         
@@ -145,13 +145,8 @@ extension WeightLogStoreSpecs where Self: XCTestCase {
     func deleteCache(from sut: WeightLogStore) -> Error? {
         let exp = expectation(description: "Wait for cache deletion")
         var deletionError: Error?
-        sut.deleteCachedLog { deletionResult in
-            switch deletionResult {
-            case .success:
-                deletionError = nil
-            case let .failure(error):
-                deletionError = error
-            }
+        sut.deleteCachedLog { result in
+            if case let Result.failure(error) = result { deletionError = error }
             exp.fulfill()
         }
         wait(for: [exp], timeout: 5.0)

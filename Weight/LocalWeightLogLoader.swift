@@ -16,7 +16,7 @@ public final class LocalWeightLogLoader {
 }
 
 extension LocalWeightLogLoader {
-    public typealias SaveResult = Error?
+    public typealias SaveResult = Result<Void, Error>
 
     public func save(_ log: [WeightItem], completion: @escaping (SaveResult) -> Void) {
         store.save(log.toLocal(), completion: completion)

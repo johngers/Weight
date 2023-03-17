@@ -12,7 +12,9 @@ public typealias CachedLog = [LocalWeightItem]
 public protocol WeightLogStore {
     typealias DeleteResult = Result<Void, Error>
     typealias DeletionCompletion = (DeleteResult) -> Void
-    typealias SaveCompletion = (Error?) -> Void
+    
+    typealias SaveResult = Result<Void, Error>
+    typealias SaveCompletion = (SaveResult) -> Void
 
     typealias RetrievalResult = Result<CachedLog?, Error>
     typealias RetrievalCompletion = (RetrievalResult) -> Void
