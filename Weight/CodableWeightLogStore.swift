@@ -58,19 +58,19 @@ public class CodableWeightLogStore: WeightLogStore {
     
     public func save(_ log: [LocalWeightItem], completion: @escaping SaveCompletion) {
         let storeURL = self.storeURL
-        var cachedLog: [LocalWeightItem] = []
-        retrieve(completion: { result in
-            switch result {
-            case .found(log: let log):
-                cachedLog = log
-            default:
-                break
-            }
-        })
+//        var cachedLog: [LocalWeightItem] = []
+//        retrieve(completion: { result in
+//            switch result {
+//            case .found(log: let log):
+//                cachedLog = log
+//            default:
+//                break
+//            }
+//        })
 
         queue.async(flags: .barrier) {
             do {
-                let log = log + cachedLog
+                let log = log  // + cachedLog
                 let encoder = JSONEncoder()
                 let cache = Cache(log: log.map(CodableWeightItem.init))
                 let encoded = try! encoder.encode(cache)

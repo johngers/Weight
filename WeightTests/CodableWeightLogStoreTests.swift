@@ -70,7 +70,7 @@ class CodableWeightLogStoreTests: XCTestCase, FailableWeightLogStoreSpecs {
         assertThatSaveDeliversNoErrorOnEmptyCache(on: sut)
     }
     
-    func test_save_deliversNoErrorNonEmptyCache() {
+    func test_save_deliversNoErrorOnNonEmptyCache() {
         let sut = makeSUT()
         
         assertThatSaveDeliversNoErrorOnNonEmptyCache(on: sut)
@@ -134,7 +134,7 @@ class CodableWeightLogStoreTests: XCTestCase, FailableWeightLogStoreSpecs {
         assertThatDeleteHasNoSideEffectsOnDeletionError(on: sut)
     }
     
-    func test_storeSideEffect_runSerially() {
+    func test_storeSideEffects_runSerially() {
         let sut = makeSUT()
         
         assertThatSideEffectsRunSerially(on: sut)

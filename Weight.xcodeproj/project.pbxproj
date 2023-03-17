@@ -14,6 +14,12 @@
 		EE5D826129C4EC1A0011CFA8 /* XCTestCase+FailableRetrieveWeightLogStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D826029C4EC1A0011CFA8 /* XCTestCase+FailableRetrieveWeightLogStoreSpecs.swift */; };
 		EE5D826329C4ECEC0011CFA8 /* XCTestCase+FailableSaveWeightLogStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D826229C4ECEC0011CFA8 /* XCTestCase+FailableSaveWeightLogStoreSpecs.swift */; };
 		EE5D826529C4EE3D0011CFA8 /* XCTestCase+FailableDeleteWeightLogStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D826429C4EE3D0011CFA8 /* XCTestCase+FailableDeleteWeightLogStoreSpecs.swift */; };
+		EE5D826829C4FB790011CFA8 /* CoreDataWeightLogStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D826729C4FB790011CFA8 /* CoreDataWeightLogStoreTests.swift */; };
+		EE5D826A29C4FC0C0011CFA8 /* CoreDataWeightLogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D826929C4FC0C0011CFA8 /* CoreDataWeightLogStore.swift */; };
+		EE5D826C29C4FC570011CFA8 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D826B29C4FC570011CFA8 /* CoreDataHelpers.swift */; };
+		EE5D826E29C4FC8C0011CFA8 /* ManagedCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D826D29C4FC8C0011CFA8 /* ManagedCache.swift */; };
+		EE5D827029C4FCCA0011CFA8 /* ManagedWeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D826F29C4FCCA0011CFA8 /* ManagedWeightItem.swift */; };
+		EE5D827329C4FEEF0011CFA8 /* WeightLogStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE5D827129C4FEEF0011CFA8 /* WeightLogStore.xcdatamodeld */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 		EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLogLoader.swift */; };
@@ -46,6 +52,12 @@
 		EE5D826029C4EC1A0011CFA8 /* XCTestCase+FailableRetrieveWeightLogStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FailableRetrieveWeightLogStoreSpecs.swift"; sourceTree = "<group>"; };
 		EE5D826229C4ECEC0011CFA8 /* XCTestCase+FailableSaveWeightLogStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FailableSaveWeightLogStoreSpecs.swift"; sourceTree = "<group>"; };
 		EE5D826429C4EE3D0011CFA8 /* XCTestCase+FailableDeleteWeightLogStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FailableDeleteWeightLogStoreSpecs.swift"; sourceTree = "<group>"; };
+		EE5D826729C4FB790011CFA8 /* CoreDataWeightLogStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataWeightLogStoreTests.swift; sourceTree = "<group>"; };
+		EE5D826929C4FC0C0011CFA8 /* CoreDataWeightLogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataWeightLogStore.swift; sourceTree = "<group>"; };
+		EE5D826B29C4FC570011CFA8 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
+		EE5D826D29C4FC8C0011CFA8 /* ManagedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCache.swift; sourceTree = "<group>"; };
+		EE5D826F29C4FCCA0011CFA8 /* ManagedWeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedWeightItem.swift; sourceTree = "<group>"; };
+		EE5D827229C4FEEF0011CFA8 /* WeightLogStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeightLogStore.xcdatamodel; sourceTree = "<group>"; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
@@ -129,6 +141,11 @@
 				EEF4DB5529C3CEE600F57D6D /* LocalWeightLogLoader.swift */,
 				EEF4DB5729C3CF5C00F57D6D /* WeightStore.swift */,
 				EE5D825929C4D43F0011CFA8 /* CodableWeightLogStore.swift */,
+				EE5D826929C4FC0C0011CFA8 /* CoreDataWeightLogStore.swift */,
+				EE5D826B29C4FC570011CFA8 /* CoreDataHelpers.swift */,
+				EE5D826D29C4FC8C0011CFA8 /* ManagedCache.swift */,
+				EE5D826F29C4FCCA0011CFA8 /* ManagedWeightItem.swift */,
+				EE5D827129C4FEEF0011CFA8 /* WeightLogStore.xcdatamodeld */,
 			);
 			path = Weight;
 			sourceTree = "<group>";
@@ -141,6 +158,7 @@
 				EE5D825729C440A80011CFA8 /* DeleteFromCacheUseCaseTests.swift */,
 				EEF4DB5929C3D80200F57D6D /* LoadLogFromCacheUseCaseTests.swift */,
 				EEF4DB5F29C3F96800F57D6D /* CodableWeightLogStoreTests.swift */,
+				EE5D826729C4FB790011CFA8 /* CoreDataWeightLogStoreTests.swift */,
 				EE5D826629C4EE9A0011CFA8 /* WeightLogStoreSpecs */,
 			);
 			path = WeightTests;
@@ -256,10 +274,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE5D827329C4FEEF0011CFA8 /* WeightLogStore.xcdatamodeld in Sources */,
 				EEF4DB5629C3CEE600F57D6D /* LocalWeightLogLoader.swift in Sources */,
 				EEF4DB5829C3CF5C00F57D6D /* WeightStore.swift in Sources */,
 				EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */,
+				EE5D826A29C4FC0C0011CFA8 /* CoreDataWeightLogStore.swift in Sources */,
+				EE5D826C29C4FC570011CFA8 /* CoreDataHelpers.swift in Sources */,
 				EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */,
+				EE5D827029C4FCCA0011CFA8 /* ManagedWeightItem.swift in Sources */,
+				EE5D826E29C4FC8C0011CFA8 /* ManagedCache.swift in Sources */,
 				EE5D825A29C4D43F0011CFA8 /* CodableWeightLogStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +295,7 @@
 				EE5D825C29C4E24B0011CFA8 /* WeightLogStoreSpecs.swift in Sources */,
 				EE5D826129C4EC1A0011CFA8 /* XCTestCase+FailableRetrieveWeightLogStoreSpecs.swift in Sources */,
 				EE5D826529C4EE3D0011CFA8 /* XCTestCase+FailableDeleteWeightLogStoreSpecs.swift in Sources */,
+				EE5D826829C4FB790011CFA8 /* CoreDataWeightLogStoreTests.swift in Sources */,
 				EEF4DB5229C3AD5500F57D6D /* CacheWeightLogUseCaseTests.swift in Sources */,
 				EE5D826329C4ECEC0011CFA8 /* XCTestCase+FailableSaveWeightLogStoreSpecs.swift in Sources */,
 				EEF4DB5E29C3DBED00F57D6D /* TestHelpers.swift in Sources */,
@@ -555,6 +579,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EE5D827129C4FEEF0011CFA8 /* WeightLogStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EE5D827229C4FEEF0011CFA8 /* WeightLogStore.xcdatamodel */,
+			);
+			currentVersion = EE5D827229C4FEEF0011CFA8 /* WeightLogStore.xcdatamodel */;
+			path = WeightLogStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EEF4DB2A29C39B4700F57D6D /* Project object */;
 }

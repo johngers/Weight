@@ -14,7 +14,7 @@ protocol WeightLogStoreSpecs {
     func test_retrieve_hasNoSideEffectsOnNonEmptyCache()
  
     func test_save_deliversNoErrorOnEmptyCache()
-    func test_save_deliversNoErrorNonEmptyCache()
+    func test_save_deliversNoErrorOnNonEmptyCache()
     func test_save_appendsNewDataToPreviouslyInsertedCacheValues()
 
     func test_delete_deliversNoErrorOnEmptyCache()
@@ -22,7 +22,7 @@ protocol WeightLogStoreSpecs {
     func test_delete_deliversNoErrorOnNonEmptyCache()
     func test_delete_emptiesPreviouslyInsertedCache()
 
-    func test_storeSideEffect_runSerially()
+    func test_storeSideEffects_runSerially()
 }
 
 protocol FailableRetrieveWeightLogStoreSpecs: WeightLogStoreSpecs {
