@@ -32,6 +32,7 @@ public class CodableWeightLogStore: WeightLogStore {
         }
     }
     
+    private let queue = DispatchQueue(label: "\(CodableWeightLogStore.self)Queue", qos: .userInitiated)
     private let storeURL: URL
     
     public init(storeURL: URL) {
@@ -39,20 +40,24 @@ public class CodableWeightLogStore: WeightLogStore {
     }
 
     public func retrieve(completion: @escaping RetrievalCompletion) {
-        guard let data = try? Data(contentsOf: storeURL) else {
-            return completion(.empty)
-        }
-    
-        do {
-            let decoder = JSONDecoder()
-            let cache = try decoder.decode(Cache.self, from: data)
-            completion(.found(log: cache.localLog))
-        } catch {
-            completion(.failure(error))
+        let storeURL = self.storeURL
+        queue.async {
+            guard let data = try? Data(contentsOf: storeURL) else {
+                return completion(.empty)
+            }
+        
+            do {
+                let decoder = JSONDecoder()
+                let cache = try decoder.decode(Cache.self, from: data)
+                completion(.found(log: cache.localLog))
+            } catch {
+                completion(.failure(error))
+            }
         }
     }
     
     public func save(_ log: [LocalWeightItem], completion: @escaping SaveCompletion) {
+        let storeURL = self.storeURL
         var cachedLog: [LocalWeightItem] = []
         retrieve(completion: { result in
             switch result {
@@ -62,29 +67,34 @@ public class CodableWeightLogStore: WeightLogStore {
                 break
             }
         })
-        
-        do {
-            let log = log + cachedLog
-            let encoder = JSONEncoder()
-            let cache = Cache(log: log.map(CodableWeightItem.init))
-            let encoded = try! encoder.encode(cache)
-            try encoded.write(to: storeURL)
-            completion(nil)
-        } catch {
-            completion(error)
+
+        queue.async {
+            do {
+                let log = log + cachedLog
+                let encoder = JSONEncoder()
+                let cache = Cache(log: log.map(CodableWeightItem.init))
+                let encoded = try! encoder.encode(cache)
+                try encoded.write(to: storeURL)
+                completion(nil)
+            } catch {
+                completion(error)
+            }
         }
     }
     
     public func deleteCachedLog(completion: @escaping DeletionCompletion) {
-        guard FileManager.default.fileExists(atPath: storeURL.path) else {
-            return completion(.success)
-        }
-        
-        do {
-            try FileManager.default.removeItem(at: storeURL)
-            completion(.success)
-        } catch {
-            completion(.failure(error))
+        let storeURL = self.storeURL
+        queue.async {
+            guard FileManager.default.fileExists(atPath: storeURL.path) else {
+                return completion(.success)
+            }
+            
+            do {
+                try FileManager.default.removeItem(at: storeURL)
+                completion(.success)
+            } catch {
+                completion(.failure(error))
+            }
         }
     }
 }

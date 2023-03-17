@@ -142,7 +142,7 @@ class CodableWeightLogStoreTests: XCTestCase {
             op3.fulfill()
         }
         
-        waitForExpectations(timeout: 5.0)
+        waitForExpectations(timeout: 3.0)
         
         XCTAssertEqual(completedOperationsInOrder, [op1, op2, op3], "Expected side-effects to run serially but operations finished in the wrong order")
     }
@@ -181,7 +181,7 @@ class CodableWeightLogStoreTests: XCTestCase {
             }
             exp.fulfill()
         }
-        wait(for: [exp], timeout: 1.0)
+        wait(for: [exp], timeout: 5.0)
         return deletionError
     }
     
