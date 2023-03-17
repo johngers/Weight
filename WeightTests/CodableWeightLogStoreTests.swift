@@ -131,8 +131,10 @@ class CodableWeightLogStoreTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    private func makeSUT() -> CodableWeightLogStore {
-        return CodableWeightLogStore()
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> CodableWeightLogStore {
+        let sut = CodableWeightLogStore()
+        trackForMemoryLeaks(sut, file: file, line: line)
+        return sut
     }
     
     private func uniqueItem() -> WeightItem {

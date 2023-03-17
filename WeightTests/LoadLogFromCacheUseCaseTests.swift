@@ -66,7 +66,7 @@ class LoadLogFromCacheUseCaseTests: XCTestCase {
         let store = WeightLogStoreSpy()
         let sut = LocalWeightLogLoader(store: store)
         trackForMemoryLeaks(store, file: file, line: line)
-        trackForMemoryLeaks(sut)
+        trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, store)
     }
     
