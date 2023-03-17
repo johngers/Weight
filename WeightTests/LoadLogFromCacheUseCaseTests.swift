@@ -88,14 +88,4 @@ class LoadLogFromCacheUseCaseTests: XCTestCase {
         action()
         wait(for: [exp], timeout: 1.0)
     }
-    
-    private func uniqueItem() -> WeightItem {
-        return WeightItem(id: UUID(), weight: 100.0, date: Date())
-    }
-    
-    private func uniqueWeightLog() -> (models: [WeightItem], local: [LocalWeightItem]) {
-        let items = [uniqueItem()]
-        let localItems = items.map { LocalWeightItem(id: $0.id, weight: $0.weight, date: $0.date) }
-        return (items, localItems)
-    }
 }
