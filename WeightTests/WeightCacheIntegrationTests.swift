@@ -39,6 +39,31 @@ class WeightCacheIntegrationTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
+    func test_load_deliversItemsSavedOnASeparateInstance() {
+        let sutToPerformSave = makeSUT()
+        let sutToPerformLoad = makeSUT()
+        let log = uniqueWeightLog().models
+        
+        let saveExp = expectation(description: "Wait for save completion" )
+        sutToPerformSave.save(log) { saveError in
+            XCTAssertNil(saveError, "Expected to save feed successfully")
+            saveExp.fulfill()
+        }
+        wait(for: [saveExp], timeout: 1.0)
+        
+        let loadExp = expectation(description: "Wait for load completion")
+        sutToPerformLoad.load { loadResult in
+            switch loadResult {
+            case let .success(loadedLog) :
+                XCTAssertEqual(log, loadedLog)
+            case let .failure(error):
+                XCTFail("Expected successful fed result, got \(error) instead")
+            }
+            loadExp.fulfill()
+        }
+        wait(for: [loadExp], timeout: 1.0)
+    }
+    
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> LocalWeightLogLoader {
         let storeBundle = Bundle(for: CoreDataWeightLogStore.self)
         let storeURL = testSpecificStoreURL()
