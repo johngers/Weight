@@ -5,10 +5,8 @@
 //  Created by John Gers on 3/17/23.
 //
 
-import Foundation
-
 import XCTest
-import Weight
+@testable import Weight
 
 class CoreDataWeightLogStoreTests: XCTestCase, WeightLogStoreSpecs {
     
@@ -84,6 +82,15 @@ class CoreDataWeightLogStoreTests: XCTestCase, WeightLogStoreSpecs {
         assertThatSideEffectsRunSerially(on: sut)
     }
     
+    func test_invalid_deliversError() {
+        do {
+            let result = try makeInvalidSUT()
+            XCTFail("Expected modelNotFoundError, got \(String(describing: result)) instead")
+        } catch {
+            XCTAssertEqual(error as NSError, NSPersistentContainer.LoadingError.modelNotFound as NSError)
+        }
+    }
+    
     // - MARK: Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> WeightLogStore {
@@ -93,5 +100,16 @@ class CoreDataWeightLogStoreTests: XCTestCase, WeightLogStoreSpecs {
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
-    
+ 
+    private func makeInvalidSUT(file: StaticString = #file, line: UInt = #line) throws -> WeightLogStore {
+        do {
+            let storeBundle = Bundle()
+            let storeURL = URL(fileURLWithPath: "/dev/null")
+            let sut = try CoreDataWeightLogStore(storeURL: storeURL, bundle: storeBundle)
+            trackForMemoryLeaks(sut, file: file, line: line)
+            return sut
+        } catch {
+            throw NSPersistentContainer.LoadingError.modelNotFound
+        }
+    }
 }
