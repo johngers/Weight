@@ -121,14 +121,14 @@ class CodableWeightLogStoreTests: XCTestCase, FailableWeightLogStoreSpecs {
     }
     
     func test_delete_deliversErrorOnDeletionError() {
-        let noDeletePermissionURL = cachesDirectory()
+        let noDeletePermissionURL = systemCachesDirectory()
         let sut = makeSUT(storeURL: noDeletePermissionURL)
         
         assertThatDeleteDeliversErrorOnDeletionError(on: sut)
     }
     
     func test_delete_hasNoSideEffectsOnDeletionError() {
-        let noDeletePermissionURL = cachesDirectory()
+        let noDeletePermissionURL = systemCachesDirectory()
         let sut = makeSUT(storeURL: noDeletePermissionURL)
         
         assertThatDeleteHasNoSideEffectsOnDeletionError(on: sut)
@@ -166,5 +166,9 @@ class CodableWeightLogStoreTests: XCTestCase, FailableWeightLogStoreSpecs {
     
     private func cachesDirectory() -> URL {
         return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+    }
+    
+    private func systemCachesDirectory() -> URL {
+        return FileManager.default.urls(for: .cachesDirectory, in: .systemDomainMask).first!
     }
 }
