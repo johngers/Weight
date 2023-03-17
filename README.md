@@ -75,11 +75,11 @@ Given the customer doesn't have connectivity
     ✅ Non-empty cache returns data
     ✅ Non-empty cache twice returns same data (no side-effects)
     ✅ Error returns error (if applicable, e.g., invalid data)
-    - Error twice returns same error (if applicable, e.g., invalid data)
+    ✅ Error twice returns same error (if applicable, e.g., invalid data)
 
 - Insert
     ✅ To empty cache stores data
-    - To non-empty cache appends new data to previous data
+    ✅ To non-empty cache prepends new data to previous data
     - Error (if applicable, e.g., no write permission)
 
 - Delete
