@@ -16,11 +16,15 @@ public final class LocalWeightLogLoader {
     public init(store: WeightLogStore) {
         self.store = store
     }
-    
+}
+
+extension LocalWeightLogLoader {
     public func save(_ log: [WeightItem], completion: @escaping (SaveResult) -> Void) {
         store.save(log.toLocal(), completion: completion)
     }
-    
+}
+
+extension LocalWeightLogLoader: WeightLogLoader {
     public func load(completion: @escaping (LoadResult) -> Void) {
         store.retrieve { [weak self] result in
             guard let _ = self else { return }
