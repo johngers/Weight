@@ -33,38 +33,22 @@ class WeightCacheIntegrationTests: XCTestCase {
         let sutToPerformLoad = makeSUT()
         let log = uniqueWeightLog().models
         
-        let saveExp = expectation(description: "Wait for save completion" )
-        sutToPerformSave.save(log) { saveError in
-            XCTAssertNil(saveError, "Expected to save log successfully")
-            saveExp.fulfill()
-        }
-        wait(for: [saveExp], timeout: 1.0)
+        save(log, with: sutToPerformSave)
         
         expect(sutToPerformLoad, toLoad: log)
     }
     
-    func test_save_overridesItemsSavedOnASeparateInstance ( ) {
+    func test_save_overridesItemsSavedOnASeparateInstance() {
         let sutToPerformFirstSave = makeSUT()
         let sutToPerformLastSave = makeSUT()
         let sutToPerformLoad = makeSUT()
         let firstLog = uniqueWeightLog().models
         let latestLog = uniqueWeightLog().models
 
-        let saveExp1 = expectation(description: "Wait for save completion" )
-        sutToPerformFirstSave.save(firstLog) { saveError in
-            XCTAssertNil(saveError, "Expected to save log successfully")
-            saveExp1.fulfill()
-        }
-        wait(for: [saveExp1], timeout: 1.0)
-        
-        let saveExp2 = expectation(description: "Wait for save completion" )
-        sutToPerformLastSave.save(latestLog) { saveError in
-            XCTAssertNil(saveError, "Expected to save log successfully")
-            saveExp2.fulfill()
-        }
-        wait(for: [saveExp2], timeout: 1.0)
+        save(firstLog, with: sutToPerformFirstSave)
+        save(latestLog, with: sutToPerformLastSave)
 
-        expect (sutToPerformLoad, toLoad: latestLog)
+        expect(sutToPerformLoad, toLoad: latestLog)
     }
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> LocalWeightLogLoader {
@@ -89,6 +73,15 @@ class WeightCacheIntegrationTests: XCTestCase {
             exp.fulfill()
         }
         wait(for: [exp], timeout: 1.0)
+    }
+    
+    private func save(_ log: [WeightItem], with loader: LocalWeightLogLoader, file: StaticString = #file, line: UInt = #line) {
+        let saveExp = expectation(description: "Wait for save completion")
+        loader.save(log) { saveError in
+            XCTAssertNil(saveError, "Expected to save log successfully", file: file, line: line)
+            saveExp.fulfill()
+        }
+        wait(for: [saveExp], timeout: 1.0)
     }
     
     private func setupEmptyStoreState() {
