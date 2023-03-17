@@ -87,29 +87,16 @@ class CodableWeightLogStoreTests: XCTestCase {
     func test_retrieveAfterInsertingToEmptyCache_deliversInsertedValues() {
         let log = uniqueWeightLog().local
         let sut = makeSUT()
-        let exp = expectation(description: "Wait for cache retrieval")
         
-        sut.save(log) { insertionError  in
-            XCTAssertNil(insertionError, "Expected log to be inserted successfully")
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
-        
+        save(log, to: sut)        
         expect(sut, toRetrieve: .found(log: log))
     }
     
     func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
         let log = uniqueWeightLog().local
         let sut = makeSUT()
-        let exp = expectation(description: "Wait for cache retrieval")
         
-        sut.save(log) { insertionError  in
-            XCTAssertNil(insertionError, "Expected log to be inserted successfully")
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
+        save(log, to: sut)
         expect(sut, toRetrieveTwice: .found(log: log))
     }
     
@@ -119,6 +106,17 @@ class CodableWeightLogStoreTests: XCTestCase {
         let sut = CodableWeightLogStore(storeURL: testSpecificStoreURL())
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
+    }
+    
+    private func save(_ cache: [LocalWeightItem], to sut: WeightLogStore, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for cache retrieval")
+        
+        sut.save(cache) { insertionError  in
+            XCTAssertNil(insertionError, "Expected log to be inserted successfully")
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
     }
     
     private func expect(_ sut: WeightLogStore, toRetrieveTwice expectedResult: RetrieveCachedLogResult, file: StaticString = #file, line: UInt = #line) {
