@@ -113,6 +113,15 @@ class CodableWeightLogStoreTests: XCTestCase {
         expect(sut, toRetrieve: .failure(anyNSError()))
     }
     
+    func test_retrieve_hasNoSideEffectsOnRetrievalError() {
+        let storeURL = testSpecificStoreURL()
+        let sut = makeSUT(storeURL: storeURL)
+        
+        try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
+    
+        expect(sut, toRetrieveTwice: .failure(anyNSError()))
+    }
+    
     // - MARK: Helpers
     
     private func makeSUT(storeURL: URL? = nil, file: StaticString = #file, line: UInt = #line) -> CodableWeightLogStore {
