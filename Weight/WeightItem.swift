@@ -8,9 +8,9 @@
 import Foundation
 
 public struct WeightItem: Equatable {
-    let id: UUID
-    let weight: Double
-    let date: Date
+    public let id: UUID
+    public let weight: Double
+    public let date: Date
     
     public init(id: UUID, weight: Double, date: Date) {
         self.id = id

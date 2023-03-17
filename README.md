@@ -27,19 +27,19 @@ Given the customer doesn't have connectivity
 
 ## Use Cases
 
-### Load Weight From Cache Use Case
+### Load Weight Log From Cache Use Case
 
 #### Primary course:
-1. Execute "Load Weight Item" command with above data.
-2. System fetches weight data from cache.
-3. System creates weight items from cached data.
-4. System delivers weight items.
+1. Execute "Load Weight Log" command with above data.
+2. System fetches weight log data from cache.
+3. System creates weight log from cached data.
+4. System delivers weight log.
 
 #### Error course (sad path):
 1. System delivers error.
 
 #### Empty cache course (sad path): 
-1. System delivers no weight items.
+1. System delivers no weight log.
 
 
 ### Cache Weight Use Case

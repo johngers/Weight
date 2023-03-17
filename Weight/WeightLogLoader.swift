@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum LoadWeightResult {
+public enum LoadWeightResult {
     case success([WeightItem])
-    case error(Error)
+    case failure(Error)
 }
 
-protocol WeightLoader {
+protocol WeightLogLoader {
     func load(completion: @escaping (LoadWeightResult) -> Void)
 }
