@@ -71,7 +71,7 @@ class CodableWeightLogStoreTests: XCTestCase {
     }
 
     func test_retrieve_deliversEmptyOnEmptyCache() {
-        let sut = CodableWeightLogStore()
+        let sut = makeSUT()
         let exp = expectation(description: "Wait for cache retrieval")
 
         sut.retrieve { result  in
@@ -89,7 +89,7 @@ class CodableWeightLogStoreTests: XCTestCase {
     }
     
     func test_retrieve_hasNoSideEffectsOnEmptyCache() {
-        let sut = CodableWeightLogStore()
+        let sut = makeSUT()
         let exp = expectation(description: "Wait for cache retrieval")
 
         sut.retrieve { firstResult  in
@@ -110,7 +110,7 @@ class CodableWeightLogStoreTests: XCTestCase {
     
     func test_retrieveAfterInsertingToEmptyCache_deliversInsertedValues() {
         let log = uniqueWeightLog().local
-        let sut = CodableWeightLogStore()
+        let sut = makeSUT()
         let exp = expectation(description: "Wait for cache retrieval")
         
         sut.insert(log) { insertionError  in
@@ -129,6 +129,10 @@ class CodableWeightLogStoreTests: XCTestCase {
         }
                         
         wait(for: [exp], timeout: 1.0)
+    }
+    
+    private func makeSUT() -> CodableWeightLogStore {
+        return CodableWeightLogStore()
     }
     
     private func uniqueItem() -> WeightItem {
