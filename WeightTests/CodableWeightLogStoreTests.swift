@@ -64,12 +64,16 @@ class CodableWeightLogStore: WeightLogStore {
             }
         })
         
-        let log = log + cachedLog
-        let encoder = JSONEncoder()
-        let cache = Cache(log: log.map(CodableWeightItem.init))
-        let encoded = try! encoder.encode(cache)
-        try! encoded.write(to: storeURL)
-        completion(nil)
+        do {
+            let log = log + cachedLog
+            let encoder = JSONEncoder()
+            let cache = Cache(log: log.map(CodableWeightItem.init))
+            let encoded = try! encoder.encode(cache)
+            try encoded.write(to: storeURL)
+            completion(nil)
+        } catch {
+            completion(error)
+        }
     }
 }
 
@@ -145,6 +149,15 @@ class CodableWeightLogStoreTests: XCTestCase {
         XCTAssertNil(latestSaveError, "Expected to append to cache successfully")
         
         expect(sut, toRetrieve: .found(log: latestLog + log))
+    }
+    
+    func test_save_deliversErrorOnInsertionError() {
+        let invalidStoreURL = URL(string: "invaid://store-url")!
+        let sut = makeSUT(storeURL: invalidStoreURL)
+        let log = uniqueWeightLog().local
+        
+        let saveError = save(log, to: sut)
+        XCTAssertNotNil(saveError, "Expected to save cache successfully")
     }
     
     // - MARK: Helpers
