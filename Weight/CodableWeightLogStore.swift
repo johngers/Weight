@@ -32,7 +32,7 @@ public class CodableWeightLogStore: WeightLogStore {
         }
     }
     
-    private let queue = DispatchQueue(label: "\(CodableWeightLogStore.self)Queue", qos: .userInitiated)
+    private let queue = DispatchQueue(label: "\(CodableWeightLogStore.self)Queue", qos: .userInitiated, attributes: .concurrent)
     private let storeURL: URL
     
     public init(storeURL: URL) {
@@ -68,7 +68,7 @@ public class CodableWeightLogStore: WeightLogStore {
             }
         })
 
-        queue.async {
+        queue.async(flags: .barrier) {
             do {
                 let log = log + cachedLog
                 let encoder = JSONEncoder()
@@ -84,7 +84,7 @@ public class CodableWeightLogStore: WeightLogStore {
     
     public func deleteCachedLog(completion: @escaping DeletionCompletion) {
         let storeURL = self.storeURL
-        queue.async {
+        queue.async(flags: .barrier) {
             guard FileManager.default.fileExists(atPath: storeURL.path) else {
                 return completion(.success)
             }
