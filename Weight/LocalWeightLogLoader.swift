@@ -10,21 +10,22 @@ import Foundation
 public final class LocalWeightLogLoader {
     private let store: WeightLogStore
 
-    public typealias SaveResult = Error?
-    public typealias LoadResult = LoadWeightResult
-
     public init(store: WeightLogStore) {
         self.store = store
     }
 }
 
 extension LocalWeightLogLoader {
+    public typealias SaveResult = Error?
+
     public func save(_ log: [WeightItem], completion: @escaping (SaveResult) -> Void) {
         store.save(log.toLocal(), completion: completion)
     }
 }
 
 extension LocalWeightLogLoader: WeightLogLoader {
+    public typealias LoadResult = LoadWeightResult
+
     public func load(completion: @escaping (LoadResult) -> Void) {
         store.retrieve { [weak self] result in
             guard let _ = self else { return }
