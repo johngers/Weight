@@ -44,9 +44,13 @@ class CodableWeightLogStore: WeightLogStore {
             return completion(.empty)
         }
     
-        let decoder = JSONDecoder()
-        let cache = try! decoder.decode(Cache.self, from: data)
-        completion(.found(log: cache.localLog))
+        do {
+            let decoder = JSONDecoder()
+            let cache = try decoder.decode(Cache.self, from: data)
+            completion(.found(log: cache.localLog))
+        } catch {
+            completion(.failure(error))
+        }
     }
     
     func save(_ log: [LocalWeightItem], completion: @escaping WeightLogStore.SaveCompletion) {
@@ -98,6 +102,14 @@ class CodableWeightLogStoreTests: XCTestCase {
         
         save(log, to: sut)
         expect(sut, toRetrieveTwice: .found(log: log))
+    }
+    
+    func test_retrieve_deliversFailureOnRetrievalError() {
+        let sut = makeSUT()
+        
+        try! "invalid data".write(to: testSpecificStoreURL(), atomically: false, encoding: .utf8)
+    
+        expect(sut, toRetrieve: .failure(anyNSError()))
     }
     
     // - MARK: Helpers
