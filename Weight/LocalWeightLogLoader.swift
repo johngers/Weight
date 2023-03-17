@@ -24,7 +24,6 @@ extension LocalWeightLogLoader {
 }
 
 extension LocalWeightLogLoader: WeightLogLoader {
-    public typealias LoadResult = LoadWeightResult
     public typealias DeleteResult = DeleteWeightResult
 
     public func load(completion: @escaping (LoadResult) -> Void) {
