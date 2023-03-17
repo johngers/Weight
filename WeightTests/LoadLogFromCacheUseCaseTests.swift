@@ -50,6 +50,18 @@ class LoadLogFromCacheUseCaseTests: XCTestCase {
         })
     }
     
+    func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
+        let store = WeightLogStoreSpy()
+        var sut: LocalWeightLogLoader? = LocalWeightLogLoader(store: store)
+        
+        var receivedResults: [LocalWeightLogLoader.LoadResult] = []
+        sut?.load { receivedResults.append($0) }
+        
+        sut = nil
+        store.completeRetrievalWithEmptyCache()
+        XCTAssertTrue(receivedResults.isEmpty)
+    }
+    
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalWeightLogLoader, store: WeightLogStoreSpy) {
         let store = WeightLogStoreSpy()
         let sut = LocalWeightLogLoader(store: store)

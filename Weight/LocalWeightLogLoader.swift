@@ -22,7 +22,9 @@ public final class LocalWeightLogLoader {
     }
     
     public func load(completion: @escaping (LoadResult) -> Void) {
-        store.retrieve { result in
+        store.retrieve { [weak self] result in
+            guard let _ = self else { return }
+
             switch result {
             case let .failure(error):
                 completion(.failure(error))
@@ -30,7 +32,6 @@ public final class LocalWeightLogLoader {
                 completion(.success(log.toModels()))
             case .empty:
                 completion(.success([]))
-
             }
         }
     }
