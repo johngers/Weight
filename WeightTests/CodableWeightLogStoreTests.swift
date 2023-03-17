@@ -60,18 +60,16 @@ class CodableWeightLogStore {
 
 class CodableWeightLogStoreTests: XCTestCase {
     
-    override class func setUp() {
+    override func setUp() {
         super.setUp()
         
-        let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("weight-log.store")
-        try? FileManager.default.removeItem(at: storeURL)
+        try? FileManager.default.removeItem(at: storeURL())
     }
 
-    override class func tearDown() {
+    override func tearDown() {
         super.tearDown()
         
-        let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("weight-log.store")
-        try? FileManager.default.removeItem(at: storeURL)
+        try? FileManager.default.removeItem(at: storeURL())
     }
 
     func test_retrieve_deliversEmptyOnEmptyCache() {
@@ -136,10 +134,13 @@ class CodableWeightLogStoreTests: XCTestCase {
     }
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> CodableWeightLogStore {
-        let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("weight-log.store")
-        let sut = CodableWeightLogStore(storeURL: storeURL)
+        let sut = CodableWeightLogStore(storeURL: storeURL())
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
+    }
+    
+    private func storeURL() -> URL {
+        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("weight-log.store")
     }
     
     private func uniqueItem() -> WeightItem {
