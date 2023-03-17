@@ -7,14 +7,10 @@
 
 import Foundation
 
-public enum DeleteWeightResult {
-    case success
-    case failure(Error)
-}
-
 public protocol WeightLogLoader {
     typealias LoadResult = Result<[WeightItem], Error>
-
+    typealias DeleteResult = Result<Void, Error>
+    
     func load(completion: @escaping (LoadResult) -> Void)
-    func delete(completion: @escaping (DeleteWeightResult) -> Void)
+    func delete(completion: @escaping (DeleteResult) -> Void)
 }

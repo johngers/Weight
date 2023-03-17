@@ -36,7 +36,7 @@ class DeleteFromCacheUseCaseTests: XCTestCase {
     func test_delete_deliversNoErrorEmptyCache() {
         let (sut, store) = makeSUT()
 
-        expect(sut, toCompleteWith: .success, when: {
+        expect(sut, toCompleteWith: .success(()), when: {
             store.completeDeletionWithEmptyCache()
         })
     }
@@ -44,7 +44,7 @@ class DeleteFromCacheUseCaseTests: XCTestCase {
     func test_delete_deliversNoErrorOnNonEmptyCache() {
         let (sut, store) = makeSUT()
 
-        expect(sut, toCompleteWith: .success, when: {
+        expect(sut, toCompleteWith: .success(()), when: {
             store.completeDeletionSuccessfully()
         })
     }

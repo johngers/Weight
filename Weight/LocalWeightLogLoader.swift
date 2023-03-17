@@ -24,8 +24,6 @@ extension LocalWeightLogLoader {
 }
 
 extension LocalWeightLogLoader: WeightLogLoader {
-    public typealias DeleteResult = DeleteWeightResult
-
     public func load(completion: @escaping (LoadResult) -> Void) {
         store.retrieve { [weak self] result in
             guard let _ = self else { return }
@@ -47,7 +45,7 @@ extension LocalWeightLogLoader: WeightLogLoader {
             
             switch result {
             case .success:
-                completion(.success)
+                completion(.success(()))
             case let .failure(error):
                 completion(.failure(error))
             }
