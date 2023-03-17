@@ -21,10 +21,10 @@ public protocol WeightLogStore {
     func retrieve(completion: @escaping RetrievalCompletion)
 }
 
-public struct LocalWeightItem: Equatable, Codable {
-    let id: UUID
-    let weight: Double
-    let date: Date
+public struct LocalWeightItem: Equatable {
+    public let id: UUID
+    public let weight: Double
+    public let date: Date
     
     public init(id: UUID, weight: Double, date: Date) {
         self.id = id

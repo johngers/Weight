@@ -10,7 +10,27 @@ import Weight
 
 class CodableWeightLogStore {
     private struct Cache: Codable {
-        let log: [LocalWeightItem]
+        let log: [CodableWeightItem]
+        
+        var localLog: [LocalWeightItem] {
+            return log.map { $0.local }
+        }
+    }
+    
+    private struct CodableWeightItem: Codable {
+        private let id: UUID
+        private let weight: Double
+        private let date: Date
+        
+        init(_ item: LocalWeightItem) {
+            id = item.id
+            weight = item.weight
+            date = item.date
+        }
+        
+        var local: LocalWeightItem {
+            return LocalWeightItem(id: id, weight: weight, date: date)
+        }
     }
     
     private let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("weight-log.store")
@@ -22,12 +42,13 @@ class CodableWeightLogStore {
     
         let decoder = JSONDecoder()
         let cache = try! decoder.decode(Cache.self, from: data)
-        completion(.found(log: cache.log))
+        completion(.found(log: cache.localLog))
     }
     
     func insert(_ log: [LocalWeightItem], completion: @escaping WeightLogStore.SaveCompletion) {
         let encoder = JSONEncoder()
-        let encoded = try! encoder.encode(Cache(log: log))
+        let cache = Cache(log: log.map(CodableWeightItem.init))
+        let encoded = try! encoder.encode(cache)
         try! encoded.write(to: storeURL)
         completion(nil)
     }
