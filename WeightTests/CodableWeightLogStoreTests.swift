@@ -8,7 +8,42 @@
 import XCTest
 import Weight
 
-class CodableWeightLogStoreTests: XCTestCase {
+protocol WeightLogStoreSpecs {
+    func test_retrieve_deliversEmptyOnEmptyCache()
+    func test_retrieve_hasNoSideEffectsOnEmptyCache()
+    func test_retrieve_deliversFoundValuesOnNonEmptyCache()
+    func test_retrieve_hasNoSideEffectsOnNonEmptyCache()
+ 
+    func test_save_deliversNoErrorOnEmptyCache()
+    func test_save_deliversNoErrorNonEmptyCache()
+    func test_save_appendsNewDataToPreviouslyInsertedCacheValues()
+
+    func test_delete_deliversNoErrorOnEmptyCache()
+    func test_delete_hasNoSideEffectsOnEmptyCache()
+    func test_delete_deliversNoErrorOnNonEmptyCache()
+    func test_delete_emptiesPreviouslyInsertedCache()
+
+    func test_storeSideEffect_runSerially()
+}
+
+protocol FailableRetrieveWeightLogStoreSpecs: WeightLogStoreSpecs {
+    func test_retrieve_deliversFailureOnRetrievalError()
+    func test_retrieve_hasNoSideEffectsOnRetrievalError()
+}
+
+protocol FailableSaveWeightLogStoreSpecs: WeightLogStoreSpecs {
+    func test_save_deliversErrorOnInsertionError()
+    func test_save_hasNoSideEffectsOnInsertionError()
+}
+
+protocol FailableDeleteWeightLogStoreSpecs: WeightLogStoreSpecs {
+    func test_delete_deliversErrorOnDeletionError()
+    func test_delete_hasNoSideEffectsOnDeletionError()
+}
+
+typealias FailableWeightLogStoreSpecs = FailableRetrieveWeightLogStoreSpecs & FailableSaveWeightLogStoreSpecs & FailableDeleteWeightLogStoreSpecs
+
+class CodableWeightLogStoreTests: XCTestCase, FailableWeightLogStoreSpecs {
     
     override func setUp() {
         super.setUp()
@@ -68,6 +103,23 @@ class CodableWeightLogStoreTests: XCTestCase {
         expect(sut, toRetrieveTwice: .failure(anyNSError()))
     }
     
+    func test_save_deliversNoErrorOnEmptyCache() {
+        let sut = makeSUT()
+        let log = uniqueWeightLog().local
+        
+        let saveError = save(log, to: sut)
+        XCTAssertNil(saveError, "Expected to save cache successfully to empty cache")
+    }
+    
+    func test_save_deliversNoErrorNonEmptyCache() {
+        let sut = makeSUT()
+        let log = uniqueWeightLog().local
+        
+        save(log, to: sut)
+        let saveError = save(log, to: sut)
+        XCTAssertNil(saveError, "Expected to save cache successfully to non empty cache")
+    }
+    
     func test_save_appendsNewDataToPreviouslyInsertedCacheValues() {
         let sut = makeSUT()
         
@@ -91,13 +143,37 @@ class CodableWeightLogStoreTests: XCTestCase {
         XCTAssertNotNil(saveError, "Expected to save cache successfully")
     }
     
+    func test_save_hasNoSideEffectsOnInsertionError() {
+        let invalidStoreURL = URL(string: "invaid://store-url")!
+        let sut = makeSUT(storeURL: invalidStoreURL)
+        let log = uniqueWeightLog().local
+        
+        save(log, to: sut)
+        expect(sut, toRetrieve: .empty)
+    }
+
     func test_delete_hasNoSideEffectsOnEmptyCache() {
+        let sut = makeSUT()
+        
+        expect(sut, toRetrieve: .empty)
+    }
+    
+    func test_delete_deliversNoErrorOnEmptyCache() {
         let sut = makeSUT()
         
         let deletionError = deleteCache(from: sut)
         
         XCTAssertNil(deletionError, "Expected empty cache deletion to succeed")
-        expect(sut, toRetrieve: .empty)
+    }
+    
+    func test_delete_deliversNoErrorOnNonEmptyCache() {
+        let log = uniqueWeightLog().local
+        let sut = makeSUT()
+        
+        save(log, to: sut)
+
+        let deletionError = deleteCache(from: sut)
+        XCTAssertNil(deletionError, "Expected empty cache deletion to succeed")
     }
     
     func test_delete_emptiesPreviouslyInsertedCache() {
@@ -117,6 +193,15 @@ class CodableWeightLogStoreTests: XCTestCase {
         let deletionError = deleteCache(from: sut)
         
         XCTAssertNotNil(deletionError, "Expected cache deletion to fail")
+        expect(sut, toRetrieve: .empty)
+    }
+    
+    func test_delete_hasNoSideEffectsOnDeletionError() {
+        let noDeletePermissionURL = cachesDirectory()
+        let sut = makeSUT(storeURL: noDeletePermissionURL)
+        
+        deleteCache(from: sut)
+        
         expect(sut, toRetrieve: .empty)
     }
     
@@ -169,6 +254,7 @@ class CodableWeightLogStoreTests: XCTestCase {
         return saveError
     }
     
+    @discardableResult
     private func deleteCache(from sut: WeightLogStore) -> Error? {
         let exp = expectation(description: "Wait for cache deletion")
         var deletionError: Error?
