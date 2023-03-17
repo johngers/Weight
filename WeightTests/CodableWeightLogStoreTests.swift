@@ -54,6 +54,17 @@ class CodableWeightLogStore: WeightLogStore {
     }
     
     func save(_ log: [LocalWeightItem], completion: @escaping WeightLogStore.SaveCompletion) {
+        var cachedLog: [LocalWeightItem] = []
+        retrieve(completion: { result in
+            switch result {
+            case .found(log: let log):
+                cachedLog = log
+            default:
+                break
+            }
+        })
+        
+        let log = log + cachedLog
         let encoder = JSONEncoder()
         let cache = Cache(log: log.map(CodableWeightItem.init))
         let encoded = try! encoder.encode(cache)
@@ -122,6 +133,20 @@ class CodableWeightLogStoreTests: XCTestCase {
         expect(sut, toRetrieveTwice: .failure(anyNSError()))
     }
     
+    func test_save_appendsNewDataToPreviouslyInsertedCacheValues() {
+        let sut = makeSUT()
+        
+        let log = uniqueWeightLog().local
+        let firstSaveError = save(log, to: sut)
+        XCTAssertNil(firstSaveError, "Expected to save cache successfully")
+
+        let latestLog = uniqueWeightLog().local
+        let latestSaveError = save(latestLog, to: sut)
+        XCTAssertNil(latestSaveError, "Expected to append to cache successfully")
+        
+        expect(sut, toRetrieve: .found(log: latestLog + log))
+    }
+    
     // - MARK: Helpers
     
     private func makeSUT(storeURL: URL? = nil, file: StaticString = #file, line: UInt = #line) -> CodableWeightLogStore {
@@ -130,15 +155,18 @@ class CodableWeightLogStoreTests: XCTestCase {
         return sut
     }
     
-    private func save(_ cache: [LocalWeightItem], to sut: WeightLogStore, file: StaticString = #file, line: UInt = #line) {
+    @discardableResult
+    private func save(_ cache: [LocalWeightItem], to sut: WeightLogStore, file: StaticString = #file, line: UInt = #line) -> Error? {
         let exp = expectation(description: "Wait for cache retrieval")
         
-        sut.save(cache) { insertionError  in
-            XCTAssertNil(insertionError, "Expected log to be inserted successfully")
+        var saveError: Error?
+        sut.save(cache) { retrievedSaveError  in
+            saveError = retrievedSaveError
             exp.fulfill()
         }
         
         wait(for: [exp], timeout: 1.0)
+        return saveError
     }
     
     private func expect(_ sut: WeightLogStore, toRetrieveTwice expectedResult: RetrieveCachedLogResult, file: StaticString = #file, line: UInt = #line) {
