@@ -33,7 +33,11 @@ class CodableWeightLogStore {
         }
     }
     
-    private let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("weight-log.store")
+    private let storeURL: URL
+    
+    init(storeURL: URL) {
+        self.storeURL = storeURL
+    }
 
     func retrieve(completion: @escaping WeightLogStore.RetrievalCompletion) {
         guard let data = try? Data(contentsOf: storeURL) else {
@@ -132,7 +136,8 @@ class CodableWeightLogStoreTests: XCTestCase {
     }
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> CodableWeightLogStore {
-        let sut = CodableWeightLogStore()
+        let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("weight-log.store")
+        let sut = CodableWeightLogStore(storeURL: storeURL)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
