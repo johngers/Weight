@@ -35,12 +35,36 @@ class WeightCacheIntegrationTests: XCTestCase {
         
         let saveExp = expectation(description: "Wait for save completion" )
         sutToPerformSave.save(log) { saveError in
-            XCTAssertNil(saveError, "Expected to save feed successfully")
+            XCTAssertNil(saveError, "Expected to save log successfully")
             saveExp.fulfill()
         }
         wait(for: [saveExp], timeout: 1.0)
         
         expect(sutToPerformLoad, toLoad: log)
+    }
+    
+    func test_save_overridesItemsSavedOnASeparateInstance ( ) {
+        let sutToPerformFirstSave = makeSUT()
+        let sutToPerformLastSave = makeSUT()
+        let sutToPerformLoad = makeSUT()
+        let firstLog = uniqueWeightLog().models
+        let latestLog = uniqueWeightLog().models
+
+        let saveExp1 = expectation(description: "Wait for save completion" )
+        sutToPerformFirstSave.save(firstLog) { saveError in
+            XCTAssertNil(saveError, "Expected to save log successfully")
+            saveExp1.fulfill()
+        }
+        wait(for: [saveExp1], timeout: 1.0)
+        
+        let saveExp2 = expectation(description: "Wait for save completion" )
+        sutToPerformLastSave.save(latestLog) { saveError in
+            XCTAssertNil(saveError, "Expected to save log successfully")
+            saveExp2.fulfill()
+        }
+        wait(for: [saveExp2], timeout: 1.0)
+
+        expect (sutToPerformLoad, toLoad: latestLog)
     }
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> LocalWeightLogLoader {
@@ -60,7 +84,7 @@ class WeightCacheIntegrationTests: XCTestCase {
             case let .success(loadedLog):
                 XCTAssertEqual(loadedLog, expectedLog, file: file, line: line)
             case let .failure(error):
-                XCTFail("Expected successful feed result, got \(error) instead", file: file, line: line)
+                XCTFail("Expected successful log result, got \(error) instead", file: file, line: line)
             }
             exp.fulfill()
         }
