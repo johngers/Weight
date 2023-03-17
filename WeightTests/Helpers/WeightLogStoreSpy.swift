@@ -31,11 +31,11 @@ final class WeightLogStoreSpy: WeightLogStore {
     }
     
     func completeDeletionSuccessfully(at index: Int = 0) {
-        deletionCompletions[index](.success)
+        deletionCompletions[index](.success(()))
     }
     
     func completeDeletionWithEmptyCache(at index: Int = 0) {
-        deletionCompletions[index](.success)
+        deletionCompletions[index](.success(()))
     }
 
     func save(_ log: [LocalWeightItem], completion: @escaping SaveCompletion) {

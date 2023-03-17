@@ -12,13 +12,9 @@ public enum CachedFeed {
     case found(log: [LocalWeightItem])
 }
 
-public enum DeleteCachedLogResult {
-    case success
-    case failure(Error)
-}
-
 public protocol WeightLogStore {
-    typealias DeletionCompletion = (DeleteCachedLogResult) -> Void
+    typealias DeleteResult = Result<Void, Error>
+    typealias DeletionCompletion = (DeleteResult) -> Void
     typealias SaveCompletion = (Error?) -> Void
     typealias RetrievalResult = Result<CachedFeed, Error>
     typealias RetrievalCompletion = (RetrievalResult) -> Void

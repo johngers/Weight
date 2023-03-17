@@ -48,7 +48,7 @@ public final class CoreDataWeightLogStore: WeightLogStore {
         perform { context in
             do {
                 try ManagedCache.find(in: context).map(context.delete).map(context.save)
-                completion(.success)
+                completion(.success(()))
             } catch {
                 completion(.failure(error))
             }
