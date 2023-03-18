@@ -5,6 +5,7 @@
 //  Created by John Gers on 3/17/23.
 //
 
+import CoreData
 import XCTest
 @testable import Weight
 
