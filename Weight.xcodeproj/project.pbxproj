@@ -25,6 +25,9 @@
 		EE6816BF29C641200027160B /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6816BE29C641200027160B /* XCTestCase+Snapshot.swift */; };
 		EE80229229C646750025437B /* snapshots in Resources */ = {isa = PBXBuildFile; fileRef = EE80229129C646750025437B /* snapshots */; };
 		EE80229629C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE80229529C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift */; };
+		EE80229929C64AF10025437B /* TabHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE80229829C64AF10025437B /* TabHeaderView.swift */; };
+		EE80229C29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE80229B29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift */; };
+		EE80229E29C64E6E0025437B /* snapshots in Resources */ = {isa = PBXBuildFile; fileRef = EE80229D29C64E6E0025437B /* snapshots */; };
 		EEA95D3F29C644C700A69B38 /* SegmentedPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */; };
 		EEA95D4129C644C900A69B38 /* WeightInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA95D4029C644C900A69B38 /* WeightInputView.swift */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
@@ -77,6 +80,9 @@
 		EE6816BE29C641200027160B /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "XCTestCase+Snapshot.swift"; path = "WeightiOSTests/Snapshot Helpers/XCTestCase+Snapshot.swift"; sourceTree = SOURCE_ROOT; };
 		EE80229129C646750025437B /* snapshots */ = {isa = PBXFileReference; lastKnownFileType = folder; path = snapshots; sourceTree = "<group>"; };
 		EE80229529C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerViewSnapshotTests.swift; sourceTree = "<group>"; };
+		EE80229829C64AF10025437B /* TabHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabHeaderView.swift; path = ../TabHeaderView.swift; sourceTree = "<group>"; };
+		EE80229B29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHeaderViewSnapshotTests.swift; sourceTree = "<group>"; };
+		EE80229D29C64E6E0025437B /* snapshots */ = {isa = PBXFileReference; lastKnownFileType = folder; path = snapshots; sourceTree = "<group>"; };
 		EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SegmentedPickerView.swift; path = ../SegmentedPickerView.swift; sourceTree = "<group>"; };
 		EEA95D4029C644C900A69B38 /* WeightInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightInputView.swift; sourceTree = "<group>"; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +186,7 @@
 		EE80229329C646E50025437B /* SharedUI */ = {
 			isa = PBXGroup;
 			children = (
+				EE80229A29C64DD40025437B /* Tab Header */,
 				EE80229429C646F10025437B /* Segmented Picker */,
 			);
 			path = SharedUI;
@@ -198,8 +205,18 @@
 			isa = PBXGroup;
 			children = (
 				EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */,
+				EE80229829C64AF10025437B /* TabHeaderView.swift */,
 			);
 			path = SharedUI;
+			sourceTree = "<group>";
+		};
+		EE80229A29C64DD40025437B /* Tab Header */ = {
+			isa = PBXGroup;
+			children = (
+				EE80229B29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift */,
+				EE80229D29C64E6E0025437B /* snapshots */,
+			);
+			path = "Tab Header";
 			sourceTree = "<group>";
 		};
 		EEF4DB2929C39B4700F57D6D = {
@@ -405,6 +422,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE80229E29C64E6E0025437B /* snapshots in Resources */,
 				EE80229229C646750025437B /* snapshots in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE80229929C64AF10025437B /* TabHeaderView.swift in Sources */,
 				EEA95D3F29C644C700A69B38 /* SegmentedPickerView.swift in Sources */,
 				EEA95D4129C644C900A69B38 /* WeightInputView.swift in Sources */,
 			);
@@ -442,6 +461,7 @@
 			files = (
 				EE6816BF29C641200027160B /* XCTestCase+Snapshot.swift in Sources */,
 				EE6816BD29C641110027160B /* UIViewController+Snapshot.swift in Sources */,
+				EE80229C29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift in Sources */,
 				EE80229629C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
