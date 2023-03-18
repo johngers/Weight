@@ -21,6 +21,7 @@
 		EE5D827329C4FEEF0011CFA8 /* WeightLogStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE5D827129C4FEEF0011CFA8 /* WeightLogStore.xcdatamodeld */; };
 		EE5D827529C518F40011CFA8 /* WeightCacheIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D827429C518F40011CFA8 /* WeightCacheIntegrationTests.swift */; };
 		EE6816A629C54C3C0027160B /* WeightiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE68169E29C54C3C0027160B /* WeightiOS.framework */; };
+		EE6816B429C56D7D0027160B /* WeightLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6816B329C56D7D0027160B /* WeightLogView.swift */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 		EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLogLoader.swift */; };
@@ -67,6 +68,7 @@
 		EE5D827429C518F40011CFA8 /* WeightCacheIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightCacheIntegrationTests.swift; sourceTree = "<group>"; };
 		EE68169E29C54C3C0027160B /* WeightiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeightiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6816A529C54C3C0027160B /* WeightiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE6816B329C56D7D0027160B /* WeightLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeightLogView.swift; path = WeightTests/WeightLogView.swift; sourceTree = SOURCE_ROOT; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		EE68169F29C54C3C0027160B /* WeightiOS */ = {
 			isa = PBXGroup;
 			children = (
+				EE6816B329C56D7D0027160B /* WeightLogView.swift */,
 			);
 			path = WeightiOS;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				EEF4DB5829C3CF5C00F57D6D /* WeightLogStore.swift in Sources */,
 				EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */,
 				EE5D826A29C4FC0C0011CFA8 /* CoreDataWeightLogStore.swift in Sources */,
+				EE6816B429C56D7D0027160B /* WeightLogView.swift in Sources */,
 				EE5D826C29C4FC570011CFA8 /* CoreDataHelpers.swift in Sources */,
 				EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */,
 				EE5D827029C4FCCA0011CFA8 /* ManagedWeightItem.swift in Sources */,
@@ -574,6 +578,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = SJ7RP44M53;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -635,6 +640,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = SJ7RP44M53;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
