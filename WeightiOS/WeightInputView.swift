@@ -76,48 +76,6 @@ private struct DateView: View {
     }
 }
 
-private struct ProgressCardView: View {
-    @State private var downloadAmount = 50.0
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("Progress")
-                .fontWeight(.bold)
-
-            Spacer()
-                .frame(height: 10)
-
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("Current")
-                    
-                    Text("75 lb")
-                        .fontWeight(.bold)
-                }
-                
-                Spacer()
-                
-                VStack(alignment: .trailing) {
-                    Text("Goal")
-
-                    Text("125 lb")
-                        .fontWeight(.bold)
-                }
-            }
-
-            ProgressView(value: downloadAmount, total: 100)
-                .cornerRadius(8)
-                .scaleEffect(x: 1, y: 2, anchor: .center)
-                .progressViewStyle(.linear)
-                .tint(.mint.opacity(0.5))
-
-        }
-        .padding()
-        .background(Color.secondary.opacity(0.05))
-        .cornerRadius(8)
-    }
-}
-
 private struct EnterButtonView: View {
     let isEnabled: Bool
     var body: some View {

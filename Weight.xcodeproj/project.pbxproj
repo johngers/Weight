@@ -28,6 +28,11 @@
 		EE80229C29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE80229B29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift */; };
 		EEA95D3F29C644C700A69B38 /* SegmentedPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */; };
 		EEA95D4129C644C900A69B38 /* WeightInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA95D4029C644C900A69B38 /* WeightInputView.swift */; };
+		EED87D9B29C65E2F00EF98DF /* ProgressCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87D9A29C65E2F00EF98DF /* ProgressCardView.swift */; };
+		EED87D9E29C65F1100EF98DF /* ProgressCardViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87D9D29C65F1100EF98DF /* ProgressCardViewSnapshotTests.swift */; };
+		EED87DA329C65F8200EF98DF /* progress_card_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DA029C65F8200EF98DF /* progress_card_dark.png */; };
+		EED87DA429C65F8200EF98DF /* progress_card_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DA129C65F8200EF98DF /* progress_card_light_extraExtraExtraLarge.png */; };
+		EED87DA529C65F8200EF98DF /* progress_card_light.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DA229C65F8200EF98DF /* progress_card_light.png */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 		EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLogLoader.swift */; };
@@ -87,6 +92,11 @@
 		EE8022AC29C651720025437B /* tab_header_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_header_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
 		EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SegmentedPickerView.swift; path = ../SegmentedPickerView.swift; sourceTree = "<group>"; };
 		EEA95D4029C644C900A69B38 /* WeightInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightInputView.swift; sourceTree = "<group>"; };
+		EED87D9A29C65E2F00EF98DF /* ProgressCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCardView.swift; sourceTree = "<group>"; };
+		EED87D9D29C65F1100EF98DF /* ProgressCardViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCardViewSnapshotTests.swift; sourceTree = "<group>"; };
+		EED87DA029C65F8200EF98DF /* progress_card_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_card_dark.png; sourceTree = "<group>"; };
+		EED87DA129C65F8200EF98DF /* progress_card_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_card_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		EED87DA229C65F8200EF98DF /* progress_card_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_card_light.png; sourceTree = "<group>"; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
@@ -188,6 +198,7 @@
 		EE80229329C646E50025437B /* SharedUI */ = {
 			isa = PBXGroup;
 			children = (
+				EED87D9C29C65EE500EF98DF /* Progress Card */,
 				EE80229A29C64DD40025437B /* Tab Header */,
 				EE80229429C646F10025437B /* Segmented Picker */,
 			);
@@ -206,6 +217,7 @@
 		EE80229729C64A400025437B /* SharedUI */ = {
 			isa = PBXGroup;
 			children = (
+				EED87D9A29C65E2F00EF98DF /* ProgressCardView.swift */,
 				EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */,
 				EE80229829C64AF10025437B /* TabHeaderView.swift */,
 			);
@@ -241,6 +253,25 @@
 			name = snapshots;
 			path = "WeightiOSTests/SharedUI/Tab Header/snapshots";
 			sourceTree = SOURCE_ROOT;
+		};
+		EED87D9C29C65EE500EF98DF /* Progress Card */ = {
+			isa = PBXGroup;
+			children = (
+				EED87D9F29C65F8200EF98DF /* snapshots */,
+				EED87D9D29C65F1100EF98DF /* ProgressCardViewSnapshotTests.swift */,
+			);
+			path = "Progress Card";
+			sourceTree = "<group>";
+		};
+		EED87D9F29C65F8200EF98DF /* snapshots */ = {
+			isa = PBXGroup;
+			children = (
+				EED87DA029C65F8200EF98DF /* progress_card_dark.png */,
+				EED87DA129C65F8200EF98DF /* progress_card_light_extraExtraExtraLarge.png */,
+				EED87DA229C65F8200EF98DF /* progress_card_light.png */,
+			);
+			path = snapshots;
+			sourceTree = "<group>";
 		};
 		EEF4DB2929C39B4700F57D6D = {
 			isa = PBXGroup;
@@ -445,6 +476,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EED87DA529C65F8200EF98DF /* progress_card_light.png in Resources */,
+				EED87DA429C65F8200EF98DF /* progress_card_light_extraExtraExtraLarge.png in Resources */,
+				EED87DA329C65F8200EF98DF /* progress_card_dark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +507,7 @@
 				EE80229929C64AF10025437B /* TabHeaderView.swift in Sources */,
 				EEA95D3F29C644C700A69B38 /* SegmentedPickerView.swift in Sources */,
 				EEA95D4129C644C900A69B38 /* WeightInputView.swift in Sources */,
+				EED87D9B29C65E2F00EF98DF /* ProgressCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +518,7 @@
 				EE6816BF29C641200027160B /* XCTestCase+Snapshot.swift in Sources */,
 				EE6816BD29C641110027160B /* UIViewController+Snapshot.swift in Sources */,
 				EE80229C29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift in Sources */,
+				EED87D9E29C65F1100EF98DF /* ProgressCardViewSnapshotTests.swift in Sources */,
 				EE80229629C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
