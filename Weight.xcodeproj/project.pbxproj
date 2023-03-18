@@ -34,6 +34,10 @@
 		EED87DA429C65F8200EF98DF /* progress_card_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DA129C65F8200EF98DF /* progress_card_light_extraExtraExtraLarge.png */; };
 		EED87DA529C65F8200EF98DF /* progress_card_light.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DA229C65F8200EF98DF /* progress_card_light.png */; };
 		EED87DA729C6604D00EF98DF /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DA629C6604D00EF98DF /* ActionButtonView.swift */; };
+		EED87DAA29C661F400EF98DF /* ActionButtonViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DA929C661F400EF98DF /* ActionButtonViewSnapshotTests.swift */; };
+		EED87DAF29C6624D00EF98DF /* action_button_light.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DAC29C6624D00EF98DF /* action_button_light.png */; };
+		EED87DB029C6624D00EF98DF /* action_button_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DAD29C6624D00EF98DF /* action_button_light_extraExtraExtraLarge.png */; };
+		EED87DB129C6624D00EF98DF /* action_button_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DAE29C6624D00EF98DF /* action_button_dark.png */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 		EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLogLoader.swift */; };
@@ -99,6 +103,10 @@
 		EED87DA129C65F8200EF98DF /* progress_card_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_card_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
 		EED87DA229C65F8200EF98DF /* progress_card_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_card_light.png; sourceTree = "<group>"; };
 		EED87DA629C6604D00EF98DF /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
+		EED87DA929C661F400EF98DF /* ActionButtonViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonViewSnapshotTests.swift; sourceTree = "<group>"; };
+		EED87DAC29C6624D00EF98DF /* action_button_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action_button_light.png; sourceTree = "<group>"; };
+		EED87DAD29C6624D00EF98DF /* action_button_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action_button_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		EED87DAE29C6624D00EF98DF /* action_button_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action_button_dark.png; sourceTree = "<group>"; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
@@ -200,6 +208,7 @@
 		EE80229329C646E50025437B /* SharedUI */ = {
 			isa = PBXGroup;
 			children = (
+				EED87DA829C661BE00EF98DF /* Action Button */,
 				EED87D9C29C65EE500EF98DF /* Progress Card */,
 				EE80229429C646F10025437B /* Segmented Picker */,
 				EE80229A29C64DD40025437B /* Tab Header */,
@@ -272,6 +281,25 @@
 				EED87DA029C65F8200EF98DF /* progress_card_dark.png */,
 				EED87DA129C65F8200EF98DF /* progress_card_light_extraExtraExtraLarge.png */,
 				EED87DA229C65F8200EF98DF /* progress_card_light.png */,
+			);
+			path = snapshots;
+			sourceTree = "<group>";
+		};
+		EED87DA829C661BE00EF98DF /* Action Button */ = {
+			isa = PBXGroup;
+			children = (
+				EED87DAB29C6624D00EF98DF /* snapshots */,
+				EED87DA929C661F400EF98DF /* ActionButtonViewSnapshotTests.swift */,
+			);
+			path = "Action Button";
+			sourceTree = "<group>";
+		};
+		EED87DAB29C6624D00EF98DF /* snapshots */ = {
+			isa = PBXGroup;
+			children = (
+				EED87DAC29C6624D00EF98DF /* action_button_light.png */,
+				EED87DAD29C6624D00EF98DF /* action_button_light_extraExtraExtraLarge.png */,
+				EED87DAE29C6624D00EF98DF /* action_button_dark.png */,
 			);
 			path = snapshots;
 			sourceTree = "<group>";
@@ -481,6 +509,9 @@
 			files = (
 				EED87DA529C65F8200EF98DF /* progress_card_light.png in Resources */,
 				EED87DA429C65F8200EF98DF /* progress_card_light_extraExtraExtraLarge.png in Resources */,
+				EED87DB029C6624D00EF98DF /* action_button_light_extraExtraExtraLarge.png in Resources */,
+				EED87DB129C6624D00EF98DF /* action_button_dark.png in Resources */,
+				EED87DAF29C6624D00EF98DF /* action_button_light.png in Resources */,
 				EED87DA329C65F8200EF98DF /* progress_card_dark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,6 +552,7 @@
 			files = (
 				EE6816BF29C641200027160B /* XCTestCase+Snapshot.swift in Sources */,
 				EE6816BD29C641110027160B /* UIViewController+Snapshot.swift in Sources */,
+				EED87DAA29C661F400EF98DF /* ActionButtonViewSnapshotTests.swift in Sources */,
 				EE80229C29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift in Sources */,
 				EED87D9E29C65F1100EF98DF /* ProgressCardViewSnapshotTests.swift in Sources */,
 				EE80229629C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift in Sources */,

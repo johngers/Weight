@@ -13,7 +13,7 @@ struct ActionButtonView: View {
     let color: UIColor
     let buttonSelection: () -> Void
     
-    init(isEnabled: Bool = true, title: String = "Enter", color: UIColor = .systemMint.withAlphaComponent(0.5), buttonSelection: @escaping () -> Void = { }) {
+    init(isEnabled: Bool = true, title: String = "Enter", color: UIColor = .systemMint.withAlphaComponent(0.5), buttonSelection: @escaping () -> Void) {
         self.isEnabled = isEnabled
         self.title = title
         self.color = color
@@ -35,7 +35,7 @@ struct ActionButtonView: View {
 
 struct ActionButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ActionButtonView()
+        ActionButtonView(buttonSelection: { })
             .previewLayout(.sizeThatFits)
     }
 }
