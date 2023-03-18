@@ -199,8 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				EED87D9C29C65EE500EF98DF /* Progress Card */,
-				EE80229A29C64DD40025437B /* Tab Header */,
 				EE80229429C646F10025437B /* Segmented Picker */,
+				EE80229A29C64DD40025437B /* Tab Header */,
 			);
 			path = SharedUI;
 			sourceTree = "<group>";
