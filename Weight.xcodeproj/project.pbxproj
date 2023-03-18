@@ -152,8 +152,8 @@
 		EE68169F29C54C3C0027160B /* WeightiOS */ = {
 			isa = PBXGroup;
 			children = (
-				EE80229729C64A400025437B /* SharedUI */,
 				EEA95D4029C644C900A69B38 /* WeightInputView.swift */,
+				EE80229729C64A400025437B /* SharedUI */,
 			);
 			name = WeightiOS;
 			path = /Users/johngers/Desktop/Weight/WeightiOS;
