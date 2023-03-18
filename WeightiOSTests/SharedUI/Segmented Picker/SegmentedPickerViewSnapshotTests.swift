@@ -24,13 +24,13 @@ class SegmentedPickerViewSnapshotTests: XCTestCase {
 //        record(snapshot: sut.snapshot(for: .iPhone14Pro(style: .light, contentSize: .extraExtraExtraLarge)), named: "seg_picker_light_extraExtraExtraLarge")
 //    }
     
-//    func test_segmentedPickerView__assert() {
-//        let sut = makeSUT()
-//
-//        assert(snapshot: sut.snapshot(for: .iPhone14Pro(style: .light)), named: "seg_picker_light")
-//        assert(snapshot: sut.snapshot(for: .iPhone14Pro(style: .dark)), named: "seg_picker_dark")
-//        assert(snapshot: sut.snapshot(for: .iPhone14Pro(style: .light, contentSize: .extraExtraExtraLarge)), named: "seg_picker_light_extraExtraExtraLarge")
-//    }
+    func test_segmentedPickerView__assert() {
+        let sut = makeSUT()
+
+        assert(snapshot: sut.snapshot(for: .iPhone14Pro(style: .light)), named: "seg_picker_light")
+        assert(snapshot: sut.snapshot(for: .iPhone14Pro(style: .dark)), named: "seg_picker_dark")
+        assert(snapshot: sut.snapshot(for: .iPhone14Pro(style: .light, contentSize: .extraExtraExtraLarge)), named: "seg_picker_light_extraExtraExtraLarge")
+    }
     
     // MARK: - Helpers
     
