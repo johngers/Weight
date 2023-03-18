@@ -77,7 +77,7 @@
 		EE6816BE29C641200027160B /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "XCTestCase+Snapshot.swift"; path = "WeightiOSTests/Snapshot Helpers/XCTestCase+Snapshot.swift"; sourceTree = SOURCE_ROOT; };
 		EE80229129C646750025437B /* snapshots */ = {isa = PBXFileReference; lastKnownFileType = folder; path = snapshots; sourceTree = "<group>"; };
 		EE80229529C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerViewSnapshotTests.swift; sourceTree = "<group>"; };
-		EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerView.swift; sourceTree = "<group>"; };
+		EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SegmentedPickerView.swift; path = ../SegmentedPickerView.swift; sourceTree = "<group>"; };
 		EEA95D4029C644C900A69B38 /* WeightInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightInputView.swift; sourceTree = "<group>"; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,8 +152,8 @@
 		EE68169F29C54C3C0027160B /* WeightiOS */ = {
 			isa = PBXGroup;
 			children = (
+				EE80229729C64A400025437B /* SharedUI */,
 				EEA95D4029C644C900A69B38 /* WeightInputView.swift */,
-				EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */,
 			);
 			name = WeightiOS;
 			path = /Users/johngers/Desktop/Weight/WeightiOS;
@@ -192,6 +192,14 @@
 				EE80229129C646750025437B /* snapshots */,
 			);
 			path = "Segmented Picker";
+			sourceTree = "<group>";
+		};
+		EE80229729C64A400025437B /* SharedUI */ = {
+			isa = PBXGroup;
+			children = (
+				EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */,
+			);
+			path = SharedUI;
 			sourceTree = "<group>";
 		};
 		EEF4DB2929C39B4700F57D6D = {
