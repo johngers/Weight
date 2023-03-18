@@ -11,7 +11,7 @@ struct WeightInputView: View {
 
     var body: some View {
         VStack {
-            HeaderView()
+            TabHeaderView(imageName: "scalemass", title: "Statistics", tabTitle: "Weight", color: .systemMint, settingsSelection: { })
             
             Spacer()
                 .frame(height: 50)
@@ -29,46 +29,6 @@ struct WeightInputView: View {
             EnterButtonView(isEnabled: true)
         }
         .padding()
-    }
-}
-
-private struct HeaderView: View {
-
-    var body: some View {
-        VStack {
-            HStack {
-                Image(systemName: "scalemass")
-                    .font(.title)
-                    .frame(width: 50, height: 50)
-                    .background(Color.mint.opacity(0.5))
-                    .cornerRadius(8)
-                    .shadow(color: Color.mint.opacity(0.8), radius: 15, y: 30)
-                    
-                Spacer()
-                
-                Image(systemName: "gear")
-                    .font(.title)
-            }
-            
-            Spacer()
-                .frame(height: 30)
-
-            HStack {
-                Text("Statistics")
-                    .multilineTextAlignment(.leading)
-    
-                Text("•")
-                    .fontWeight(.semibold)
-
-                Text("Weight")
-                    .fontWeight(.semibold)
-                
-                Spacer()
-
-                SegmentedPickerView()
-                    .frame(width: 75)
-            }
-        }
     }
 }
 
