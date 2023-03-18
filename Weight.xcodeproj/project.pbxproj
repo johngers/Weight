@@ -26,12 +26,6 @@
 		EE80229629C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE80229529C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift */; };
 		EE80229929C64AF10025437B /* TabHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE80229829C64AF10025437B /* TabHeaderView.swift */; };
 		EE80229C29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE80229B29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift */; };
-		EE8022A629C6513E0025437B /* tab_header_light.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8022A329C6513E0025437B /* tab_header_light.png */; };
-		EE8022A729C6513E0025437B /* tab_header_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8022A429C6513E0025437B /* tab_header_dark.png */; };
-		EE8022A829C6513E0025437B /* tab_header_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8022A529C6513E0025437B /* tab_header_light_extraExtraExtraLarge.png */; };
-		EE8022AD29C651720025437B /* tab_header_light.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8022AA29C651720025437B /* tab_header_light.png */; };
-		EE8022AE29C651720025437B /* tab_header_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8022AB29C651720025437B /* tab_header_dark.png */; };
-		EE8022AF29C651720025437B /* tab_header_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8022AC29C651720025437B /* tab_header_light_extraExtraExtraLarge.png */; };
 		EEA95D3F29C644C700A69B38 /* SegmentedPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */; };
 		EEA95D4129C644C900A69B38 /* WeightInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA95D4029C644C900A69B38 /* WeightInputView.swift */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
@@ -451,12 +445,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE8022AE29C651720025437B /* tab_header_dark.png in Resources */,
-				EE8022A829C6513E0025437B /* tab_header_light_extraExtraExtraLarge.png in Resources */,
-				EE8022AD29C651720025437B /* tab_header_light.png in Resources */,
-				EE8022A729C6513E0025437B /* tab_header_dark.png in Resources */,
-				EE8022AF29C651720025437B /* tab_header_light_extraExtraExtraLarge.png in Resources */,
-				EE8022A629C6513E0025437B /* tab_header_light.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
