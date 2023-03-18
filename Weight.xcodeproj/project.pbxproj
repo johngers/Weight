@@ -23,11 +23,15 @@
 		EE6816A629C54C3C0027160B /* WeightiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE68169E29C54C3C0027160B /* WeightiOS.framework */; };
 		EE6816BD29C641110027160B /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6816BC29C641110027160B /* UIViewController+Snapshot.swift */; };
 		EE6816BF29C641200027160B /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6816BE29C641200027160B /* XCTestCase+Snapshot.swift */; };
-		EE80229229C646750025437B /* snapshots in Resources */ = {isa = PBXBuildFile; fileRef = EE80229129C646750025437B /* snapshots */; };
 		EE80229629C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE80229529C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift */; };
 		EE80229929C64AF10025437B /* TabHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE80229829C64AF10025437B /* TabHeaderView.swift */; };
 		EE80229C29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE80229B29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift */; };
-		EE80229E29C64E6E0025437B /* snapshots in Resources */ = {isa = PBXBuildFile; fileRef = EE80229D29C64E6E0025437B /* snapshots */; };
+		EE8022A629C6513E0025437B /* tab_header_light.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8022A329C6513E0025437B /* tab_header_light.png */; };
+		EE8022A729C6513E0025437B /* tab_header_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8022A429C6513E0025437B /* tab_header_dark.png */; };
+		EE8022A829C6513E0025437B /* tab_header_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8022A529C6513E0025437B /* tab_header_light_extraExtraExtraLarge.png */; };
+		EE8022AD29C651720025437B /* tab_header_light.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8022AA29C651720025437B /* tab_header_light.png */; };
+		EE8022AE29C651720025437B /* tab_header_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8022AB29C651720025437B /* tab_header_dark.png */; };
+		EE8022AF29C651720025437B /* tab_header_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = EE8022AC29C651720025437B /* tab_header_light_extraExtraExtraLarge.png */; };
 		EEA95D3F29C644C700A69B38 /* SegmentedPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */; };
 		EEA95D4129C644C900A69B38 /* WeightInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA95D4029C644C900A69B38 /* WeightInputView.swift */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
@@ -78,11 +82,15 @@
 		EE6816A529C54C3C0027160B /* WeightiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6816BC29C641110027160B /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Snapshot.swift"; path = "WeightiOSTests/Snapshot Helpers/UIViewController+Snapshot.swift"; sourceTree = SOURCE_ROOT; };
 		EE6816BE29C641200027160B /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "XCTestCase+Snapshot.swift"; path = "WeightiOSTests/Snapshot Helpers/XCTestCase+Snapshot.swift"; sourceTree = SOURCE_ROOT; };
-		EE80229129C646750025437B /* snapshots */ = {isa = PBXFileReference; lastKnownFileType = folder; path = snapshots; sourceTree = "<group>"; };
 		EE80229529C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerViewSnapshotTests.swift; sourceTree = "<group>"; };
 		EE80229829C64AF10025437B /* TabHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabHeaderView.swift; path = ../TabHeaderView.swift; sourceTree = "<group>"; };
 		EE80229B29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHeaderViewSnapshotTests.swift; sourceTree = "<group>"; };
-		EE80229D29C64E6E0025437B /* snapshots */ = {isa = PBXFileReference; lastKnownFileType = folder; path = snapshots; sourceTree = "<group>"; };
+		EE8022A329C6513E0025437B /* tab_header_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_header_light.png; sourceTree = "<group>"; };
+		EE8022A429C6513E0025437B /* tab_header_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_header_dark.png; sourceTree = "<group>"; };
+		EE8022A529C6513E0025437B /* tab_header_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_header_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		EE8022AA29C651720025437B /* tab_header_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_header_light.png; sourceTree = "<group>"; };
+		EE8022AB29C651720025437B /* tab_header_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_header_dark.png; sourceTree = "<group>"; };
+		EE8022AC29C651720025437B /* tab_header_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_header_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
 		EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SegmentedPickerView.swift; path = ../SegmentedPickerView.swift; sourceTree = "<group>"; };
 		EEA95D4029C644C900A69B38 /* WeightInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightInputView.swift; sourceTree = "<group>"; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,8 +203,8 @@
 		EE80229429C646F10025437B /* Segmented Picker */ = {
 			isa = PBXGroup;
 			children = (
+				EE8022A929C651720025437B /* snapshots */,
 				EE80229529C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift */,
-				EE80229129C646750025437B /* snapshots */,
 			);
 			path = "Segmented Picker";
 			sourceTree = "<group>";
@@ -213,11 +221,32 @@
 		EE80229A29C64DD40025437B /* Tab Header */ = {
 			isa = PBXGroup;
 			children = (
+				EE8022A229C6513E0025437B /* snapshots */,
 				EE80229B29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift */,
-				EE80229D29C64E6E0025437B /* snapshots */,
 			);
 			path = "Tab Header";
 			sourceTree = "<group>";
+		};
+		EE8022A229C6513E0025437B /* snapshots */ = {
+			isa = PBXGroup;
+			children = (
+				EE8022A329C6513E0025437B /* tab_header_light.png */,
+				EE8022A429C6513E0025437B /* tab_header_dark.png */,
+				EE8022A529C6513E0025437B /* tab_header_light_extraExtraExtraLarge.png */,
+			);
+			path = snapshots;
+			sourceTree = "<group>";
+		};
+		EE8022A929C651720025437B /* snapshots */ = {
+			isa = PBXGroup;
+			children = (
+				EE8022AA29C651720025437B /* tab_header_light.png */,
+				EE8022AB29C651720025437B /* tab_header_dark.png */,
+				EE8022AC29C651720025437B /* tab_header_light_extraExtraExtraLarge.png */,
+			);
+			name = snapshots;
+			path = "WeightiOSTests/SharedUI/Tab Header/snapshots";
+			sourceTree = SOURCE_ROOT;
 		};
 		EEF4DB2929C39B4700F57D6D = {
 			isa = PBXGroup;
@@ -422,8 +451,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE80229E29C64E6E0025437B /* snapshots in Resources */,
-				EE80229229C646750025437B /* snapshots in Resources */,
+				EE8022AE29C651720025437B /* tab_header_dark.png in Resources */,
+				EE8022A829C6513E0025437B /* tab_header_light_extraExtraExtraLarge.png in Resources */,
+				EE8022AD29C651720025437B /* tab_header_light.png in Resources */,
+				EE8022A729C6513E0025437B /* tab_header_dark.png in Resources */,
+				EE8022AF29C651720025437B /* tab_header_light_extraExtraExtraLarge.png in Resources */,
+				EE8022A629C6513E0025437B /* tab_header_light.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
