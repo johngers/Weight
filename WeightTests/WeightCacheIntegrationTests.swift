@@ -53,7 +53,7 @@ class WeightCacheIntegrationTests: XCTestCase {
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> LocalWeightLogLoader {
         let storeBundle = Bundle(for: CoreDataWeightLogStore.self)
-        let storeURL = testSpecificStoreURL()
+        let storeURL = storeURLForTests()
         let store = try! CoreDataWeightLogStore(storeURL: storeURL, bundle: storeBundle)
         let sut = LocalWeightLogLoader(store: store)
         trackForMemoryLeaks(store, file: file, line: line)
@@ -95,10 +95,10 @@ class WeightCacheIntegrationTests: XCTestCase {
     }
 
     private func deleteStoreArtifacts() {
-        try? FileManager.default.removeItem(at: testSpecificStoreURL())
+        try? FileManager.default.removeItem(at: storeURLForTests())
     }
     
-    private func testSpecificStoreURL() -> URL {
+    private func storeURLForTests() -> URL {
         return cachesDirectory().appendingPathComponent("\(type(of: self)).store")
     }
 
