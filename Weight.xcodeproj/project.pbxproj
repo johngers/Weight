@@ -21,6 +21,12 @@
 		EE5D827329C4FEEF0011CFA8 /* WeightLogStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE5D827129C4FEEF0011CFA8 /* WeightLogStore.xcdatamodeld */; };
 		EE5D827529C518F40011CFA8 /* WeightCacheIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D827429C518F40011CFA8 /* WeightCacheIntegrationTests.swift */; };
 		EE6816A629C54C3C0027160B /* WeightiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE68169E29C54C3C0027160B /* WeightiOS.framework */; };
+		EE6816BD29C641110027160B /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6816BC29C641110027160B /* UIViewController+Snapshot.swift */; };
+		EE6816BF29C641200027160B /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6816BE29C641200027160B /* XCTestCase+Snapshot.swift */; };
+		EE80229229C646750025437B /* snapshots in Resources */ = {isa = PBXBuildFile; fileRef = EE80229129C646750025437B /* snapshots */; };
+		EE80229629C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE80229529C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift */; };
+		EEA95D3F29C644C700A69B38 /* SegmentedPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */; };
+		EEA95D4129C644C900A69B38 /* WeightInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA95D4029C644C900A69B38 /* WeightInputView.swift */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 		EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLogLoader.swift */; };
@@ -67,6 +73,12 @@
 		EE5D827429C518F40011CFA8 /* WeightCacheIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightCacheIntegrationTests.swift; sourceTree = "<group>"; };
 		EE68169E29C54C3C0027160B /* WeightiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeightiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6816A529C54C3C0027160B /* WeightiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE6816BC29C641110027160B /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Snapshot.swift"; path = "WeightiOSTests/Snapshot Helpers/UIViewController+Snapshot.swift"; sourceTree = SOURCE_ROOT; };
+		EE6816BE29C641200027160B /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "XCTestCase+Snapshot.swift"; path = "WeightiOSTests/Snapshot Helpers/XCTestCase+Snapshot.swift"; sourceTree = SOURCE_ROOT; };
+		EE80229129C646750025437B /* snapshots */ = {isa = PBXFileReference; lastKnownFileType = folder; path = snapshots; sourceTree = "<group>"; };
+		EE80229529C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerViewSnapshotTests.swift; sourceTree = "<group>"; };
+		EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerView.swift; sourceTree = "<group>"; };
+		EEA95D4029C644C900A69B38 /* WeightInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightInputView.swift; sourceTree = "<group>"; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
@@ -140,15 +152,46 @@
 		EE68169F29C54C3C0027160B /* WeightiOS */ = {
 			isa = PBXGroup;
 			children = (
+				EEA95D4029C644C900A69B38 /* WeightInputView.swift */,
+				EEA95D3E29C644C700A69B38 /* SegmentedPickerView.swift */,
 			);
-			path = WeightiOS;
-			sourceTree = "<group>";
+			name = WeightiOS;
+			path = /Users/johngers/Desktop/Weight/WeightiOS;
+			sourceTree = "<absolute>";
 		};
 		EE6816A929C54C3C0027160B /* WeightiOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				EE6816C029C6421C0027160B /* Snapshot Helpers */,
+				EE80229329C646E50025437B /* SharedUI */,
 			);
 			path = WeightiOSTests;
+			sourceTree = "<group>";
+		};
+		EE6816C029C6421C0027160B /* Snapshot Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EE6816BC29C641110027160B /* UIViewController+Snapshot.swift */,
+				EE6816BE29C641200027160B /* XCTestCase+Snapshot.swift */,
+			);
+			path = "Snapshot Helpers";
+			sourceTree = "<group>";
+		};
+		EE80229329C646E50025437B /* SharedUI */ = {
+			isa = PBXGroup;
+			children = (
+				EE80229429C646F10025437B /* Segmented Picker */,
+			);
+			path = SharedUI;
+			sourceTree = "<group>";
+		};
+		EE80229429C646F10025437B /* Segmented Picker */ = {
+			isa = PBXGroup;
+			children = (
+				EE80229529C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift */,
+				EE80229129C646750025437B /* snapshots */,
+			);
+			path = "Segmented Picker";
 			sourceTree = "<group>";
 		};
 		EEF4DB2929C39B4700F57D6D = {
@@ -354,6 +397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE80229229C646750025437B /* snapshots in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +423,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEA95D3F29C644C700A69B38 /* SegmentedPickerView.swift in Sources */,
+				EEA95D4129C644C900A69B38 /* WeightInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +432,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE6816BF29C641200027160B /* XCTestCase+Snapshot.swift in Sources */,
+				EE6816BD29C641110027160B /* UIViewController+Snapshot.swift in Sources */,
+				EE80229629C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +509,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johngers.WeightiOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -490,6 +540,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johngers.WeightiOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -505,11 +556,13 @@
 		EE6816AF29C54C3C0027160B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SJ7RP44M53;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johngers.WeightiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -523,11 +576,13 @@
 		EE6816B029C54C3C0027160B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SJ7RP44M53;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johngers.WeightiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
