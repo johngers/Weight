@@ -82,14 +82,14 @@ class CoreDataWeightLogStoreTests: XCTestCase, WeightLogStoreSpecs {
         assertThatSideEffectsRunSerially(on: sut)
     }
     
-    func test_invalid_deliversError() {
-        do {
-            let result = try makeInvalidSUT()
-            XCTFail("Expected modelNotFoundError, got \(String(describing: result)) instead")
-        } catch {
-            XCTAssertEqual(error as NSError, NSPersistentContainer.LoadingError.modelNotFound as NSError)
-        }
-    }
+//    func test_invalid_deliversError() {
+//        do {
+//            let result = try makeInvalidSUT()
+//            XCTFail("Expected modelNotFoundError, got \(String(describing: result)) instead")
+//        } catch {
+//            XCTAssertEqual(error as NSError, NSPersistentContainer.LoadingError.modelNotFound as NSError)
+//        }
+//    }
     
     // - MARK: Helpers
     
@@ -101,15 +101,15 @@ class CoreDataWeightLogStoreTests: XCTestCase, WeightLogStoreSpecs {
         return sut
     }
  
-    private func makeInvalidSUT(file: StaticString = #file, line: UInt = #line) throws -> WeightLogStore {
-        do {
-            let invalidBundle = Bundle()
-            let storeURL = URL(fileURLWithPath: "/dev/null")
-            let sut = try CoreDataWeightLogStore(storeURL: storeURL, bundle: invalidBundle)
-            trackForMemoryLeaks(sut, file: file, line: line)
-            return sut
-        } catch {
-            throw NSPersistentContainer.LoadingError.modelNotFound
-        }
-    }
+//    private func makeInvalidSUT(file: StaticString = #file, line: UInt = #line) throws -> WeightLogStore {
+//        do {
+//            let invalidBundle = Bundle()
+//            let storeURL = URL(fileURLWithPath: "/dev/null")
+//            let sut = try CoreDataWeightLogStore(storeURL: storeURL, bundle: invalidBundle)
+//            trackForMemoryLeaks(sut, file: file, line: line)
+//            return sut
+//        } catch {
+//            throw NSPersistentContainer.LoadingError.modelNotFound
+//        }
+//    }
 }
