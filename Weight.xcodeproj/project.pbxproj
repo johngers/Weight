@@ -233,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				EED87DA629C6604D00EF98DF /* ActionButtonView.swift */,
+				EED87DB629C6672000EF98DF /* ChartView.swift */,
 				EED87D9A29C65E2F00EF98DF /* ProgressCardView.swift */,
 				EED87DB229C666EF00EF98DF /* SegmentedPickerView.swift */,
 				EED87DB429C666F500EF98DF /* TabHeaderView.swift */,
@@ -548,6 +549,7 @@
 				EED87D9B29C65E2F00EF98DF /* ProgressCardView.swift in Sources */,
 				EED87DB329C666EF00EF98DF /* SegmentedPickerView.swift in Sources */,
 				EED87DB529C666F500EF98DF /* TabHeaderView.swift in Sources */,
+				EED87DB729C6672000EF98DF /* ChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
