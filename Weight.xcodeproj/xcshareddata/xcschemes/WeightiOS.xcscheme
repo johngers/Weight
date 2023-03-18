@@ -37,6 +37,13 @@
             BlueprintName = "WeightiOS"
             ReferencedContainer = "container:Weight.xcodeproj">
          </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "EEF4DB3229C39B4700F57D6D"
+            BuildableName = "Weight.framework"
+            BlueprintName = "Weight"
+            ReferencedContainer = "container:Weight.xcodeproj">
+         </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
          <TestableReference
@@ -48,6 +55,17 @@
                BlueprintIdentifier = "EE6816A429C54C3C0027160B"
                BuildableName = "WeightiOSTests.xctest"
                BlueprintName = "WeightiOSTests"
+               ReferencedContainer = "container:Weight.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EEF4DB3A29C39B4800F57D6D"
+               BuildableName = "WeightTests.xctest"
+               BlueprintName = "WeightTests"
                ReferencedContainer = "container:Weight.xcodeproj">
             </BuildableReference>
          </TestableReference>
