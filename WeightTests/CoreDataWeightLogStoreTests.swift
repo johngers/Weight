@@ -103,9 +103,9 @@ class CoreDataWeightLogStoreTests: XCTestCase, WeightLogStoreSpecs {
  
     private func makeInvalidSUT(file: StaticString = #file, line: UInt = #line) throws -> WeightLogStore {
         do {
-            let storeBundle = Bundle()
+            let invalidBundle = Bundle()
             let storeURL = URL(fileURLWithPath: "/dev/null")
-            let sut = try CoreDataWeightLogStore(storeURL: storeURL, bundle: storeBundle)
+            let sut = try CoreDataWeightLogStore(storeURL: storeURL, bundle: invalidBundle)
             trackForMemoryLeaks(sut, file: file, line: line)
             return sut
         } catch {
