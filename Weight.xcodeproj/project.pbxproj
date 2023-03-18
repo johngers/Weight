@@ -20,6 +20,7 @@
 		EE5D827029C4FCCA0011CFA8 /* ManagedWeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D826F29C4FCCA0011CFA8 /* ManagedWeightItem.swift */; };
 		EE5D827329C4FEEF0011CFA8 /* WeightLogStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE5D827129C4FEEF0011CFA8 /* WeightLogStore.xcdatamodeld */; };
 		EE5D827529C518F40011CFA8 /* WeightCacheIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D827429C518F40011CFA8 /* WeightCacheIntegrationTests.swift */; };
+		EE6816A629C54C3C0027160B /* WeightiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE68169E29C54C3C0027160B /* WeightiOS.framework */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 		EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLogLoader.swift */; };
@@ -34,6 +35,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EE6816A729C54C3C0027160B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEF4DB2A29C39B4700F57D6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE68169D29C54C3C0027160B;
+			remoteInfo = WeightiOS;
+		};
 		EEF4DB3D29C39B4800F57D6D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EEF4DB2A29C39B4700F57D6D /* Project object */;
@@ -57,6 +65,8 @@
 		EE5D826F29C4FCCA0011CFA8 /* ManagedWeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedWeightItem.swift; sourceTree = "<group>"; };
 		EE5D827229C4FEEF0011CFA8 /* WeightLogStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeightLogStore.xcdatamodel; sourceTree = "<group>"; };
 		EE5D827429C518F40011CFA8 /* WeightCacheIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightCacheIntegrationTests.swift; sourceTree = "<group>"; };
+		EE68169E29C54C3C0027160B /* WeightiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeightiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE6816A529C54C3C0027160B /* WeightiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
@@ -72,6 +82,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EE68169B29C54C3C0027160B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE6816A229C54C3C0027160B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE6816A629C54C3C0027160B /* WeightiOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EEF4DB3029C39B4700F57D6D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -112,12 +137,28 @@
 			path = WeightLogStoreSpecs;
 			sourceTree = "<group>";
 		};
+		EE68169F29C54C3C0027160B /* WeightiOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WeightiOS;
+			sourceTree = "<group>";
+		};
+		EE6816A929C54C3C0027160B /* WeightiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WeightiOSTests;
+			sourceTree = "<group>";
+		};
 		EEF4DB2929C39B4700F57D6D = {
 			isa = PBXGroup;
 			children = (
 				EEF4DB4F29C3A97300F57D6D /* README.md */,
 				EEF4DB3529C39B4700F57D6D /* Weight */,
 				EEF4DB3F29C39B4800F57D6D /* WeightTests */,
+				EE68169F29C54C3C0027160B /* WeightiOS */,
+				EE6816A929C54C3C0027160B /* WeightiOSTests */,
 				EEF4DB3429C39B4700F57D6D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -127,6 +168,8 @@
 			children = (
 				EEF4DB3329C39B4700F57D6D /* Weight.framework */,
 				EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */,
+				EE68169E29C54C3C0027160B /* WeightiOS.framework */,
+				EE6816A529C54C3C0027160B /* WeightiOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,6 +207,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		EE68169929C54C3C0027160B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EEF4DB2E29C39B4700F57D6D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -174,6 +224,42 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		EE68169D29C54C3C0027160B /* WeightiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE6816B129C54C3C0027160B /* Build configuration list for PBXNativeTarget "WeightiOS" */;
+			buildPhases = (
+				EE68169929C54C3C0027160B /* Headers */,
+				EE68169A29C54C3C0027160B /* Sources */,
+				EE68169B29C54C3C0027160B /* Frameworks */,
+				EE68169C29C54C3C0027160B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeightiOS;
+			productName = WeightiOS;
+			productReference = EE68169E29C54C3C0027160B /* WeightiOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EE6816A429C54C3C0027160B /* WeightiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE6816B229C54C3C0027160B /* Build configuration list for PBXNativeTarget "WeightiOSTests" */;
+			buildPhases = (
+				EE6816A129C54C3C0027160B /* Sources */,
+				EE6816A229C54C3C0027160B /* Frameworks */,
+				EE6816A329C54C3C0027160B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE6816A829C54C3C0027160B /* PBXTargetDependency */,
+			);
+			name = WeightiOSTests;
+			productName = WeightiOSTests;
+			productReference = EE6816A529C54C3C0027160B /* WeightiOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		EEF4DB3229C39B4700F57D6D /* Weight */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEF4DB4529C39B4800F57D6D /* Build configuration list for PBXNativeTarget "Weight" */;
@@ -220,6 +306,12 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					EE68169D29C54C3C0027160B = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					EE6816A429C54C3C0027160B = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					EEF4DB3229C39B4700F57D6D = {
 						CreatedOnToolsVersion = 14.2;
 						LastSwiftMigration = 1420;
@@ -244,11 +336,27 @@
 			targets = (
 				EEF4DB3229C39B4700F57D6D /* Weight */,
 				EEF4DB3A29C39B4800F57D6D /* WeightTests */,
+				EE68169D29C54C3C0027160B /* WeightiOS */,
+				EE6816A429C54C3C0027160B /* WeightiOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EE68169C29C54C3C0027160B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE6816A329C54C3C0027160B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EEF4DB3129C39B4700F57D6D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -267,6 +375,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EE68169A29C54C3C0027160B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE6816A129C54C3C0027160B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EEF4DB2F29C39B4700F57D6D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -306,6 +428,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EE6816A829C54C3C0027160B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE68169D29C54C3C0027160B /* WeightiOS */;
+			targetProxy = EE6816A729C54C3C0027160B /* PBXContainerItemProxy */;
+		};
 		EEF4DB3E29C39B4800F57D6D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EEF4DB3229C39B4700F57D6D /* Weight */;
@@ -314,6 +441,104 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		EE6816AD29C54C3C0027160B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = SJ7RP44M53;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johngers.WeightiOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EE6816AE29C54C3C0027160B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = SJ7RP44M53;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johngers.WeightiOS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE6816AF29C54C3C0027160B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SJ7RP44M53;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johngers.WeightiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EE6816B029C54C3C0027160B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SJ7RP44M53;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johngers.WeightiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		EEF4DB4329C39B4800F57D6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -547,6 +772,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EE6816B129C54C3C0027160B /* Build configuration list for PBXNativeTarget "WeightiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE6816AD29C54C3C0027160B /* Debug */,
+				EE6816AE29C54C3C0027160B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE6816B229C54C3C0027160B /* Build configuration list for PBXNativeTarget "WeightiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE6816AF29C54C3C0027160B /* Debug */,
+				EE6816B029C54C3C0027160B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EEF4DB2D29C39B4700F57D6D /* Build configuration list for PBXProject "Weight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
