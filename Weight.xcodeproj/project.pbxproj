@@ -152,11 +152,11 @@
 			children = (
 				EE5D827429C518F40011CFA8 /* WeightCacheIntegrationTests.swift */,
 				EE5D825D29C4E2FB0011CFA8 /* Helpers */,
+				EE5D826629C4EE9A0011CFA8 /* WeightLogStoreSpecs */,
 				EEF4DB5129C3AD5500F57D6D /* CacheWeightLogUseCaseTests.swift */,
 				EE5D825729C440A80011CFA8 /* DeleteFromCacheUseCaseTests.swift */,
 				EEF4DB5929C3D80200F57D6D /* LoadLogFromCacheUseCaseTests.swift */,
 				EE5D826729C4FB790011CFA8 /* CoreDataWeightLogStoreTests.swift */,
-				EE5D826629C4EE9A0011CFA8 /* WeightLogStoreSpecs */,
 			);
 			path = WeightTests;
 			sourceTree = "<group>";
