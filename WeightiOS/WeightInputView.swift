@@ -26,7 +26,8 @@ struct WeightInputView: View {
             
             ProgressCardView()
             
-            EnterButtonView(isEnabled: true)
+            ActionButtonView(isEnabled: true, title: "Enter", color: .systemMint.withAlphaComponent(0.5))
+                .frame(width: 200)
         }
         .padding()
     }
@@ -73,21 +74,6 @@ private struct DateView: View {
             
             Spacer()
         }
-    }
-}
-
-private struct EnterButtonView: View {
-    let isEnabled: Bool
-    var body: some View {
-        Button(action: { }, label: {
-            Text("Enter")
-                .foregroundColor(isEnabled ? .white : .primary)
-        })
-        .padding()
-        .frame(width: 200)
-        .background(isEnabled ? Color.mint.opacity(0.5) : .secondary.opacity(0.2))
-        .clipShape(Capsule())
-        .disabled(!isEnabled)
     }
 }
 
