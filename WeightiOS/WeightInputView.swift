@@ -16,8 +16,6 @@ struct WeightInputView: View {
             Spacer()
                 .frame(height: 25)
             
-            DateView()
-            
             Spacer()
 
             CurrentProgressView()
@@ -54,28 +52,6 @@ private struct InputView: View {
             Text("lb")
                 .font(.title)
 
-            Spacer()
-        }
-    }
-}
-
-private struct DateView: View {
-    @State var selectedDate: Date = .now
-
-    var body: some View {
-        HStack {
-            Spacer()
-            
-            DatePicker(selection: $selectedDate, displayedComponents: .date) {
-                Image(systemName: "calendar")
-            }
-            .frame(maxWidth: 150)
-            .padding(4)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.primary, lineWidth: 2)
-            )
-            
             Spacer()
         }
     }
