@@ -12,14 +12,16 @@ struct TabHeaderView: View {
     let lastUpdated: String
     let title: String
     let tabTitle: String
+    let units: [WeightUnit]
     let color: UIColor
     let settingsSelection: () -> Void
     
-    init(imageName: String, lastUpdated: String = "Last updated: March 19th", title: String, tabTitle: String, color: UIColor, settingsSelection: @escaping () -> Void) {
+    init(imageName: String, lastUpdated: String = "Last updated: March 19th", title: String, tabTitle: String, units: [WeightUnit] = [.lb, .kg], color: UIColor, settingsSelection: @escaping () -> Void) {
         self.image = imageName
         self.lastUpdated = lastUpdated
         self.title = title
         self.tabTitle = tabTitle
+        self.units = units
         self.color = color
         self.settingsSelection = settingsSelection
     }
@@ -63,7 +65,7 @@ struct TabHeaderView: View {
                 
                 Spacer()
 
-                SegmentedPickerView(color: color.withAlphaComponent(0.5))
+                SegmentedPickerView(options: units, color: color.withAlphaComponent(0.5))
                     .frame(width: 75)
             }
         }
