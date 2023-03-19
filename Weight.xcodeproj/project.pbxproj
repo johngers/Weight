@@ -38,8 +38,8 @@
 		EED87DB129C6624D00EF98DF /* action_button_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DAE29C6624D00EF98DF /* action_button_dark.png */; };
 		EED87DB329C666EF00EF98DF /* SegmentedPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DB229C666EF00EF98DF /* SegmentedPickerView.swift */; };
 		EED87DB529C666F500EF98DF /* TabHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DB429C666F500EF98DF /* TabHeaderView.swift */; };
-		EED87DB729C6672000EF98DF /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DB629C6672000EF98DF /* ChartView.swift */; };
 		EED87DB929C6832700EF98DF /* Date+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DB829C6832700EF98DF /* Date+Helpers.swift */; };
+		EED87DBB29C6854C00EF98DF /* ChartCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DBA29C6854C00EF98DF /* ChartCardView.swift */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 		EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLogLoader.swift */; };
@@ -109,8 +109,8 @@
 		EED87DAE29C6624D00EF98DF /* action_button_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action_button_dark.png; sourceTree = "<group>"; };
 		EED87DB229C666EF00EF98DF /* SegmentedPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedPickerView.swift; sourceTree = "<group>"; };
 		EED87DB429C666F500EF98DF /* TabHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabHeaderView.swift; sourceTree = "<group>"; };
-		EED87DB629C6672000EF98DF /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		EED87DB829C6832700EF98DF /* Date+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helpers.swift"; sourceTree = "<group>"; };
+		EED87DBA29C6854C00EF98DF /* ChartCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCardView.swift; sourceTree = "<group>"; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
@@ -236,6 +236,7 @@
 				EED87D9A29C65E2F00EF98DF /* ProgressCardView.swift */,
 				EED87DB229C666EF00EF98DF /* SegmentedPickerView.swift */,
 				EED87DB429C666F500EF98DF /* TabHeaderView.swift */,
+				EED87DBA29C6854C00EF98DF /* ChartCardView.swift */,
 			);
 			path = SharedUI;
 			sourceTree = "<group>";
@@ -548,6 +549,7 @@
 				EED87D9B29C65E2F00EF98DF /* ProgressCardView.swift in Sources */,
 				EED87DB329C666EF00EF98DF /* SegmentedPickerView.swift in Sources */,
 				EED87DB529C666F500EF98DF /* TabHeaderView.swift in Sources */,
+				EED87DBB29C6854C00EF98DF /* ChartCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
