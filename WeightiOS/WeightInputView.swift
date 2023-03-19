@@ -20,6 +20,8 @@ struct WeightInputView: View {
 
             CurrentProgressView()
             
+            // TripleCircularProgressView()
+            
             Spacer()
             
             ChartCardView()
