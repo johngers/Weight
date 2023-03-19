@@ -220,8 +220,8 @@
 		EE80229329C646E50025437B /* SharedUI */ = {
 			isa = PBXGroup;
 			children = (
-				EED87DBC29C69D8600EF98DF /* Chart Card */,
 				EED87DA829C661BE00EF98DF /* Action Button */,
+				EED87DBC29C69D8600EF98DF /* Chart Card */,
 				EED87D9C29C65EE500EF98DF /* Progress Card */,
 				EE80229429C646F10025437B /* Segmented Picker */,
 				EE80229A29C64DD40025437B /* Tab Header */,
@@ -242,10 +242,10 @@
 			isa = PBXGroup;
 			children = (
 				EED87DA629C6604D00EF98DF /* ActionButtonView.swift */,
+				EED87DBA29C6854C00EF98DF /* ChartCardView.swift */,
 				EED87D9A29C65E2F00EF98DF /* ProgressCardView.swift */,
 				EED87DB229C666EF00EF98DF /* SegmentedPickerView.swift */,
 				EED87DB429C666F500EF98DF /* TabHeaderView.swift */,
-				EED87DBA29C6854C00EF98DF /* ChartCardView.swift */,
 			);
 			path = SharedUI;
 			sourceTree = "<group>";
