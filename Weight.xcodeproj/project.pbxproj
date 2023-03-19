@@ -46,6 +46,10 @@
 		EED87DC529C69E1000EF98DF /* chart_card_light.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DC229C69E1000EF98DF /* chart_card_light.png */; };
 		EED87DC729C7AE3A00EF98DF /* CurrentProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DC629C7AE3A00EF98DF /* CurrentProgressView.swift */; };
 		EED87DC929C7B40300EF98DF /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DC829C7B40300EF98DF /* CircularProgressView.swift */; };
+		EED87DCC29C7B4EE00EF98DF /* CircularProgressViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DCB29C7B4EE00EF98DF /* CircularProgressViewSnapshotTests.swift */; };
+		EED87DD129C7B54B00EF98DF /* circular_progress_light.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DCE29C7B54B00EF98DF /* circular_progress_light.png */; };
+		EED87DD229C7B54B00EF98DF /* circular_progress_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DCF29C7B54B00EF98DF /* circular_progress_dark.png */; };
+		EED87DD329C7B54B00EF98DF /* circular_progress_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DD029C7B54B00EF98DF /* circular_progress_light_extraExtraExtraLarge.png */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 		EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLogLoader.swift */; };
@@ -123,6 +127,10 @@
 		EED87DC229C69E1000EF98DF /* chart_card_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart_card_light.png; sourceTree = "<group>"; };
 		EED87DC629C7AE3A00EF98DF /* CurrentProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentProgressView.swift; sourceTree = "<group>"; };
 		EED87DC829C7B40300EF98DF /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		EED87DCB29C7B4EE00EF98DF /* CircularProgressViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressViewSnapshotTests.swift; sourceTree = "<group>"; };
+		EED87DCE29C7B54B00EF98DF /* circular_progress_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circular_progress_light.png; sourceTree = "<group>"; };
+		EED87DCF29C7B54B00EF98DF /* circular_progress_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circular_progress_dark.png; sourceTree = "<group>"; };
+		EED87DD029C7B54B00EF98DF /* circular_progress_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circular_progress_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
@@ -226,6 +234,7 @@
 			children = (
 				EED87DA829C661BE00EF98DF /* Action Button */,
 				EED87DBC29C69D8600EF98DF /* Chart Card */,
+				EED87DCA29C7B4C000EF98DF /* Circular Progress Bar */,
 				EED87D9C29C65EE500EF98DF /* Progress Card */,
 				EE80229429C646F10025437B /* Segmented Picker */,
 				EE80229A29C64DD40025437B /* Tab Header */,
@@ -339,6 +348,25 @@
 				EED87DC029C69E1000EF98DF /* chart_card_light_extraExtraExtraLarge.png */,
 				EED87DC129C69E1000EF98DF /* chart_card_dark.png */,
 				EED87DC229C69E1000EF98DF /* chart_card_light.png */,
+			);
+			path = snapshots;
+			sourceTree = "<group>";
+		};
+		EED87DCA29C7B4C000EF98DF /* Circular Progress Bar */ = {
+			isa = PBXGroup;
+			children = (
+				EED87DCD29C7B54B00EF98DF /* snapshots */,
+				EED87DCB29C7B4EE00EF98DF /* CircularProgressViewSnapshotTests.swift */,
+			);
+			path = "Circular Progress Bar";
+			sourceTree = "<group>";
+		};
+		EED87DCD29C7B54B00EF98DF /* snapshots */ = {
+			isa = PBXGroup;
+			children = (
+				EED87DCE29C7B54B00EF98DF /* circular_progress_light.png */,
+				EED87DCF29C7B54B00EF98DF /* circular_progress_dark.png */,
+				EED87DD029C7B54B00EF98DF /* circular_progress_light_extraExtraExtraLarge.png */,
 			);
 			path = snapshots;
 			sourceTree = "<group>";
@@ -548,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EED87DA529C65F8200EF98DF /* progress_card_light.png in Resources */,
+				EED87DD329C7B54B00EF98DF /* circular_progress_light_extraExtraExtraLarge.png in Resources */,
 				EED87DC529C69E1000EF98DF /* chart_card_light.png in Resources */,
 				EED87DA429C65F8200EF98DF /* progress_card_light_extraExtraExtraLarge.png in Resources */,
 				EED87DC429C69E1000EF98DF /* chart_card_dark.png in Resources */,
@@ -555,6 +584,8 @@
 				EED87DC329C69E1000EF98DF /* chart_card_light_extraExtraExtraLarge.png in Resources */,
 				EED87DB129C6624D00EF98DF /* action_button_dark.png in Resources */,
 				EED87DAF29C6624D00EF98DF /* action_button_light.png in Resources */,
+				EED87DD129C7B54B00EF98DF /* circular_progress_light.png in Resources */,
+				EED87DD229C7B54B00EF98DF /* circular_progress_dark.png in Resources */,
 				EED87DA329C65F8200EF98DF /* progress_card_dark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,6 +629,7 @@
 			files = (
 				EE6816BF29C641200027160B /* XCTestCase+Snapshot.swift in Sources */,
 				EED87DBE29C69D9700EF98DF /* ChartCardViewSnapshotTests.swift in Sources */,
+				EED87DCC29C7B4EE00EF98DF /* CircularProgressViewSnapshotTests.swift in Sources */,
 				EE6816BD29C641110027160B /* UIViewController+Snapshot.swift in Sources */,
 				EED87DAA29C661F400EF98DF /* ActionButtonViewSnapshotTests.swift in Sources */,
 				EE80229C29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift in Sources */,
