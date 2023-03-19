@@ -20,7 +20,8 @@ struct WeightInputView: View {
             
             Spacer()
 
-            InputView()
+            CurrentProgressView()
+                .frame(height: 50)
             
             Spacer()
             
