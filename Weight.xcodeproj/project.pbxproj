@@ -40,6 +40,10 @@
 		EED87DB529C666F500EF98DF /* TabHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DB429C666F500EF98DF /* TabHeaderView.swift */; };
 		EED87DB929C6832700EF98DF /* Date+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DB829C6832700EF98DF /* Date+Helpers.swift */; };
 		EED87DBB29C6854C00EF98DF /* ChartCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DBA29C6854C00EF98DF /* ChartCardView.swift */; };
+		EED87DBE29C69D9700EF98DF /* ChartCardViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DBD29C69D9700EF98DF /* ChartCardViewSnapshotTests.swift */; };
+		EED87DC329C69E1000EF98DF /* chart_card_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DC029C69E1000EF98DF /* chart_card_light_extraExtraExtraLarge.png */; };
+		EED87DC429C69E1000EF98DF /* chart_card_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DC129C69E1000EF98DF /* chart_card_dark.png */; };
+		EED87DC529C69E1000EF98DF /* chart_card_light.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DC229C69E1000EF98DF /* chart_card_light.png */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 		EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLogLoader.swift */; };
@@ -111,6 +115,10 @@
 		EED87DB429C666F500EF98DF /* TabHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabHeaderView.swift; sourceTree = "<group>"; };
 		EED87DB829C6832700EF98DF /* Date+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helpers.swift"; sourceTree = "<group>"; };
 		EED87DBA29C6854C00EF98DF /* ChartCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCardView.swift; sourceTree = "<group>"; };
+		EED87DBD29C69D9700EF98DF /* ChartCardViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCardViewSnapshotTests.swift; sourceTree = "<group>"; };
+		EED87DC029C69E1000EF98DF /* chart_card_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart_card_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		EED87DC129C69E1000EF98DF /* chart_card_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart_card_dark.png; sourceTree = "<group>"; };
+		EED87DC229C69E1000EF98DF /* chart_card_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart_card_light.png; sourceTree = "<group>"; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
@@ -212,6 +220,7 @@
 		EE80229329C646E50025437B /* SharedUI */ = {
 			isa = PBXGroup;
 			children = (
+				EED87DBC29C69D8600EF98DF /* Chart Card */,
 				EED87DA829C661BE00EF98DF /* Action Button */,
 				EED87D9C29C65EE500EF98DF /* Progress Card */,
 				EE80229429C646F10025437B /* Segmented Picker */,
@@ -305,6 +314,25 @@
 				EED87DAC29C6624D00EF98DF /* action_button_light.png */,
 				EED87DAD29C6624D00EF98DF /* action_button_light_extraExtraExtraLarge.png */,
 				EED87DAE29C6624D00EF98DF /* action_button_dark.png */,
+			);
+			path = snapshots;
+			sourceTree = "<group>";
+		};
+		EED87DBC29C69D8600EF98DF /* Chart Card */ = {
+			isa = PBXGroup;
+			children = (
+				EED87DBF29C69E1000EF98DF /* snapshots */,
+				EED87DBD29C69D9700EF98DF /* ChartCardViewSnapshotTests.swift */,
+			);
+			path = "Chart Card";
+			sourceTree = "<group>";
+		};
+		EED87DBF29C69E1000EF98DF /* snapshots */ = {
+			isa = PBXGroup;
+			children = (
+				EED87DC029C69E1000EF98DF /* chart_card_light_extraExtraExtraLarge.png */,
+				EED87DC129C69E1000EF98DF /* chart_card_dark.png */,
+				EED87DC229C69E1000EF98DF /* chart_card_light.png */,
 			);
 			path = snapshots;
 			sourceTree = "<group>";
@@ -514,8 +542,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EED87DA529C65F8200EF98DF /* progress_card_light.png in Resources */,
+				EED87DC529C69E1000EF98DF /* chart_card_light.png in Resources */,
 				EED87DA429C65F8200EF98DF /* progress_card_light_extraExtraExtraLarge.png in Resources */,
+				EED87DC429C69E1000EF98DF /* chart_card_dark.png in Resources */,
 				EED87DB029C6624D00EF98DF /* action_button_light_extraExtraExtraLarge.png in Resources */,
+				EED87DC329C69E1000EF98DF /* chart_card_light_extraExtraExtraLarge.png in Resources */,
 				EED87DB129C6624D00EF98DF /* action_button_dark.png in Resources */,
 				EED87DAF29C6624D00EF98DF /* action_button_light.png in Resources */,
 				EED87DA329C65F8200EF98DF /* progress_card_dark.png in Resources */,
@@ -558,6 +589,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE6816BF29C641200027160B /* XCTestCase+Snapshot.swift in Sources */,
+				EED87DBE29C69D9700EF98DF /* ChartCardViewSnapshotTests.swift in Sources */,
 				EE6816BD29C641110027160B /* UIViewController+Snapshot.swift in Sources */,
 				EED87DAA29C661F400EF98DF /* ActionButtonViewSnapshotTests.swift in Sources */,
 				EE80229C29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift in Sources */,
