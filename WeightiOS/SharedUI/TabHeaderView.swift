@@ -9,13 +9,15 @@ import SwiftUI
 
 struct TabHeaderView: View {
     let image: String
+    let lastUpdated: String
     let title: String
     let tabTitle: String
     let color: UIColor
     let settingsSelection: () -> Void
     
-    init(imageName: String, title: String, tabTitle: String, color: UIColor, settingsSelection: @escaping () -> Void) {
+    init(imageName: String, lastUpdated: String = "Last updated: March 19th", title: String, tabTitle: String, color: UIColor, settingsSelection: @escaping () -> Void) {
         self.image = imageName
+        self.lastUpdated = lastUpdated
         self.title = title
         self.tabTitle = tabTitle
         self.color = color
@@ -31,6 +33,11 @@ struct TabHeaderView: View {
                     .background(Color(uiColor: color).opacity(0.5))
                     .cornerRadius(8)
                     .shadow(color: Color(uiColor: color).opacity(0.8), radius: 15, y: 30)
+                
+                Spacer()
+                
+                Text(lastUpdated)
+                    .foregroundColor(.secondary)
                     
                 Spacer()
                 
