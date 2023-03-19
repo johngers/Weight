@@ -9,6 +9,16 @@ import SwiftUI
 
 struct CurrentProgressView: View {
     @State private var progressAmount = 0.5
+    let current: String
+    let goal: String
+    let color: Color
+    
+    init(progressAmount: Double = 0.5, current: String = "100 lb", goal: String = "75 lb", color: Color = .mint.opacity(0.5)) {
+        self.progressAmount = progressAmount
+        self.current = current
+        self.goal = goal
+        self.color = color
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,7 +28,7 @@ struct CurrentProgressView: View {
                 Text("Goal")
                     .fontWeight(.heavy)
                 
-                Text("100 lb")
+                Text(goal)
         
                 Spacer()
                     .frame(height: 50)
@@ -26,13 +36,13 @@ struct CurrentProgressView: View {
                 Text("Current")
                     .fontWeight(.heavy)
                 
-                Text("75 lb")
+                Text(current)
                 
                 Spacer()
             }
             .padding(125)
             .background {
-                CircularProgressView(progress: progressAmount, color: .mint.opacity(0.5))
+                CircularProgressView(progress: progressAmount, color: color)
             }
         }
         .padding()
