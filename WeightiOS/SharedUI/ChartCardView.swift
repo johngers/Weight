@@ -11,6 +11,11 @@ import Weight
 
 struct ChartCardView: View {
     let weightData = ChartState()
+    let color: Color
+    
+    init(color: Color = .mint.opacity(0.5)) {
+        self.color = color
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -23,7 +28,7 @@ struct ChartCardView: View {
                     y: .value("Weight", weightItem.weight)
                 )
                 .lineStyle(StrokeStyle(lineWidth: 5))
-                .foregroundStyle(.mint.opacity(0.5))
+                .foregroundStyle(color)
             }
             .chartYScale(domain: weightData.sortedData.first!.weight...weightData.sortedData.last!.weight)
             .chartXAxis(.hidden)
