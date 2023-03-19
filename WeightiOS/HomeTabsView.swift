@@ -34,7 +34,7 @@ struct HomeTabsView: View {
                     StepsInputView()
                         .tag(tab)
                 case .calories:
-                    WeightInputView()
+                    CaloriesInputView()
                         .tag(tab)
                 }
             }
