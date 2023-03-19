@@ -28,8 +28,8 @@ struct WeightInputView: View {
             
             // ProgressCardView()
             
-            ActionButtonView(isEnabled: true, title: "Enter", color: .systemMint.withAlphaComponent(0.5), buttonSelection: { })
-                .frame(width: 200)
+//            ActionButtonView(isEnabled: true, title: "Enter", color: .systemMint.withAlphaComponent(0.5), buttonSelection: { })
+//                .frame(width: 200)
         }
         .padding()
     }
