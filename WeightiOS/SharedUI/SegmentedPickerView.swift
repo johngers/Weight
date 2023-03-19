@@ -13,6 +13,7 @@ enum WeightUnit: String, Identifiable {
     case steps = "steps"
     case miles = "mi"
     case kilometer = "km"
+    case calories = "cal"
     
     var id: Self {
         return self
