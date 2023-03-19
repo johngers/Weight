@@ -26,7 +26,7 @@ struct WeightInputView: View {
             ChartCardView()
                 .frame(height: 150)
             
-            ProgressCardView()
+            // ProgressCardView()
             
             ActionButtonView(isEnabled: true, title: "Enter", color: .systemMint.withAlphaComponent(0.5), buttonSelection: { })
                 .frame(width: 200)
