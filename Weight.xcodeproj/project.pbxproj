@@ -57,6 +57,7 @@
 		EED87DE229C7B80400EF98DF /* seg_picker_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DDF29C7B80400EF98DF /* seg_picker_dark.png */; };
 		EED87DE329C7B80400EF98DF /* seg_picker_light.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DE029C7B80400EF98DF /* seg_picker_light.png */; };
 		EED87DE429C7B80400EF98DF /* seg_picker_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = EED87DE129C7B80400EF98DF /* seg_picker_light_extraExtraExtraLarge.png */; };
+		EED87DE629C7BC5300EF98DF /* HomeTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DE529C7BC5300EF98DF /* HomeTabsView.swift */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 		EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLogLoader.swift */; };
@@ -142,6 +143,7 @@
 		EED87DDF29C7B80400EF98DF /* seg_picker_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seg_picker_dark.png; sourceTree = "<group>"; };
 		EED87DE029C7B80400EF98DF /* seg_picker_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seg_picker_light.png; sourceTree = "<group>"; };
 		EED87DE129C7B80400EF98DF /* seg_picker_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seg_picker_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		EED87DE529C7BC5300EF98DF /* HomeTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabsView.swift; sourceTree = "<group>"; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		EE68169F29C54C3C0027160B /* WeightiOS */ = {
 			isa = PBXGroup;
 			children = (
+				EED87DE529C7BC5300EF98DF /* HomeTabsView.swift */,
 				EEA95D4029C644C900A69B38 /* WeightInputView.swift */,
 				EE80229729C64A400025437B /* SharedUI */,
 			);
@@ -652,6 +655,7 @@
 				EEA95D4129C644C900A69B38 /* WeightInputView.swift in Sources */,
 				EED87DC929C7B40300EF98DF /* CircularProgressView.swift in Sources */,
 				EED87DA729C6604D00EF98DF /* ActionButtonView.swift in Sources */,
+				EED87DE629C7BC5300EF98DF /* HomeTabsView.swift in Sources */,
 				EED87D9B29C65E2F00EF98DF /* ProgressCardView.swift in Sources */,
 				EED87DB329C666EF00EF98DF /* SegmentedPickerView.swift in Sources */,
 				EED87DB529C666F500EF98DF /* TabHeaderView.swift in Sources */,
