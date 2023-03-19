@@ -14,7 +14,7 @@ struct WeightInputView: View {
             TabHeaderView(imageName: "scalemass", title: "Statistics", tabTitle: "Weight", color: .systemMint, settingsSelection: { })
             
             Spacer()
-                .frame(height: 50)
+                .frame(height: 25)
             
             DateView()
             
