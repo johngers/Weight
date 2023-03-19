@@ -10,6 +10,9 @@ import SwiftUI
 enum WeightUnit: String, Identifiable {
     case lb = "lb"
     case kg = "kg"
+    case steps = "steps"
+    case miles = "mi"
+    case kilometer = "km"
     
     var id: Self {
         return self
