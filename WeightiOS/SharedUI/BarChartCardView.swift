@@ -34,12 +34,11 @@ struct BarChartCardView: View {
                     y: .value("Goal", 105)
                 )
                 .lineStyle(StrokeStyle(lineWidth: 1))
-                .foregroundStyle(.black)
+                .foregroundStyle(Color(uiColor: .label))
                 .annotation(position: .top, alignment: .trailing) {
                     Text("Goal: \(105, format: .number)")
                         .font(.title2)
-                        .foregroundColor(.black)
-                   
+                        .foregroundColor(.primary)
                 }
             }
             .chartYScale(domain: 0.0...140.0)
