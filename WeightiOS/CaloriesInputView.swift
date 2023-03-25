@@ -22,7 +22,7 @@ struct CaloriesInputView: View {
             
             Spacer()
             
-            ChartCardView(color: .green.opacity(0.5))
+            BarChartCardView(color: .green.opacity(0.5))
                 .frame(height: 150)
         }
         .padding()
