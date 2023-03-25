@@ -65,6 +65,7 @@
 		EEEC0F0829CEA39400657E14 /* bar_chart_card_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = EEEC0F0529CEA39400657E14 /* bar_chart_card_dark.png */; };
 		EEEC0F0929CEA39400657E14 /* bar_chart_card_light.png in Resources */ = {isa = PBXBuildFile; fileRef = EEEC0F0629CEA39400657E14 /* bar_chart_card_light.png */; };
 		EEEC0F0A29CEA39400657E14 /* bar_chart_card_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = EEEC0F0729CEA39400657E14 /* bar_chart_card_light_extraExtraExtraLarge.png */; };
+		EEEC0F0C29CEA7EA00657E14 /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC0F0B29CEA7EA00657E14 /* ChartDetailView.swift */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 		EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLogLoader.swift */; };
@@ -158,6 +159,7 @@
 		EEEC0F0529CEA39400657E14 /* bar_chart_card_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_chart_card_dark.png; sourceTree = "<group>"; };
 		EEEC0F0629CEA39400657E14 /* bar_chart_card_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_chart_card_light.png; sourceTree = "<group>"; };
 		EEEC0F0729CEA39400657E14 /* bar_chart_card_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_chart_card_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		EEEC0F0B29CEA7EA00657E14 /* ChartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailView.swift; sourceTree = "<group>"; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				EED87DE929C7C68100EF98DF /* CaloriesInputView.swift */,
 				EED87DE729C7C38800EF98DF /* StepsInputView.swift */,
 				EEA95D4029C644C900A69B38 /* WeightInputView.swift */,
+				EEEC0F0B29CEA7EA00657E14 /* ChartDetailView.swift */,
 				EE80229729C64A400025437B /* SharedUI */,
 			);
 			name = WeightiOS;
@@ -692,6 +695,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EED87DC729C7AE3A00EF98DF /* CurrentProgressView.swift in Sources */,
+				EEEC0F0C29CEA7EA00657E14 /* ChartDetailView.swift in Sources */,
 				EED87DEC29CE934B00EF98DF /* BarChartCardView.swift in Sources */,
 				EEA95D4129C644C900A69B38 /* WeightInputView.swift in Sources */,
 				EED87DEA29C7C68100EF98DF /* CaloriesInputView.swift in Sources */,
