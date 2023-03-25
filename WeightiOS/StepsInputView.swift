@@ -22,7 +22,7 @@ struct StepsInputView: View {
             
             Spacer()
             
-            ChartCardView(color: .purple.opacity(0.5))
+            BarChartCardView(color: .purple.opacity(0.5))
                 .frame(height: 150)
         }
         .padding()
