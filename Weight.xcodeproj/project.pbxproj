@@ -61,6 +61,10 @@
 		EED87DE829C7C38800EF98DF /* StepsInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DE729C7C38800EF98DF /* StepsInputView.swift */; };
 		EED87DEA29C7C68100EF98DF /* CaloriesInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DE929C7C68100EF98DF /* CaloriesInputView.swift */; };
 		EED87DEC29CE934B00EF98DF /* BarChartCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DEB29CE934B00EF98DF /* BarChartCardView.swift */; };
+		EEEC0EFD29CEA2DC00657E14 /* BarChartCardViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC0EFC29CEA2DC00657E14 /* BarChartCardViewSnapshotTests.swift */; };
+		EEEC0F0829CEA39400657E14 /* bar_chart_card_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = EEEC0F0529CEA39400657E14 /* bar_chart_card_dark.png */; };
+		EEEC0F0929CEA39400657E14 /* bar_chart_card_light.png in Resources */ = {isa = PBXBuildFile; fileRef = EEEC0F0629CEA39400657E14 /* bar_chart_card_light.png */; };
+		EEEC0F0A29CEA39400657E14 /* bar_chart_card_light_extraExtraExtraLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = EEEC0F0729CEA39400657E14 /* bar_chart_card_light_extraExtraExtraLarge.png */; };
 		EEF4DB3C29C39B4800F57D6D /* Weight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF4DB3329C39B4700F57D6D /* Weight.framework */; };
 		EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */; };
 		EEF4DB4E29C39C2F00F57D6D /* WeightLogLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF4DB4D29C39C2F00F57D6D /* WeightLogLoader.swift */; };
@@ -150,6 +154,10 @@
 		EED87DE729C7C38800EF98DF /* StepsInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsInputView.swift; sourceTree = "<group>"; };
 		EED87DE929C7C68100EF98DF /* CaloriesInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesInputView.swift; sourceTree = "<group>"; };
 		EED87DEB29CE934B00EF98DF /* BarChartCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCardView.swift; sourceTree = "<group>"; };
+		EEEC0EFC29CEA2DC00657E14 /* BarChartCardViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCardViewSnapshotTests.swift; sourceTree = "<group>"; };
+		EEEC0F0529CEA39400657E14 /* bar_chart_card_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_chart_card_dark.png; sourceTree = "<group>"; };
+		EEEC0F0629CEA39400657E14 /* bar_chart_card_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_chart_card_light.png; sourceTree = "<group>"; };
+		EEEC0F0729CEA39400657E14 /* bar_chart_card_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_chart_card_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
 		EEF4DB3329C39B4700F57D6D /* Weight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Weight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB3B29C39B4800F57D6D /* WeightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightItem.swift; sourceTree = "<group>"; };
@@ -255,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				EED87DA829C661BE00EF98DF /* Action Button */,
+				EEEC0EFA29CEA2B900657E14 /* Bar Chart Card */,
 				EED87DBC29C69D8600EF98DF /* Chart Card */,
 				EED87DCA29C7B4C000EF98DF /* Circular Progress Bar */,
 				EED87DD429C7B5B100EF98DF /* Current Progress */,
@@ -409,6 +418,25 @@
 				EED87DDF29C7B80400EF98DF /* seg_picker_dark.png */,
 				EED87DE029C7B80400EF98DF /* seg_picker_light.png */,
 				EED87DE129C7B80400EF98DF /* seg_picker_light_extraExtraExtraLarge.png */,
+			);
+			path = snapshots;
+			sourceTree = "<group>";
+		};
+		EEEC0EFA29CEA2B900657E14 /* Bar Chart Card */ = {
+			isa = PBXGroup;
+			children = (
+				EEEC0EFE29CEA34400657E14 /* snapshots */,
+				EEEC0EFC29CEA2DC00657E14 /* BarChartCardViewSnapshotTests.swift */,
+			);
+			path = "Bar Chart Card";
+			sourceTree = "<group>";
+		};
+		EEEC0EFE29CEA34400657E14 /* snapshots */ = {
+			isa = PBXGroup;
+			children = (
+				EEEC0F0529CEA39400657E14 /* bar_chart_card_dark.png */,
+				EEEC0F0729CEA39400657E14 /* bar_chart_card_light_extraExtraExtraLarge.png */,
+				EEEC0F0629CEA39400657E14 /* bar_chart_card_light.png */,
 			);
 			path = snapshots;
 			sourceTree = "<group>";
@@ -618,6 +646,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EED87DDB29C7B67300EF98DF /* current_progress_light_extraExtraExtraLarge.png in Resources */,
+				EEEC0F0A29CEA39400657E14 /* bar_chart_card_light_extraExtraExtraLarge.png in Resources */,
+				EEEC0F0929CEA39400657E14 /* bar_chart_card_light.png in Resources */,
 				EED87DA529C65F8200EF98DF /* progress_card_light.png in Resources */,
 				EED87DD329C7B54B00EF98DF /* circular_progress_light_extraExtraExtraLarge.png in Resources */,
 				EED87DE429C7B80400EF98DF /* seg_picker_light_extraExtraExtraLarge.png in Resources */,
@@ -630,6 +660,7 @@
 				EED87DDC29C7B67300EF98DF /* current_progress_light.png in Resources */,
 				EED87DC329C69E1000EF98DF /* chart_card_light_extraExtraExtraLarge.png in Resources */,
 				EED87DB129C6624D00EF98DF /* action_button_dark.png in Resources */,
+				EEEC0F0829CEA39400657E14 /* bar_chart_card_dark.png in Resources */,
 				EED87DAF29C6624D00EF98DF /* action_button_light.png in Resources */,
 				EED87DD129C7B54B00EF98DF /* circular_progress_light.png in Resources */,
 				EED87DD229C7B54B00EF98DF /* circular_progress_dark.png in Resources */,
@@ -684,6 +715,7 @@
 				EED87DBE29C69D9700EF98DF /* ChartCardViewSnapshotTests.swift in Sources */,
 				EED87DCC29C7B4EE00EF98DF /* CircularProgressViewSnapshotTests.swift in Sources */,
 				EE6816BD29C641110027160B /* UIViewController+Snapshot.swift in Sources */,
+				EEEC0EFD29CEA2DC00657E14 /* BarChartCardViewSnapshotTests.swift in Sources */,
 				EED87DAA29C661F400EF98DF /* ActionButtonViewSnapshotTests.swift in Sources */,
 				EE80229C29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift in Sources */,
 				EED87D9E29C65F1100EF98DF /* ProgressCardViewSnapshotTests.swift in Sources */,
