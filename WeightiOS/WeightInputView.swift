@@ -36,28 +36,6 @@ struct WeightInputView: View {
     }
 }
 
-private struct InputView: View {
-    @State var selectedDate: Date = .now
-    @State var inputWeight: String = "100.0"
-
-    var body: some View {
-        HStack(alignment: .center) {
-            Spacer()
-    
-            TextField("Text", text: $inputWeight)
-                .frame(width: 75)
-                .multilineTextAlignment(.trailing)
-                .keyboardType(.decimalPad)
-                .font(.title)
-    
-            Text("lb")
-                .font(.title)
-
-            Spacer()
-        }
-    }
-}
-
 struct WeightInputView_Previews: PreviewProvider {
     static var previews: some View {
         WeightInputView()
