@@ -61,6 +61,7 @@
 		EED87DE829C7C38800EF98DF /* StepsInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DE729C7C38800EF98DF /* StepsInputView.swift */; };
 		EED87DEA29C7C68100EF98DF /* CaloriesInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DE929C7C68100EF98DF /* CaloriesInputView.swift */; };
 		EED87DEC29CE934B00EF98DF /* BarChartCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87DEB29CE934B00EF98DF /* BarChartCardView.swift */; };
+		EEE1771029CEAFB8006E8D26 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE1770F29CEAFB8006E8D26 /* InputView.swift */; };
 		EEEC0EFD29CEA2DC00657E14 /* BarChartCardViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC0EFC29CEA2DC00657E14 /* BarChartCardViewSnapshotTests.swift */; };
 		EEEC0F0829CEA39400657E14 /* bar_chart_card_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = EEEC0F0529CEA39400657E14 /* bar_chart_card_dark.png */; };
 		EEEC0F0929CEA39400657E14 /* bar_chart_card_light.png in Resources */ = {isa = PBXBuildFile; fileRef = EEEC0F0629CEA39400657E14 /* bar_chart_card_light.png */; };
@@ -155,6 +156,7 @@
 		EED87DE729C7C38800EF98DF /* StepsInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StepsInputView.swift; path = ../StepsInputView.swift; sourceTree = "<group>"; };
 		EED87DE929C7C68100EF98DF /* CaloriesInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaloriesInputView.swift; path = ../CaloriesInputView.swift; sourceTree = "<group>"; };
 		EED87DEB29CE934B00EF98DF /* BarChartCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCardView.swift; sourceTree = "<group>"; };
+		EEE1770F29CEAFB8006E8D26 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InputView.swift; path = Tabs/InputView.swift; sourceTree = "<group>"; };
 		EEEC0EFC29CEA2DC00657E14 /* BarChartCardViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCardViewSnapshotTests.swift; sourceTree = "<group>"; };
 		EEEC0F0529CEA39400657E14 /* bar_chart_card_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_chart_card_dark.png; sourceTree = "<group>"; };
 		EEEC0F0629CEA39400657E14 /* bar_chart_card_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_chart_card_light.png; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			children = (
 				EEE1770E29CEAAE4006E8D26 /* Tabs */,
 				EEEC0F0B29CEA7EA00657E14 /* ChartDetailView.swift */,
+				EEE1770F29CEAFB8006E8D26 /* InputView.swift */,
 				EE80229729C64A400025437B /* SharedUI */,
 			);
 			name = WeightiOS;
@@ -703,6 +706,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EED87DC729C7AE3A00EF98DF /* CurrentProgressView.swift in Sources */,
+				EEE1771029CEAFB8006E8D26 /* InputView.swift in Sources */,
 				EEEC0F0C29CEA7EA00657E14 /* ChartDetailView.swift in Sources */,
 				EED87DEC29CE934B00EF98DF /* BarChartCardView.swift in Sources */,
 				EEA95D4129C644C900A69B38 /* WeightInputView.swift in Sources */,
