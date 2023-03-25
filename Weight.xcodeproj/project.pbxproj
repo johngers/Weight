@@ -119,7 +119,7 @@
 		EE8022A329C6513E0025437B /* tab_header_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_header_light.png; sourceTree = "<group>"; };
 		EE8022A429C6513E0025437B /* tab_header_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_header_dark.png; sourceTree = "<group>"; };
 		EE8022A529C6513E0025437B /* tab_header_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_header_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
-		EEA95D4029C644C900A69B38 /* WeightInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightInputView.swift; sourceTree = "<group>"; };
+		EEA95D4029C644C900A69B38 /* WeightInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeightInputView.swift; path = ../WeightInputView.swift; sourceTree = "<group>"; };
 		EED87D9A29C65E2F00EF98DF /* ProgressCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCardView.swift; sourceTree = "<group>"; };
 		EED87D9D29C65F1100EF98DF /* ProgressCardViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCardViewSnapshotTests.swift; sourceTree = "<group>"; };
 		EED87DA029C65F8200EF98DF /* progress_card_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_card_dark.png; sourceTree = "<group>"; };
@@ -151,9 +151,9 @@
 		EED87DDF29C7B80400EF98DF /* seg_picker_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seg_picker_dark.png; sourceTree = "<group>"; };
 		EED87DE029C7B80400EF98DF /* seg_picker_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seg_picker_light.png; sourceTree = "<group>"; };
 		EED87DE129C7B80400EF98DF /* seg_picker_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seg_picker_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
-		EED87DE529C7BC5300EF98DF /* HomeTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabsView.swift; sourceTree = "<group>"; };
-		EED87DE729C7C38800EF98DF /* StepsInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsInputView.swift; sourceTree = "<group>"; };
-		EED87DE929C7C68100EF98DF /* CaloriesInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesInputView.swift; sourceTree = "<group>"; };
+		EED87DE529C7BC5300EF98DF /* HomeTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeTabsView.swift; path = ../HomeTabsView.swift; sourceTree = "<group>"; };
+		EED87DE729C7C38800EF98DF /* StepsInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StepsInputView.swift; path = ../StepsInputView.swift; sourceTree = "<group>"; };
+		EED87DE929C7C68100EF98DF /* CaloriesInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaloriesInputView.swift; path = ../CaloriesInputView.swift; sourceTree = "<group>"; };
 		EED87DEB29CE934B00EF98DF /* BarChartCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCardView.swift; sourceTree = "<group>"; };
 		EEEC0EFC29CEA2DC00657E14 /* BarChartCardViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCardViewSnapshotTests.swift; sourceTree = "<group>"; };
 		EEEC0F0529CEA39400657E14 /* bar_chart_card_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_chart_card_dark.png; sourceTree = "<group>"; };
@@ -233,10 +233,7 @@
 		EE68169F29C54C3C0027160B /* WeightiOS */ = {
 			isa = PBXGroup;
 			children = (
-				EED87DE529C7BC5300EF98DF /* HomeTabsView.swift */,
-				EED87DE929C7C68100EF98DF /* CaloriesInputView.swift */,
-				EED87DE729C7C38800EF98DF /* StepsInputView.swift */,
-				EEA95D4029C644C900A69B38 /* WeightInputView.swift */,
+				EEE1770E29CEAAE4006E8D26 /* Tabs */,
 				EEEC0F0B29CEA7EA00657E14 /* ChartDetailView.swift */,
 				EE80229729C64A400025437B /* SharedUI */,
 			);
@@ -423,6 +420,17 @@
 				EED87DE129C7B80400EF98DF /* seg_picker_light_extraExtraExtraLarge.png */,
 			);
 			path = snapshots;
+			sourceTree = "<group>";
+		};
+		EEE1770E29CEAAE4006E8D26 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				EED87DE529C7BC5300EF98DF /* HomeTabsView.swift */,
+				EED87DE929C7C68100EF98DF /* CaloriesInputView.swift */,
+				EED87DE729C7C38800EF98DF /* StepsInputView.swift */,
+				EEA95D4029C644C900A69B38 /* WeightInputView.swift */,
+			);
+			path = Tabs;
 			sourceTree = "<group>";
 		};
 		EEEC0EFA29CEA2B900657E14 /* Bar Chart Card */ = {
