@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import WeightiOS
 
 @main
 struct WeightAMinuteiOSApp: App {
     var body: some Scene {
         WindowGroup {
-            Text("Hi")
+            HomeTabsView()
         }
     }
 }

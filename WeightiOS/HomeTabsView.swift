@@ -19,11 +19,15 @@ enum Tab: Identifiable, Equatable {
     }
 }
 
-struct HomeTabsView: View {
+public struct HomeTabsView: View {
     var tabs: [Tab] = [.weight, .steps, .calories]
     @State var currentTab: Tab = .weight
     
-    var body: some View {
+    public init() {
+        
+    }
+
+    public var body: some View {
         TabView(selection: $currentTab) {
             ForEach(tabs) { tab in
                 switch tab {
