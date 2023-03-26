@@ -5,6 +5,6 @@
       location = "group:../../Weight.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:">
+      location = "container:WeightAMinuteiOS/WeightAMinuteiOS.xcodeproj">
    </FileRef>
 </Workspace>
