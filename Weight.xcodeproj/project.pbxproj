@@ -240,9 +240,8 @@
 				EEE1770F29CEAFB8006E8D26 /* InputView.swift */,
 				EE80229729C64A400025437B /* SharedUI */,
 			);
-			name = WeightiOS;
-			path = /Users/johngers/Desktop/Weight/WeightiOS;
-			sourceTree = "<absolute>";
+			path = WeightiOS;
+			sourceTree = "<group>";
 		};
 		EE6816A929C54C3C0027160B /* WeightiOSTests */ = {
 			isa = PBXGroup;
