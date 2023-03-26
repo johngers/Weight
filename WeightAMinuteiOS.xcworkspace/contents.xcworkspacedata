@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../Weight.xcodeproj">
+      location = "group:Weight.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:WeightAMinuteiOS/WeightAMinuteiOS.xcodeproj">
