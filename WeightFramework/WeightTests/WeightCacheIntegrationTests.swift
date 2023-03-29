@@ -52,9 +52,8 @@ class WeightCacheIntegrationTests: XCTestCase {
     }
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> LocalWeightLogLoader {
-        let storeBundle = Bundle(for: CoreDataWeightLogStore.self)
         let storeURL = storeURLForTests()
-        let store = try! CoreDataWeightLogStore(storeURL: storeURL, bundle: storeBundle)
+        let store = try! CoreDataWeightLogStore(storeURL: storeURL)
         let sut = LocalWeightLogLoader(store: store)
         trackForMemoryLeaks(store, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
