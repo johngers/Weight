@@ -14,7 +14,6 @@ public final class CoreDataWeightLogStore {
     private let container: NSPersistentContainer
     private let context: NSManagedObjectContext
     
-    
     enum StoreError: Error {
         case modelNotFound
         case failedToLoadPersistentContainer(Error)
