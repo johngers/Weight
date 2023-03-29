@@ -20,7 +20,7 @@ public final class CoreDataWeightLogStore {
         case failedToLoadPersistentContainer(Error)
     }
     
-    public init(storeURL: URL, bundle: Bundle = .main) throws {
+    public init(storeURL: URL) throws {
         guard let model = CoreDataWeightLogStore.model else {
             throw StoreError.modelNotFound
         }
