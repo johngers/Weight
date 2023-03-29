@@ -49,6 +49,13 @@ class CoreDataWeightLogStoreTests: XCTestCase, WeightLogStoreSpecs {
     func test_save_appendsNewDataToPreviouslyInsertedCacheValues() {
         let sut = makeSUT()
         
+        // TODO: Rename
+        assertThatInsertOverridesPreviouslyInsertedCacheValues(on: sut)
+    }
+    
+    func test_insert_appendsNewDataToPreviouslyInsertedCacheValues() {
+        let sut = makeSUT()
+        
         assertThatSaveAppendsNewDataToPreviouslyInsertedCacheValues(on: sut)
     }
     

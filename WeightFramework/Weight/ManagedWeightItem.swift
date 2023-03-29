@@ -26,6 +26,21 @@ extension ManagedWeightItem {
         })
     }
     
+    internal static func find(with id: UUID, in context: NSManagedObjectContext) throws -> ManagedWeightItem? {
+        let request = NSFetchRequest<ManagedWeightItem>(entityName: entity().name!)
+        request.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(ManagedWeightItem.id), id])
+        request.returnsObjectsAsFaults = false
+        return try context.fetch(request).first
+    }
+    
+    internal static func insert(localItem: LocalWeightItem, in context: NSManagedObjectContext) -> ManagedWeightItem? {
+        let managed = ManagedWeightItem(context: context)
+        managed.id = localItem.id
+        managed.weight = localItem.weight
+        managed.date = localItem.date
+        return managed
+    }
+    
     internal var local: LocalWeightItem {
         return LocalWeightItem(id: id, weight: weight, date: date)
     }

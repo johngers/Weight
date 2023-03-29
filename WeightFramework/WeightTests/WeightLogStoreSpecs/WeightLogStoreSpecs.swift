@@ -16,6 +16,8 @@ protocol WeightLogStoreSpecs {
     func test_save_deliversNoErrorOnEmptyCache()
     func test_save_deliversNoErrorOnNonEmptyCache()
     func test_save_appendsNewDataToPreviouslyInsertedCacheValues()
+    
+    func test_insert_appendsNewDataToPreviouslyInsertedCacheValues() // assertThatSaveAppendsNewDataToPreviouslyInsertedCacheValues
 
     func test_delete_deliversNoErrorOnEmptyCache()
     func test_delete_hasNoSideEffectsOnEmptyCache()

@@ -43,6 +43,14 @@ final class WeightLogStoreSpy: WeightLogStore {
         saveCompletions.append(completion)
     }
     
+    func insert(_ item: Weight.LocalWeightItem, completion: @escaping InsertCompletion) {
+        
+    }
+    
+    func retrieveItem(_ item: Weight.LocalWeightItem, completion: @escaping RetrieveItemCompletion) {
+        
+    }
+    
     func retrieve(completion: @escaping RetrievalCompletion) {
         receivedMessages.append(.retrieve)
         retrievalCompletions.append(completion)

@@ -50,16 +50,19 @@ extension WeightLogStoreSpecs where Self: XCTestCase {
     
     
     func assertThatSaveAppendsNewDataToPreviouslyInsertedCacheValues(on sut: WeightLogStore, file: StaticString = #file, line: UInt = #line) {
-        assertThatInsertOverridesPreviouslyInsertedCacheValues(on: sut, file: file, line: line)
+        // assertThatInsertOverridesPreviouslyInsertedCacheValues(on: sut, file: file, line: line)
        
         // TODO: Fix appending new data
-//        let log = uniqueWeightLog().local
-//        save(log, to: sut)
-//
-//        let latestLog = uniqueWeightLog().local
-//        save(latestLog, to: sut)
-//
-//        expect(sut, toRetrieve: .found(log: latestLog), file: file, line: line)
+        let uniqueWeightItem = uniqueItem()
+        let item = LocalWeightItem(id: uniqueWeightItem.id, weight: uniqueWeightItem.weight, date: uniqueWeightItem.date)
+        insert(item, to: sut)
+        
+        let uniqueWeightItem2 = uniqueItem()
+        let item2 = LocalWeightItem(id: uniqueWeightItem2.id, weight: uniqueWeightItem2.weight, date: uniqueWeightItem2.date)
+        insert(item2, to: sut)
+
+        expect(sut, toRetrieveItem: item, with: .success(item), file: file, line: line)
+        expect(sut, toRetrieveItem: item2, with: .success(item2), file: file, line: line)
     }
     
     func assertThatInsertOverridesPreviouslyInsertedCacheValues(on sut: WeightLogStore, file: StaticString = #file, line: UInt = #line) {
@@ -142,6 +145,20 @@ extension WeightLogStoreSpecs where Self: XCTestCase {
     }
     
     @discardableResult
+    func insert(_ item: LocalWeightItem, to sut: WeightLogStore, file: StaticString = #file, line: UInt = #line) -> Error? {
+        let exp = expectation(description: "Wait for cache retrieval")
+        
+        var insertError: Error?
+        sut.insert(item) { result  in
+            if case let Result.failure(error) = result { insertError = error }
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 3.0)
+        return insertError
+    }
+    
+    @discardableResult
     func deleteCache(from sut: WeightLogStore) -> Error? {
         let exp = expectation(description: "Wait for cache deletion")
         var deletionError: Error?
@@ -162,6 +179,28 @@ extension WeightLogStoreSpecs where Self: XCTestCase {
         let exp = expectation(description: "Wait for cache retrieval")
         
         sut.retrieve { retrievedResult in
+            switch (expectedResult, retrievedResult) {
+            case (.success(.none), .success(.none)),
+                (.failure, .failure):
+                break
+                
+            case let (.success(.some(expected)), .success(.some(retrieved))):
+                XCTAssertEqual(retrieved, expected, file: file, line: line)
+                
+            default:
+                XCTFail("Expected to retrieve \(expectedResult), got \(retrievedResult) instead", file: file, line: line)
+            }
+            
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
+    }
+    
+    func expect(_ sut: WeightLogStore, toRetrieveItem item: LocalWeightItem, with expectedResult: WeightLogStore.RetrieveItemResult, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for cache retrieval")
+        
+        sut.retrieveItem(item) { retrievedResult in
             switch (expectedResult, retrievedResult) {
             case (.success(.none), .success(.none)),
                 (.failure, .failure):

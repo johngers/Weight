@@ -29,6 +29,24 @@ extension CoreDataWeightLogStore: WeightLogStore {
         }
     }
     
+    public func insert(_ item: LocalWeightItem, completion: @escaping InsertCompletion) {
+        perform { context in
+            completion(Result{
+                try ManagedWeightItem.insert(localItem: item, in: context).map { _ in }.map(context.save)
+            })
+        }
+    }
+    
+    public func retrieveItem(_ item: LocalWeightItem, completion: @escaping RetrieveItemCompletion) {
+        perform { context in
+            completion(Result{
+                try ManagedWeightItem.find(with: item.id, in: context).map {
+                    return LocalWeightItem(id: $0.id, weight: $0.weight, date: $0.date)
+                }
+            })
+        }
+    }
+    
     public func deleteCachedLog(completion: @escaping DeletionCompletion) {
         perform { context in
             completion(Result{

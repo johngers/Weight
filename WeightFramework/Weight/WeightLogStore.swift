@@ -15,9 +15,15 @@ public protocol WeightLogStore {
     
     typealias SaveResult = Result<Void, Error>
     typealias SaveCompletion = (SaveResult) -> Void
+    
+    typealias InsertResult = Result<Void, Error>
+    typealias InsertCompletion = (InsertResult) -> Void
 
     typealias RetrievalResult = Result<CachedLog?, Error>
     typealias RetrievalCompletion = (RetrievalResult) -> Void
+    
+    typealias RetrieveItemResult = Result<LocalWeightItem?, Error>
+    typealias RetrieveItemCompletion = (RetrieveItemResult) -> Void
 
     /// The completion handler can be invoked in any thread.
     /// Clients are responsible to dispatch to appropriate threads, if needed.
@@ -29,7 +35,15 @@ public protocol WeightLogStore {
     
     /// The completion handler can be invoked in any thread.
     /// Clients are responsible to dispatch to appropriate threads, if needed.
+    func insert(_ item: LocalWeightItem, completion: @escaping InsertCompletion)
+    
+    /// The completion handler can be invoked in any thread.
+    /// Clients are responsible to dispatch to appropriate threads, if needed.
     func retrieve(completion: @escaping RetrievalCompletion)
+    
+    /// The completion handler can be invoked in any thread.
+    /// Clients are responsible to dispatch to appropriate threads, if needed.
+    func retrieveItem(_ item: LocalWeightItem, completion: @escaping RetrieveItemCompletion)
 }
 
 public struct LocalWeightItem: Equatable {
