@@ -1,15 +1,13 @@
 //
-//  WeightStore.swift
+//  WeightItemStore.swift
 //  Weight
 //
-//  Created by John Gers on 3/16/23.
+//  Created by John Gers on 4/15/23.
 //
 
 import Foundation
 
-public typealias CachedLog = [LocalWeightItem]
-
-public protocol WeightLogStore {
+public protocol WeightItemStore {
     typealias DeleteResult = Result<Void, Error>
     typealias DeletionCompletion = (DeleteResult) -> Void
     
