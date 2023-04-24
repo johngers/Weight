@@ -2,7 +2,7 @@
 //  BarChartCardViewSnapshotTests.swift
 //  WeightiOSTests
 //
-//  Created by John Gers on 3/24/23.
+//  Created on 3/24/23.
 //
 
 @testable import WeightiOS

@@ -2,7 +2,7 @@
 //  WeightLoader.swift
 //  Weight
 //
-//  Created by John Gers on 3/16/23.
+//  Created on 3/16/23.
 //
 
 import Foundation

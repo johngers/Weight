@@ -2,7 +2,7 @@
 //  CircularProgressView.swift
 //  WeightiOS
 //
-//  Created by John Gers on 3/19/23.
+//  Created on 3/19/23.
 //
 
 import SwiftUI

@@ -2,7 +2,7 @@
 //  CoreDataStore+WeightItemStore.swift
 //  Weight
 //
-//  Created by John Gers on 4/15/23.
+//  Created on 4/15/23.
 //
 
 import Foundation

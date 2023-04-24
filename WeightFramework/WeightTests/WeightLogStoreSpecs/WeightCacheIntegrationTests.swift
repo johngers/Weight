@@ -2,7 +2,7 @@
 //  WeightCacheIntegrationTests.swift
 //  WeightTests
 //
-//  Created by John Gers on 3/17/23.
+//  Created on 3/17/23.
 //
 
 import XCTest

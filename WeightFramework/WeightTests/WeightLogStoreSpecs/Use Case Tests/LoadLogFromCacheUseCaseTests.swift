@@ -2,7 +2,7 @@
 //  LoadLogFromCacheUseCaseTests.swift
 //  WeightTests
 //
-//  Created by John Gers on 3/16/23.
+//  Created on 3/16/23.
 //
 
 import XCTest

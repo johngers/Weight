@@ -2,7 +2,7 @@
 //  WeightAMinuteiOSApp.swift
 //  WeightAMinuteiOS
 //
-//  Created by John Gers on 3/25/23.
+//  Created on 3/25/23.
 //
 
 import SwiftUI
