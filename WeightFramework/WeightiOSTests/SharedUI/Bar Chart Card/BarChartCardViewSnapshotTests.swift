@@ -34,6 +34,6 @@ class BarChartCardViewSnapshotTests: XCTestCase {
     // MARK: - Helpers
     
     private func makeSUT() -> BarChartCardView {
-        return BarChartCardView()
+        return BarChartCardView(date: .init(timeIntervalSince1970: 1682296934))
     }
 }

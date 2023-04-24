@@ -10,10 +10,11 @@ import SwiftUI
 import Weight
 
 struct BarChartCardView: View {
-    let weightData = ChartState()
+    let weightData: ChartState
     let color: Color
     
-    init(color: Color = .mint.opacity(0.5)) {
+    init(date: Date = .now, color: Color = .mint.opacity(0.5)) {
+        self.weightData = ChartState(date: date)
         self.color = color
     }
 
