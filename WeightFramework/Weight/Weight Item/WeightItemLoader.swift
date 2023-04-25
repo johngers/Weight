@@ -9,7 +9,7 @@ import Foundation
 
 
 public protocol WeightItemLoader {
-    typealias LoadResult = Result<[WeightItem], Error>
+    typealias LoadResult = Result<WeightItem?, Error>
     typealias DeleteResult = Result<Void, Error>
     
     func load(completion: @escaping (LoadResult) -> Void)

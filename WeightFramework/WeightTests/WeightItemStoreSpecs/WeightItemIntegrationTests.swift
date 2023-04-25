@@ -25,30 +25,30 @@ class WeightItemIntegrationTests: XCTestCase {
     func test_load_deliversNoItemsOnEmptyCache() {
         let sut = makeSUT()
         
-        expect(sut, toLoad: [])
+        expect(sut, toLoad: nil)
     }
     
     func test_load_deliversItemsSavedOnASeparateInstance() {
         let sutToPerformSave = makeSUT()
         let sutToPerformLoad = makeSUT()
-        let log = uniqueWeightLog().models
+        let item = uniqueItem().model
         
-        save(log, with: sutToPerformSave)
+        save(item, with: sutToPerformSave)
         
-        expect(sutToPerformLoad, toLoad: log)
+        expect(sutToPerformLoad, toLoad: item)
     }
     
     func test_save_overridesItemsSavedOnASeparateInstance() {
         let sutToPerformFirstSave = makeSUT()
         let sutToPerformLastSave = makeSUT()
         let sutToPerformLoad = makeSUT()
-        let firstLog = uniqueWeightLog().models
-        let latestLog = uniqueWeightLog().models
+        let firstItem = uniqueItem().model
+        let latestItem = uniqueItem().model
 
-        save(firstLog, with: sutToPerformFirstSave)
-        save(latestLog, with: sutToPerformLastSave)
+        save(firstItem, with: sutToPerformFirstSave)
+        save(latestItem, with: sutToPerformLastSave)
 
-        expect(sutToPerformLoad, toLoad: latestLog)
+        expect(sutToPerformLoad, toLoad: latestItem)
     }
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> LocalWeightItemLoader {
@@ -60,12 +60,12 @@ class WeightItemIntegrationTests: XCTestCase {
         return sut
     }
     
-    private func expect(_ sut: LocalWeightItemLoader, toLoad expectedLog: [WeightItem], file: StaticString = #file, line: UInt = #line) {
+    private func expect(_ sut: LocalWeightItemLoader, toLoad expectedItem: WeightItem?, file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "Wait for load completion")
         sut.load { result in
             switch result {
-            case let .success(loadedLog):
-                XCTAssertEqual(loadedLog, expectedLog, file: file, line: line)
+            case let .success(loadedItem):
+                XCTAssertEqual(loadedItem, expectedItem, file: file, line: line)
             case let .failure(error):
                 XCTFail("Expected successful log result, got \(error) instead", file: file, line: line)
             }
@@ -74,9 +74,9 @@ class WeightItemIntegrationTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    private func save(_ log: [WeightItem], with loader: LocalWeightItemLoader, file: StaticString = #file, line: UInt = #line) {
+    private func save(_ item: WeightItem, with loader: LocalWeightItemLoader, file: StaticString = #file, line: UInt = #line) {
         let saveExp = expectation(description: "Wait for save completion")
-        loader.save(log) { result in
+        loader.save(item) { result in
             if case let Result.failure(error) = result {
                 XCTAssertNil(error, "Expected to save feed successfully", file: file, line: line)
             }

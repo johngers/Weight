@@ -14,7 +14,7 @@ public protocol WeightItemStore {
     typealias SaveResult = Result<Void, Error>
     typealias SaveCompletion = (SaveResult) -> Void
 
-    typealias RetrievalResult = Result<CachedLog?, Error>
+    typealias RetrievalResult = Result<LocalWeightItem?, Error>
     typealias RetrievalCompletion = (RetrievalResult) -> Void
 
     /// The completion handler can be invoked in any thread.
@@ -23,7 +23,7 @@ public protocol WeightItemStore {
     
     /// The completion handler can be invoked in any thread.
     /// Clients are responsible to dispatch to appropriate threads, if needed.
-    func save(_ log: [LocalWeightItem], completion: @escaping SaveCompletion)
+    func save(_ item: LocalWeightItem, completion: @escaping SaveCompletion)
     
     /// The completion handler can be invoked in any thread.
     /// Clients are responsible to dispatch to appropriate threads, if needed.

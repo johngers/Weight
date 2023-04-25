@@ -18,8 +18,8 @@ public final class LocalWeightItemLoader {
 extension LocalWeightItemLoader {
     public typealias SaveResult = Result<Void, Error>
 
-    public func save(_ log: [WeightItem], completion: @escaping (SaveResult) -> Void) {
-        store.save(log.toLocal(), completion: completion)
+    public func save(_ item: WeightItem, completion: @escaping (SaveResult) -> Void) {
+        store.save(item.toLocal(), completion: completion)
     }
 }
 
@@ -31,10 +31,10 @@ extension LocalWeightItemLoader: WeightItemLoader {
             switch result {
             case let .failure(error):
                 completion(.failure(error))
-            case let .success(.some(cachedLog)):
-                completion(.success(cachedLog.toModels()))
+            case let .success(.some(cachedItem)):
+                completion(.success(cachedItem.toModel()))
             case .success(.none):
-                completion(.success([]))
+                completion(.success(nil))
             }
         }
     }
@@ -53,18 +53,14 @@ extension LocalWeightItemLoader: WeightItemLoader {
     }
 }
 
-private extension Array where Element == WeightItem {
-    func toLocal() -> [LocalWeightItem] {
-        return map {
-            LocalWeightItem(id: $0.id, weight: $0.weight, date: $0.date)
-        }
+private extension WeightItem {
+    func toLocal() -> LocalWeightItem {
+        return LocalWeightItem(id: id, weight: weight, date: date)
     }
 }
 
-private extension Array where Element == LocalWeightItem {
-    func toModels() -> [WeightItem] {
-        return map {
-            WeightItem(id: $0.id, weight: $0.weight, date: $0.date)
-        }
+private extension LocalWeightItem {
+    func toModel() -> WeightItem {
+        return WeightItem(id: id, weight: weight, date: date)
     }
 }
