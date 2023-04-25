@@ -25,11 +25,11 @@ class CacheWeightItemUseCaseTests: XCTestCase {
     
     func test_save_saves() {
         let (sut, store) = makeSUT()
-        let log = uniqueWeightLog()
+        let item = uniqueItem()
         
-        sut.save(log.models) { _ in }
+        sut.save(item.model) { _ in }
 
-        XCTAssertEqual(store.receivedMessages, [.save(log.local)])
+        XCTAssertEqual(store.receivedMessages, [.save(item.local)])
     }
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalWeightItemLoader, store: WeightItemStoreSpy) {

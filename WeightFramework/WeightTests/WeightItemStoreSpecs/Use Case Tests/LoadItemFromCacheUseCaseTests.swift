@@ -36,17 +36,17 @@ class LoadItemFromCacheUseCaseTests: XCTestCase {
     func test_load_deliversNoItemsOnEmptyCache() {
         let (sut, store) = makeSUT()
 
-        expect(sut, toCompleteWith: .success([]), when: {
+        expect(sut, toCompleteWith: .success(nil), when: {
             store.completeRetrievalWithEmptyCache()
         })
     }
     
     func test_load_deliversCachedItems() {
-        let log = uniqueWeightLog()
+        let item = uniqueItem()
         let (sut, store) = makeSUT()
 
-        expect(sut, toCompleteWith: .success(log.models), when: {
-            store.completeRetrieval(with: log.local)
+        expect(sut, toCompleteWith: .success(item.model), when: {
+            store.completeRetrieval(with: item.local)
         })
     }
     
@@ -54,7 +54,7 @@ class LoadItemFromCacheUseCaseTests: XCTestCase {
         let store = WeightItemStoreSpy()
         var sut: LocalWeightItemLoader? = LocalWeightItemLoader(store: store)
         
-        var receivedResults: [LocalWeightLogLoader.LoadResult] = []
+        var receivedResults: [LocalWeightItemLoader.LoadResult] = []
         sut?.load { receivedResults.append($0) }
         
         sut = nil

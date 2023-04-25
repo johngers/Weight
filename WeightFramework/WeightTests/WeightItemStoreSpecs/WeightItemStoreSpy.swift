@@ -11,7 +11,7 @@ import Weight
 final class WeightItemStoreSpy: WeightItemStore {
     enum ReceivedMessage: Equatable {
         case deleteCachedLog
-        case save([LocalWeightItem])
+        case save(LocalWeightItem)
         case retrieve
     }
 
@@ -38,8 +38,8 @@ final class WeightItemStoreSpy: WeightItemStore {
         deletionCompletions[index](.success(()))
     }
 
-    func save(_ log: [LocalWeightItem], completion: @escaping SaveCompletion) {
-        receivedMessages.append(.save(log))
+    func save(_ item: LocalWeightItem, completion: @escaping SaveCompletion) {
+        receivedMessages.append(.save(item))
         saveCompletions.append(completion)
     }
     
@@ -56,7 +56,7 @@ final class WeightItemStoreSpy: WeightItemStore {
         retrievalCompletions[index](.success(.none))
     }
     
-    func completeRetrieval(with log: [LocalWeightItem], at index: Int = 0) {
-        retrievalCompletions[index](.success(CachedLog(log)))
+    func completeRetrieval(with item: LocalWeightItem, at index: Int = 0) {
+        retrievalCompletions[index](.success(item))
     }
 }

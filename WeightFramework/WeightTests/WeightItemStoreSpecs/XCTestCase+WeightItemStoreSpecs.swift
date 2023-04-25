@@ -19,31 +19,31 @@ extension WeightItemStoreSpecs where Self: XCTestCase {
     }
     
     func assertThatRetrieveDeliversFoundValuesOnNonEmptyCache(on sut: WeightItemStore, file: StaticString = #file, line: UInt = #line) {
-        let log = uniqueWeightLog().local
+        let item = uniqueItem().local
         
-        save(log, to: sut)
+        save(item, to: sut)
         
-        expect(sut, toRetrieve: .success(CachedLog(log)), file: file, line: line)
+        expect(sut, toRetrieve: .success(item), file: file, line: line)
     }
     
     func assertThatRetrieveHasNoSideEffectsOnNonEmptyCache(on sut: WeightItemStore, file: StaticString = #file, line: UInt = #line) {
-        let log = uniqueWeightLog().local
+        let item = uniqueItem().local
         
-        save(log, to: sut)
+        save(item, to: sut)
         
-        expect(sut, toRetrieveTwice: .success(CachedLog(log)), file: file, line: line)
+        expect(sut, toRetrieveTwice: .success(item), file: file, line: line)
     }
     
     func assertThatSaveDeliversNoErrorOnEmptyCache(on sut: WeightItemStore, file: StaticString = #file, line: UInt = #line) {
-        let insertionError = save(uniqueWeightLog().local, to: sut)
+        let insertionError = save(uniqueItem().local, to: sut)
         
         XCTAssertNil(insertionError, "Expected to insert cache successfully", file: file, line: line)
     }
     
     func assertThatSaveDeliversNoErrorOnNonEmptyCache(on sut: WeightItemStore, file: StaticString = #file, line: UInt = #line) {
-        save(uniqueWeightLog().local, to: sut)
+        save(uniqueItem().local, to: sut)
         
-        let insertionError = save(uniqueWeightLog().local, to: sut)
+        let insertionError = save(uniqueItem().local, to: sut)
         
         XCTAssertNil(insertionError, "Expected to override cache successfully", file: file, line: line)
     }
@@ -54,12 +54,10 @@ extension WeightItemStoreSpecs where Self: XCTestCase {
     }
     
     func assertThatInsertOverridesPreviouslyInsertedCacheValues(on sut: WeightItemStore, file: StaticString = #file, line: UInt = #line) {
-        save(uniqueWeightLog().local, to: sut)
+        let latestItem = uniqueItem().local
+        save(latestItem, to: sut)
         
-        let latestLog = uniqueWeightLog().local
-        save(latestLog, to: sut)
-        
-        expect(sut, toRetrieve: .success(CachedLog(latestLog)), file: file, line: line)
+        expect(sut, toRetrieve: .success(latestItem), file: file, line: line)
     }
     
     func assertThatDeleteDeliversNoErrorOnEmptyCache(on sut: WeightItemStore, file: StaticString = #file, line: UInt = #line) {
@@ -75,7 +73,7 @@ extension WeightItemStoreSpecs where Self: XCTestCase {
     }
     
     func assertThatDeleteDeliversNoErrorOnNonEmptyCache(on sut: WeightItemStore, file: StaticString = #file, line: UInt = #line) {
-        save(uniqueWeightLog().local, to: sut)
+        save(uniqueItem().local, to: sut)
         
         let deletionError = deleteCache(from: sut)
         
@@ -83,7 +81,7 @@ extension WeightItemStoreSpecs where Self: XCTestCase {
     }
     
     func assertThatDeleteEmptiesPreviouslyInsertedCache(on sut: WeightItemStore, file: StaticString = #file, line: UInt = #line) {
-        save(uniqueWeightLog().local, to: sut)
+        save(uniqueItem().local, to: sut)
         
         deleteCache(from: sut)
         
@@ -94,7 +92,7 @@ extension WeightItemStoreSpecs where Self: XCTestCase {
         var completedOperationsInOrder: [XCTestExpectation] = []
         
         let op1 = expectation(description: "Operation 1")
-        sut.save(uniqueWeightLog().local) { _ in
+        sut.save(uniqueItem().local) { _ in
             completedOperationsInOrder.append(op1)
             op1.fulfill()
         }
@@ -106,7 +104,7 @@ extension WeightItemStoreSpecs where Self: XCTestCase {
         }
         
         let op3 = expectation(description: "Operation 3")
-        sut.save(uniqueWeightLog().local) { _ in
+        sut.save(uniqueItem().local) { _ in
             completedOperationsInOrder.append(op3)
             op3.fulfill()
         }
@@ -119,7 +117,7 @@ extension WeightItemStoreSpecs where Self: XCTestCase {
 
 extension WeightItemStoreSpecs where Self: XCTestCase {
     @discardableResult
-    func save(_ cache: [LocalWeightItem], to sut: WeightItemStore, file: StaticString = #file, line: UInt = #line) -> Error? {
+    func save(_ cache: LocalWeightItem, to sut: WeightItemStore, file: StaticString = #file, line: UInt = #line) -> Error? {
         let exp = expectation(description: "Wait for cache retrieval")
         
         var saveError: Error?

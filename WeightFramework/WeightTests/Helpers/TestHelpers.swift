@@ -12,12 +12,18 @@ func anyNSError() -> NSError {
     return NSError(domain: "any error", code: 0)
 }
 
-func uniqueItem() -> WeightItem {
+func uniqueWeightItem() -> WeightItem {
     return WeightItem(id: UUID(), weight: 100.0, date: Date())
 }
 
+func uniqueItem() -> (model: WeightItem, local: LocalWeightItem) {
+    let item = WeightItem(id: UUID(), weight: 100.0, date: Date())
+    let localItem = LocalWeightItem(id: item.id, weight: item.weight, date: item.date)
+    return (item, localItem)
+}
+
 func uniqueWeightLog() -> (models: [WeightItem], local: [LocalWeightItem]) {
-    let items = [uniqueItem()]
+    let items = [uniqueWeightItem()]
     let localItems = items.map { LocalWeightItem(id: $0.id, weight: $0.weight, date: $0.date) }
     return (items, localItems)
 }
