@@ -34,6 +34,6 @@ class TabHeaderViewSnapshotTests: XCTestCase {
     // MARK: - Helpers
     
     private func makeSUT() -> TabHeaderView {
-        return TabHeaderView(imageName: "scalemass", title: "Statistics", tabTitle: "Weight", color: .systemMint, settingsSelection: { })
+        return TabHeaderView(imageName: "scalemass", title: "Statistics", tabTitle: "Weight", color: .systemMint, selectedUnit: .lb, settingsSelection: { })
     }
 }
