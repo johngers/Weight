@@ -12,7 +12,6 @@ internal class ManagedWeightItem: NSManagedObject {
     @NSManaged internal var id: UUID
     @NSManaged internal var weight: Double
     @NSManaged internal var date: Date
-    @NSManaged internal var cache: ManagedCache
 }
 
 extension ManagedWeightItem {
