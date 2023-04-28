@@ -31,17 +31,7 @@ public struct HomeTabsView: View {
 
     public var body: some View {
         VStack {
-            switch currentTab {
-            case .weight:
-                TabHeaderView(imageName: "scalemass", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Weight", color: .systemMint, selectedUnit: .lb, settingsSelection: { })
-                    .padding()
-            case .steps:
-                TabHeaderView(imageName: "figure.walk", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Steps", units: [.miles, .kilometer], color: .systemPurple, selectedUnit: .miles, settingsSelection: { })
-                    .padding()
-            case .calories:
-                TabHeaderView(imageName: "fork.knife", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Calories", units: [.calories], color: .systemGreen, selectedUnit: .calories, settingsSelection: { })
-                    .padding()
-            }
+            HomeTabHeader(currentTab: currentTab)
 
             TabView(selection: $currentTab) {
                 ForEach(tabs) { tab in
@@ -70,6 +60,24 @@ public struct HomeTabsView: View {
                     .padding(.bottom, 30)
                 , alignment: .bottom
             )
+        }
+    }
+}
+
+private struct HomeTabHeader: View {
+    let currentTab: Tab
+
+    var body: some View {
+        switch currentTab {
+        case .weight:
+            TabHeaderView(imageName: "scalemass", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Weight", color: .systemMint, selectedUnit: .lb, settingsSelection: { })
+                .padding()
+        case .steps:
+            TabHeaderView(imageName: "figure.walk", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Steps", units: [.miles, .kilometer], color: .systemPurple, selectedUnit: .miles, settingsSelection: { })
+                .padding()
+        case .calories:
+            TabHeaderView(imageName: "fork.knife", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Calories", units: [.calories], color: .systemGreen, selectedUnit: .calories, settingsSelection: { })
+                .padding()
         }
     }
 }
