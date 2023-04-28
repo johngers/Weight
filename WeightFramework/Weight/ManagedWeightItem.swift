@@ -16,15 +16,6 @@ internal class ManagedWeightItem: NSManagedObject {
 }
 
 extension ManagedWeightItem {
-    internal static func items(from localLog: [LocalWeightItem], in context: NSManagedObjectContext) -> NSOrderedSet {
-        return NSOrderedSet(array: localLog.map { local in
-            let managed = ManagedWeightItem(context: context)
-            managed.id = local.id
-            managed.weight = local.weight
-            managed.date = local.date
-            return managed
-        })
-    }
     
     internal static func find(in context: NSManagedObjectContext) throws -> ManagedWeightItem? {
         let request = NSFetchRequest<ManagedWeightItem>(entityName: entity().name!)
