@@ -11,7 +11,6 @@ struct CaloriesInputView: View {
 
     var body: some View {
         VStack {
-            TabHeaderView(imageName: "fork.knife", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Calories", units: [.calories], color: .systemGreen, settingsSelection: { })
             
             Spacer()
                 .frame(height: 25)

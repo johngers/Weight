@@ -11,7 +11,6 @@ struct StepsInputView: View {
 
     var body: some View {
         VStack {
-            TabHeaderView(imageName: "figure.walk", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Steps", units: [.miles, .kilometer], color: .systemPurple, settingsSelection: { })
             
             Spacer()
                 .frame(height: 25)

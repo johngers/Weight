@@ -12,15 +12,17 @@ struct TabHeaderView: View {
     let lastUpdated: String
     let title: String
     let tabTitle: String
+    let selectedUnit: WeightUnit
     let units: [WeightUnit]
     let color: UIColor
     let settingsSelection: () -> Void
     
-    init(imageName: String, lastUpdated: String = "Last updated: March 19th", title: String, tabTitle: String, units: [WeightUnit] = [.lb, .kg], color: UIColor, settingsSelection: @escaping () -> Void) {
+    init(imageName: String, lastUpdated: String = "Last updated: March 19th", title: String, tabTitle: String, units: [WeightUnit] = [.lb, .kg], color: UIColor, selectedUnit: WeightUnit, settingsSelection: @escaping () -> Void) {
         self.image = imageName
         self.lastUpdated = lastUpdated
         self.title = title
         self.tabTitle = tabTitle
+        self.selectedUnit = selectedUnit
         self.units = units
         self.color = color
         self.settingsSelection = settingsSelection
@@ -65,7 +67,7 @@ struct TabHeaderView: View {
                 
                 Spacer()
 
-                SegmentedPickerView(options: units, color: color.withAlphaComponent(0.5))
+                SegmentedPickerView(selectedUnit: selectedUnit, options: units, color: color.withAlphaComponent(0.5))
                     .frame(width: 75)
             }
         }
@@ -74,7 +76,7 @@ struct TabHeaderView: View {
 
 struct TabHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        TabHeaderView(imageName: "scalemass", title: "Statistics", tabTitle: "Weight", color: .systemMint, settingsSelection: { })
+        TabHeaderView(imageName: "scalemass", title: "Statistics", tabTitle: "Weight", color: .systemMint, selectedUnit: .lb, settingsSelection: { })
             .previewLayout(.sizeThatFits)
     }
 }

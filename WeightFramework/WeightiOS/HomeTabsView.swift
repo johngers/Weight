@@ -30,33 +30,47 @@ public struct HomeTabsView: View {
     }
 
     public var body: some View {
-        TabView(selection: $currentTab) {
-            ForEach(tabs) { tab in
-                switch tab {
-                case .weight:
-                    WeightInputView(showInput: showInput)
-                        .tag(tab)
-                case .steps:
-                    StepsInputView()
-                        .tag(tab)
-                case .calories:
-                    CaloriesInputView()
-                        .tag(tab)
-                }
+        VStack {
+            switch currentTab {
+            case .weight:
+                TabHeaderView(imageName: "scalemass", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Weight", color: .systemMint, selectedUnit: .lb, settingsSelection: { })
+                    .padding()
+            case .steps:
+                TabHeaderView(imageName: "figure.walk", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Steps", units: [.miles, .kilometer], color: .systemPurple, selectedUnit: .miles, settingsSelection: { })
+                    .padding()
+            case .calories:
+                TabHeaderView(imageName: "fork.knife", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Calories", units: [.calories], color: .systemGreen, selectedUnit: .calories, settingsSelection: { })
+                    .padding()
             }
-        }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-        .overlay (
-            HStack(spacing: 15){
+
+            TabView(selection: $currentTab) {
                 ForEach(tabs) { tab in
-                    Capsule()
-                        .fill(Color.black)
-                        .frame(width: tab == currentTab ? 20 : 7, height: 7)
+                    switch tab {
+                    case .weight:
+                        WeightInputView(showInput: showInput)
+                            .tag(tab)
+                    case .steps:
+                        StepsInputView()
+                            .tag(tab)
+                    case .calories:
+                        CaloriesInputView()
+                            .tag(tab)
+                    }
                 }
             }
-            .padding(.bottom, 30)
-            , alignment: .bottom
-        )
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .overlay (
+                HStack(spacing: 15){
+                    ForEach(tabs) { tab in
+                        Capsule()
+                            .fill(Color.black)
+                            .frame(width: tab == currentTab ? 20 : 7, height: 7)
+                    }
+                }
+                    .padding(.bottom, 30)
+                , alignment: .bottom
+            )
+        }
     }
 }
 

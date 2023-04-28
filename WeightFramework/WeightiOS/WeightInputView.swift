@@ -12,7 +12,6 @@ struct WeightInputView: View {
     
     var body: some View {
         VStack {
-            TabHeaderView(imageName: "scalemass", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Weight", color: .systemMint, settingsSelection: { })
             
             Spacer()
                 .frame(height: 25)
