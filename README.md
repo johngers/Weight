@@ -5,7 +5,7 @@ Status:
 ## Things to do:
 
 ### ✅ Individualize storing of weights. Right now storing a weight is related to an entire log. This makes accessing individual items harder in the current design and is important for what we want to do with the data. Doing this will allow us to input single items, delete single items, merge items by day, and fetch groups of items for related charts much easier.
-### Create an input view for inputting weights.
+### ✅ Create an input view for inputting weights.
 ### Go through WeightItem related tests and clean up references to "log" and ensure the behavior is correct.
 
 ## Things left to add MVP
