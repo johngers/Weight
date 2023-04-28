@@ -23,8 +23,10 @@ public struct HomeTabsView: View {
     var tabs: [Tab] = [.weight, .steps, .calories]
     @State var currentTab: Tab = .weight
     
-    public init() {
-        
+    let showInput: () -> Void
+    
+    public init(showInput: @escaping () -> Void) {
+        self.showInput = showInput
     }
 
     public var body: some View {
@@ -32,7 +34,7 @@ public struct HomeTabsView: View {
             ForEach(tabs) { tab in
                 switch tab {
                 case .weight:
-                    WeightInputView()
+                    WeightInputView(showInput: showInput)
                         .tag(tab)
                 case .steps:
                     StepsInputView()
@@ -60,7 +62,7 @@ public struct HomeTabsView: View {
 
 struct HomeTabsView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeTabsView()
+        HomeTabsView(showInput: { })
             .previewLayout(.sizeThatFits)
     }
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct WeightInputView: View {
-
+    let showInput: () -> Void
+    
     var body: some View {
         VStack {
             TabHeaderView(imageName: "scalemass", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Weight", color: .systemMint, settingsSelection: { })
@@ -18,7 +19,17 @@ struct WeightInputView: View {
             
             Spacer()
 
-            CurrentProgressView()
+            Button {
+                // Empty so we disable the dim on click effect
+            } label: {
+                CurrentProgressView()
+            }
+            .disabled(true)
+            .onTapGesture {
+                showInput()
+            }
+            .foregroundColor(.primary)
+            
             
             // TripleCircularProgressView()
             
@@ -38,7 +49,7 @@ struct WeightInputView: View {
 
 struct WeightInputView_Previews: PreviewProvider {
     static var previews: some View {
-        WeightInputView()
+        WeightInputView(showInput: { })
     }
 }
 

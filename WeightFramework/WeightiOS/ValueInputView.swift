@@ -7,16 +7,29 @@
 
 import SwiftUI
 
-struct ValueInputView: View {
-    @Binding var input: String
+public class ValueInputViewModel: ObservableObject {
+    @Published var input: String = ""
     let close: () -> Void
     let confirm: () -> Void
+    
+    public init(close: @escaping () -> Void, confirm: @escaping () -> Void) {
+        self.close = close
+        self.confirm = confirm
+    }
+}
 
-    var body: some View {
+public struct ValueInputView: View {
+    @ObservedObject var viewModel: ValueInputViewModel
+    
+    public init(viewModel: ValueInputViewModel) {
+        self.viewModel = viewModel
+    }
+
+    public var body: some View {
         VStack {
             HStack {
                 Button {
-                    close()
+                    viewModel.close()
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(.primary)
@@ -32,12 +45,10 @@ struct ValueInputView: View {
             HStack {
                 Spacer()
     
-                TextField(text: $input, label: {
-                    Text(input)
-                })
-                .font(.title)
-                .multilineTextAlignment(.trailing)
-                .keyboardType(.decimalPad)
+                TextField("0.0", text: $viewModel.input)
+                    .font(.title)
+                    .multilineTextAlignment(.trailing)
+                    .keyboardType(.decimalPad)
                 
                 SegmentedPickerView(options: [.lb, .kg])
                     .frame(width: 100)
@@ -48,7 +59,7 @@ struct ValueInputView: View {
             Spacer()
                 .frame(height: 25)
         
-            ActionButtonView(isEnabled: true, title: "Enter", color: .systemMint.withAlphaComponent(0.5), buttonSelection: confirm)
+            ActionButtonView(isEnabled: true, title: "Enter", color: .systemMint.withAlphaComponent(0.5), buttonSelection: viewModel.confirm)
                 .frame(width: 200)
         }
         .padding()
@@ -57,7 +68,7 @@ struct ValueInputView: View {
 
 struct ValueInputView_Previews: PreviewProvider {
     static var previews: some View {
-        ValueInputView(input: .constant("0.0"), close: { }, confirm: { })
+        ValueInputView(viewModel: ValueInputViewModel(close: { }, confirm: { }))
             .previewLayout(.sizeThatFits)
     }
 }
