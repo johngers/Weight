@@ -31,7 +31,7 @@ public struct HomeTabsView: View {
 
     public var body: some View {
         VStack {
-            HomeTabHeader(currentTab: currentTab)
+            HomeTabHeader(currentTab: currentTab, settingSelected: { })
 
             TabView(selection: $currentTab) {
                 ForEach(tabs) { tab in
@@ -66,17 +66,18 @@ public struct HomeTabsView: View {
 
 private struct HomeTabHeader: View {
     let currentTab: Tab
+    let settingSelected: () -> Void
 
     var body: some View {
         switch currentTab {
         case .weight:
-            TabHeaderView(imageName: "scalemass", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Weight", color: .systemMint, selectedUnit: .lb, settingsSelection: { })
+            TabHeaderView(imageName: "scalemass", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Weight", color: .systemMint, selectedUnit: .lb, settingsSelection: settingSelected)
                 .padding()
         case .steps:
-            TabHeaderView(imageName: "figure.walk", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Steps", units: [.miles, .kilometer], color: .systemPurple, selectedUnit: .miles, settingsSelection: { })
+            TabHeaderView(imageName: "figure.walk", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Steps", units: [.miles, .kilometer], color: .systemPurple, selectedUnit: .miles, settingsSelection: settingSelected)
                 .padding()
         case .calories:
-            TabHeaderView(imageName: "fork.knife", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Calories", units: [.calories], color: .systemGreen, selectedUnit: .calories, settingsSelection: { })
+            TabHeaderView(imageName: "fork.knife", lastUpdated: "Last updated: March 19th", title: "Statistics", tabTitle: "Calories", units: [.calories], color: .systemGreen, selectedUnit: .calories, settingsSelection: settingSelected)
                 .padding()
         }
     }
