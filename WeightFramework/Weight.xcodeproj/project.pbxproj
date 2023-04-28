@@ -26,6 +26,7 @@
 		EE6816BF29C641200027160B /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6816BE29C641200027160B /* XCTestCase+Snapshot.swift */; };
 		EE80229629C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE80229529C646FC0025437B /* SegmentedPickerViewSnapshotTests.swift */; };
 		EE80229C29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE80229B29C64DEE0025437B /* TabHeaderViewSnapshotTests.swift */; };
+		EE9588E629FB5FD900E6BFB3 /* ValueInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9588E529FB5FD900E6BFB3 /* ValueInputView.swift */; };
 		EEA95D4129C644C900A69B38 /* WeightInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA95D4029C644C900A69B38 /* WeightInputView.swift */; };
 		EED87D9B29C65E2F00EF98DF /* ProgressCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87D9A29C65E2F00EF98DF /* ProgressCardView.swift */; };
 		EED87D9E29C65F1100EF98DF /* ProgressCardViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED87D9D29C65F1100EF98DF /* ProgressCardViewSnapshotTests.swift */; };
@@ -138,6 +139,7 @@
 		EE8022A329C6513E0025437B /* tab_header_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_header_light.png; sourceTree = "<group>"; };
 		EE8022A429C6513E0025437B /* tab_header_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_header_dark.png; sourceTree = "<group>"; };
 		EE8022A529C6513E0025437B /* tab_header_light_extraExtraExtraLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_header_light_extraExtraExtraLarge.png; sourceTree = "<group>"; };
+		EE9588E529FB5FD900E6BFB3 /* ValueInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueInputView.swift; sourceTree = "<group>"; };
 		EEA95D4029C644C900A69B38 /* WeightInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeightInputView.swift; path = ../WeightInputView.swift; sourceTree = "<group>"; };
 		EED87D9A29C65E2F00EF98DF /* ProgressCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCardView.swift; sourceTree = "<group>"; };
 		EED87D9D29C65F1100EF98DF /* ProgressCardViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCardViewSnapshotTests.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				EEE1770E29CEAAE4006E8D26 /* Tabs */,
 				EEEC0F0B29CEA7EA00657E14 /* ChartDetailView.swift */,
 				EEE1770F29CEAFB8006E8D26 /* InputView.swift */,
+				EE9588E529FB5FD900E6BFB3 /* ValueInputView.swift */,
 				EE80229729C64A400025437B /* SharedUI */,
 			);
 			path = WeightiOS;
@@ -807,6 +810,7 @@
 				EED87D9B29C65E2F00EF98DF /* ProgressCardView.swift in Sources */,
 				EED87DB329C666EF00EF98DF /* SegmentedPickerView.swift in Sources */,
 				EED87DB529C666F500EF98DF /* TabHeaderView.swift in Sources */,
+				EE9588E629FB5FD900E6BFB3 /* ValueInputView.swift in Sources */,
 				EED87DBB29C6854C00EF98DF /* ChartCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
