@@ -9,7 +9,7 @@ import CoreData
 
 public final class CoreDataStore {
     private static let modelName = "Store"
-    private static let model = NSManagedObjectModel.with(name: modelName, in: Bundle(for: CoreDataWeightLogStore.self))
+    private static let model = NSManagedObjectModel.with(name: modelName, in: Bundle(for: CoreDataStore.self))
 
     private let container: NSPersistentContainer
     private let context: NSManagedObjectContext
