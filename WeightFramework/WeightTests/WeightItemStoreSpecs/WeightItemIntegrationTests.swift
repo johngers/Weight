@@ -67,7 +67,7 @@ class WeightItemIntegrationTests: XCTestCase {
             case let .success(loadedItem):
                 XCTAssertEqual(loadedItem, expectedItem, file: file, line: line)
             case let .failure(error):
-                XCTFail("Expected successful log result, got \(error) instead", file: file, line: line)
+                XCTFail("Expected successful item result, got \(error) instead", file: file, line: line)
             }
             exp.fulfill()
         }

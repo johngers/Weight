@@ -21,9 +21,3 @@ func uniqueItem() -> (model: WeightItem, local: LocalWeightItem) {
     let localItem = LocalWeightItem(id: item.id, weight: item.weight, date: item.date)
     return (item, localItem)
 }
-
-func uniqueWeightLog() -> (models: [WeightItem], local: [LocalWeightItem]) {
-    let items = [uniqueWeightItem()]
-    let localItems = items.map { LocalWeightItem(id: $0.id, weight: $0.weight, date: $0.date) }
-    return (items, localItems)
-}
