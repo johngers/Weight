@@ -40,7 +40,7 @@ extension LocalWeightItemLoader: WeightItemLoader {
     }
     
     public func delete(completion: @escaping (DeleteResult) -> Void) {
-        store.deleteCachedLog { [weak self] result in
+        store.deleteCachedItem { [weak self] result in
             guard let _ = self else { return }
             
             switch result {

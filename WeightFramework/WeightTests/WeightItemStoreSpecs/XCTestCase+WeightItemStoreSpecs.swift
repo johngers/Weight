@@ -98,7 +98,7 @@ extension WeightItemStoreSpecs where Self: XCTestCase {
         }
         
         let op2 = expectation(description: "Operation 2")
-        sut.deleteCachedLog { _ in
+        sut.deleteCachedItem { _ in
             completedOperationsInOrder.append(op2)
             op2.fulfill()
         }
@@ -134,7 +134,7 @@ extension WeightItemStoreSpecs where Self: XCTestCase {
     func deleteCache(from sut: WeightItemStore) -> Error? {
         let exp = expectation(description: "Wait for cache deletion")
         var deletionError: Error?
-        sut.deleteCachedLog { result in
+        sut.deleteCachedItem { result in
             if case let Result.failure(error) = result { deletionError = error }
             exp.fulfill()
         }

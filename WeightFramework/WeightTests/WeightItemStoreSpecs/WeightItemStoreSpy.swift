@@ -10,7 +10,7 @@ import Weight
 
 final class WeightItemStoreSpy: WeightItemStore {
     enum ReceivedMessage: Equatable {
-        case deleteCachedLog
+        case deleteCachedItem
         case save(LocalWeightItem)
         case retrieve
     }
@@ -21,9 +21,9 @@ final class WeightItemStoreSpy: WeightItemStore {
     private var saveCompletions: [SaveCompletion] = []
     private var retrievalCompletions: [RetrievalCompletion] = []
     
-    func deleteCachedLog(completion: @escaping DeletionCompletion) {
+    func deleteCachedItem(completion: @escaping DeletionCompletion) {
         deletionCompletions.append(completion)
-        receivedMessages.append(.deleteCachedLog)
+        receivedMessages.append(.deleteCachedItem)
     }
     
     func completeDeletion(with error: Error, at index: Int = 0) {

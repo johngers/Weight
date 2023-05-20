@@ -21,7 +21,7 @@ class DeleteItemFromCacheUseCaseTests: XCTestCase {
         
         sut.delete { _ in }
     
-        XCTAssertEqual(store.receivedMessages, [.deleteCachedLog])
+        XCTAssertEqual(store.receivedMessages, [.deleteCachedItem])
     }
     
     func test_delete_failsOnDeletionError() {

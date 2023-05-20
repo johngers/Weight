@@ -31,7 +31,7 @@ extension CoreDataStore: WeightItemStore {
         }
     }
     
-    public func deleteCachedLog(completion: @escaping DeletionCompletion) {
+    public func deleteCachedItem(completion: @escaping DeletionCompletion) {
         perform { context in
             completion(Result{
                 try ManagedWeightItem.find(in: context).map(context.delete).map(context.save)
