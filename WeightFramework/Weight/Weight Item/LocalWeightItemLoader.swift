@@ -31,10 +31,8 @@ extension LocalWeightItemLoader: WeightItemLoader {
             switch result {
             case let .failure(error):
                 completion(.failure(error))
-            case let .success(.some(cachedItem)):
-                completion(.success(cachedItem.toModel()))
-            case .success(.none):
-                completion(.success(nil))
+            case let .success(cachedItem):
+                completion(.success(cachedItem.map { $0.toModel() }))
             }
         }
     }

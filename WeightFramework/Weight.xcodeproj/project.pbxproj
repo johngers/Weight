@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE1F17E92AD6552F0055DBF4 /* ManagedWeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1F17E82AD6552F0055DBF4 /* ManagedWeightItem.swift */; };
 		EE5D826C29C4FC570011CFA8 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D826B29C4FC570011CFA8 /* CoreDataHelpers.swift */; };
-		EE5D827029C4FCCA0011CFA8 /* ManagedWeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D826F29C4FCCA0011CFA8 /* ManagedWeightItem.swift */; };
+		EE5D827029C4FCCA0011CFA8 /* CoreDataManagedWeightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D826F29C4FCCA0011CFA8 /* CoreDataManagedWeightItem.swift */; };
 		EE6816A629C54C3C0027160B /* WeightiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE68169E29C54C3C0027160B /* WeightiOS.framework */; };
 		EE6816BD29C641110027160B /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6816BC29C641110027160B /* UIViewController+Snapshot.swift */; };
 		EE6816BF29C641200027160B /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6816BE29C641200027160B /* XCTestCase+Snapshot.swift */; };
@@ -98,8 +99,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE1F17E82AD6552F0055DBF4 /* ManagedWeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ManagedWeightItem.swift; path = ../../ManagedWeightItem.swift; sourceTree = "<group>"; };
 		EE5D826B29C4FC570011CFA8 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
-		EE5D826F29C4FCCA0011CFA8 /* ManagedWeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedWeightItem.swift; sourceTree = "<group>"; };
+		EE5D826F29C4FCCA0011CFA8 /* CoreDataManagedWeightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagedWeightItem.swift; sourceTree = "<group>"; };
 		EE68169E29C54C3C0027160B /* WeightiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeightiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6816A529C54C3C0027160B /* WeightiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeightiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6816BC29C641110027160B /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Snapshot.swift"; path = "WeightiOSTests/Snapshot Helpers/UIViewController+Snapshot.swift"; sourceTree = SOURCE_ROOT; };
@@ -470,7 +472,8 @@
 				EEF4DB4B29C39BBC00F57D6D /* WeightItem.swift */,
 				EED87DB829C6832700EF98DF /* Date+Helpers.swift */,
 				EEFB4D6E29EB2E990023CCF7 /* Weight Item */,
-				EE5D826F29C4FCCA0011CFA8 /* ManagedWeightItem.swift */,
+				EE5D826F29C4FCCA0011CFA8 /* CoreDataManagedWeightItem.swift */,
+				EE1F17E82AD6552F0055DBF4 /* ManagedWeightItem.swift */,
 				EE5D826B29C4FC570011CFA8 /* CoreDataHelpers.swift */,
 			);
 			path = Weight;
@@ -764,10 +767,11 @@
 				EEFB4D5F29EB2A070023CCF7 /* CoreDataStore+WeightItemStore.swift in Sources */,
 				EE5D826C29C4FC570011CFA8 /* CoreDataHelpers.swift in Sources */,
 				EEF4DB4C29C39BBC00F57D6D /* WeightItem.swift in Sources */,
-				EE5D827029C4FCCA0011CFA8 /* ManagedWeightItem.swift in Sources */,
+				EE5D827029C4FCCA0011CFA8 /* CoreDataManagedWeightItem.swift in Sources */,
 				EEFB4D6529EB2AD20023CCF7 /* LocalWeightItemLoader.swift in Sources */,
 				EED87DB929C6832700EF98DF /* Date+Helpers.swift in Sources */,
 				EEFB4D6329EB2AAC0023CCF7 /* WeightItemLoader.swift in Sources */,
+				EE1F17E92AD6552F0055DBF4 /* ManagedWeightItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1062,7 +1066,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
@@ -1104,7 +1108,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";

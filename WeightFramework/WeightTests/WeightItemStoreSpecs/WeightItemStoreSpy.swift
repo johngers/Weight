@@ -53,10 +53,10 @@ final class WeightItemStoreSpy: WeightItemStore {
     }
     
     func completeRetrievalWithEmptyCache(at index: Int = 0) {
-        retrievalCompletions[index](.success(.none))
+        retrievalCompletions[index](.success([]))
     }
     
     func completeRetrieval(with item: LocalWeightItem, at index: Int = 0) {
-        retrievalCompletions[index](.success(item))
+        retrievalCompletions[index](.success([item]))
     }
 }

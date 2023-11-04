@@ -36,7 +36,7 @@ class LoadItemFromCacheUseCaseTests: XCTestCase {
     func test_load_deliversNoItemsOnEmptyCache() {
         let (sut, store) = makeSUT()
 
-        expect(sut, toCompleteWith: .success(nil), when: {
+        expect(sut, toCompleteWith: .success([]), when: {
             store.completeRetrievalWithEmptyCache()
         })
     }
@@ -45,7 +45,7 @@ class LoadItemFromCacheUseCaseTests: XCTestCase {
         let item = uniqueItem()
         let (sut, store) = makeSUT()
 
-        expect(sut, toCompleteWith: .success(item.model), when: {
+        expect(sut, toCompleteWith: .success([item.model]), when: {
             store.completeRetrieval(with: item.local)
         })
     }

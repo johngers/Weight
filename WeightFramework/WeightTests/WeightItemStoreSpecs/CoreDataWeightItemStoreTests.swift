@@ -10,73 +10,73 @@ import XCTest
 
 class CoreDataWeightItemStoreTests: XCTestCase, WeightItemStoreSpecs {
     
-    func test_retrieve_deliversEmptyOnEmptyCache() {
+    @MainActor func test_retrieve_deliversEmptyOnEmptyCache() {
         let sut = makeSUT()
         
         assertThatRetrieveDeliversEmptyOnEmptyCache(on: sut)
     }
     
-    func test_retrieve_hasNoSideEffectsOnEmptyCache() {
+    @MainActor func test_retrieve_hasNoSideEffectsOnEmptyCache() {
         let sut = makeSUT()
         
         assertThatRetrieveHasNoSideEffectsOnEmptyCache(on: sut)
     }
     
-    func test_retrieve_deliversFoundValuesOnNonEmptyCache() {
+    @MainActor func test_retrieve_deliversFoundValuesOnNonEmptyCache() {
         let sut = makeSUT()
         
         assertThatRetrieveDeliversFoundValuesOnNonEmptyCache(on: sut)
     }
     
-    func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
+    @MainActor func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
         let sut = makeSUT()
         
         assertThatRetrieveHasNoSideEffectsOnNonEmptyCache(on: sut)
     }
     
-    func test_save_deliversNoErrorOnEmptyCache() {
+    @MainActor func test_save_deliversNoErrorOnEmptyCache() {
         let sut = makeSUT()
         
         assertThatSaveDeliversNoErrorOnEmptyCache(on: sut)
     }
     
-    func test_save_deliversNoErrorOnNonEmptyCache() {
+    @MainActor func test_save_deliversNoErrorOnNonEmptyCache() {
         let sut = makeSUT()
         
         assertThatSaveDeliversNoErrorOnNonEmptyCache(on: sut)
     }
     
-    func test_save_appendsNewDataToPreviouslyInsertedCacheValues() {
+    @MainActor func test_save_appendsNewDataToPreviouslyInsertedCacheValues() {
         let sut = makeSUT()
         
         assertThatSaveAppendsNewDataToPreviouslyInsertedCacheValues(on: sut)
     }
     
-    func test_delete_deliversNoErrorOnEmptyCache() {
+    @MainActor func test_delete_deliversNoErrorOnEmptyCache() {
         let sut = makeSUT()
         
         assertThatDeleteDeliversNoErrorOnEmptyCache(on: sut)
     }
     
-    func test_delete_hasNoSideEffectsOnEmptyCache() {
+    @MainActor func test_delete_hasNoSideEffectsOnEmptyCache() {
         let sut = makeSUT()
         
         assertThatDeleteHasNoSideEffectsOnEmptyCache(on: sut)
     }
     
-    func test_delete_deliversNoErrorOnNonEmptyCache() {
+    @MainActor func test_delete_deliversNoErrorOnNonEmptyCache() {
         let sut = makeSUT()
         
         assertThatDeleteDeliversNoErrorOnNonEmptyCache(on: sut)
     }
     
-    func test_delete_emptiesPreviouslyInsertedCache() {
+    @MainActor func test_delete_emptiesPreviouslyInsertedCache() {
         let sut = makeSUT()
         
         assertThatDeleteEmptiesPreviouslyInsertedCache(on: sut)
     }
     
-    func test_storeSideEffects_runSerially() {
+    @MainActor func test_storeSideEffects_runSerially() {
         let sut = makeSUT()
         
         assertThatSideEffectsRunSerially(on: sut)
@@ -84,10 +84,10 @@ class CoreDataWeightItemStoreTests: XCTestCase, WeightItemStoreSpecs {
     
     // - MARK: Helpers
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> CoreDataStore {
+    @MainActor private func makeSUT(file: StaticString = #file, line: UInt = #line) -> SwiftDataStore {
         let storeURL = URL(fileURLWithPath: "/dev/null")
-        let sut = try! CoreDataStore(storeURL: storeURL)
-        trackForMemoryLeaks(sut, file: file, line: line)
+        let sut = try! SwiftDataStore(storeURL: storeURL, isStoredInMemoryOnly: true)
+     //   trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
 }

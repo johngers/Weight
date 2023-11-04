@@ -7,12 +7,12 @@
 
 import Foundation
 
-extension CoreDataStore: WeightItemStore {
+extension SwiftDataStore: WeightItemStore {
     public func retrieve(completion: @escaping RetrievalCompletion) {
         perform { context in
             completion(Result{
-                try ManagedWeightItem.find(in: context).map {
-                    return $0.local
+                ManagedWeightItemInstance().find.map {
+                    $0.local
                 }
             })
         }
@@ -21,11 +21,8 @@ extension CoreDataStore: WeightItemStore {
     public func save(_ item: LocalWeightItem, completion: @escaping SaveCompletion) {
         perform { context in
             completion(Result{
-                let managedItem = try ManagedWeightItem.currentInstance(in: context)
-                managedItem.id = item.id
-                managedItem.weight = item.weight
-                managedItem.date = item.date
-
+                let managedItem = ManagedWeightItem(date: item.date, id: item.id, weight: item.weight)
+                context.insert(managedItem)
                 try context.save()
             })
         }
@@ -34,8 +31,43 @@ extension CoreDataStore: WeightItemStore {
     public func deleteCachedItem(completion: @escaping DeletionCompletion) {
         perform { context in
             completion(Result{
-                try ManagedWeightItem.find(in: context).map(context.delete).map(context.save)
+                for managedItem in ManagedWeightItemInstance().find {
+                    context.delete(managedItem)
+                }
+                try context.save()
             })
         }
     }
 }
+//extension CoreDataStore: WeightItemStore {
+//    public func retrieve(completion: @escaping RetrievalCompletion) {
+//        perform { context in
+//            completion(Result{
+//                try ManagedWeightItem.find(in: context).map {
+//                    return $0.local
+//                }
+//            })
+//        }
+//    }
+//    
+//    public func save(_ item: LocalWeightItem, completion: @escaping SaveCompletion) {
+//        perform { context in
+//            completion(Result{
+//                let managedItem = try ManagedWeightItem.currentInstance(in: context)
+//                managedItem.id = item.id
+//                managedItem.weight = item.weight
+//                managedItem.date = item.date
+//
+//                try context.save()
+//            })
+//        }
+//    }
+//    
+//    public func deleteCachedItem(completion: @escaping DeletionCompletion) {
+//        perform { context in
+//            completion(Result{
+//                try ManagedWeightItem.find(in: context).map(context.delete).map(context.save)
+//            })
+//        }
+//    }
+//}

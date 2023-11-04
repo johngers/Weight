@@ -22,23 +22,23 @@ class WeightItemIntegrationTests: XCTestCase {
         undoStoreSideEffects()
     }
     
-    func test_load_deliversNoItemsOnEmptyCache() {
+    @MainActor func test_load_deliversNoItemsOnEmptyCache() {
         let sut = makeSUT()
         
-        expect(sut, toLoad: nil)
+        expect(sut, toLoad: [])
     }
     
-    func test_load_deliversItemsSavedOnASeparateInstance() {
+    @MainActor func test_load_deliversItemsSavedOnASeparateInstance() {
         let sutToPerformSave = makeSUT()
         let sutToPerformLoad = makeSUT()
         let item = uniqueItem().model
         
         save(item, with: sutToPerformSave)
         
-        expect(sutToPerformLoad, toLoad: item)
+        expect(sutToPerformLoad, toLoad: [item])
     }
     
-    func test_save_overridesItemsSavedOnASeparateInstance() {
+    @MainActor func test_save_overridesItemsSavedOnASeparateInstance() {
         let sutToPerformFirstSave = makeSUT()
         let sutToPerformLastSave = makeSUT()
         let sutToPerformLoad = makeSUT()
@@ -48,19 +48,19 @@ class WeightItemIntegrationTests: XCTestCase {
         save(firstItem, with: sutToPerformFirstSave)
         save(latestItem, with: sutToPerformLastSave)
 
-        expect(sutToPerformLoad, toLoad: latestItem)
+        expect(sutToPerformLoad, toLoad: [latestItem])
     }
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> LocalWeightItemLoader {
+    @MainActor private func makeSUT(file: StaticString = #file, line: UInt = #line) -> LocalWeightItemLoader {
         let storeURL = storeURLForTests()
-        let store = try! CoreDataStore(storeURL: storeURL)
+        let store = try! SwiftDataStore(storeURL: storeURL, isStoredInMemoryOnly: true)
         let sut = LocalWeightItemLoader(store: store)
         trackForMemoryLeaks(store, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
     
-    private func expect(_ sut: LocalWeightItemLoader, toLoad expectedItem: WeightItem?, file: StaticString = #file, line: UInt = #line) {
+    private func expect(_ sut: LocalWeightItemLoader, toLoad expectedItem: [WeightItem], file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "Wait for load completion")
         sut.load { result in
             switch result {

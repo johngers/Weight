@@ -20,6 +20,6 @@ extension FailableSaveWeightItemStoreSpecs where Self: XCTestCase {
     func assertThatSaveHasNoSideEffectsOnSaveError(on sut: WeightItemStore, file: StaticString = #file, line: UInt = #line) {
         save(uniqueItem().local, to: sut)
         
-        expect(sut, toRetrieve: .success(.none), file: file, line: line)
+        expect(sut, toRetrieve: .success([]), file: file, line: line)
     }
 }

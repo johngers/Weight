@@ -18,6 +18,6 @@ extension FailableDeleteWeightItemStoreSpecs where Self: XCTestCase {
     func assertThatDeleteHasNoSideEffectsOnDeletionError(on sut: WeightItemStore, file: StaticString = #file, line: UInt = #line) {
         deleteCache(from: sut)
         
-        expect(sut, toRetrieve: .success(.none), file: file, line: line)
+        expect(sut, toRetrieve: .success([]), file: file, line: line)
     }
 }

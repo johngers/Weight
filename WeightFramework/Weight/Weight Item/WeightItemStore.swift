@@ -14,7 +14,7 @@ public protocol WeightItemStore {
     typealias SaveResult = Result<Void, Error>
     typealias SaveCompletion = (SaveResult) -> Void
 
-    typealias RetrievalResult = Result<LocalWeightItem?, Error>
+    typealias RetrievalResult = Result<[LocalWeightItem], Error>
     typealias RetrievalCompletion = (RetrievalResult) -> Void
 
     /// The completion handler can be invoked in any thread.
