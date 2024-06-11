@@ -23,7 +23,7 @@ class ActionButtonViewSnapshotTests: XCTestCase {
 //        record(snapshot: sut.snapshot(for: .iPhone14Pro(style: .light, contentSize: .extraExtraExtraLarge)), named: "action_button_light_extraExtraExtraLarge")
 //    }
     
-    func test_actionButtonView_assert() {
+    @MainActor func test_actionButtonView_assert() {
         let sut = makeSUT()
 
         assert(snapshot: sut.snapshot(for: .iPhone14Pro(style: .light)), named: "action_button_light")
@@ -33,7 +33,7 @@ class ActionButtonViewSnapshotTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT() -> ActionButtonView {
+    @MainActor private func makeSUT() -> ActionButtonView {
         return ActionButtonView(buttonSelection: { })
     }
 }

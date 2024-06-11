@@ -5,7 +5,7 @@
 //  Created on 4/15/23.
 //
 
-import CoreData
+@preconcurrency import CoreData
 
 public final class CoreDataStore {
     private static let modelName = "Store"
